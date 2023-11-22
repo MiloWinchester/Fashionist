@@ -189,7 +189,7 @@ const mainSwiper = new Swiper('.main-swiper', {
 
 
 // Product card swiper
-window.addEventListener('load', () => {
+window.addEventListener('DOMContentLoaded', () => {
     const itemSwiper = new Swiper(".item-swiper", {
         navigation: {
             nextEl: ".item-button-next",
