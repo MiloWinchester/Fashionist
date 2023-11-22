@@ -45,7 +45,7 @@ const moveToSection = id => {
 
 const renderProducts = (wrapper, products) => {
     wrapper.innerHTML = '';
-
+    console.log(products);
     generateProductCard(products, productCardFragment);
 
     wrapper.append(productCardFragment)
