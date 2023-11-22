@@ -1448,6 +1448,6 @@ fetch('https://fashionist-shop-default-rtdb.firebaseio.com/products.json', {
         'Content-type' : 'application/json'
     },
     body: JSON.stringify(products)
-})
+}).then(res => console.log(res))
 
 export {products};
