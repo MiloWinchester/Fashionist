@@ -1442,6 +1442,12 @@ let products = {
     
 };
 
-console.log('hahahhahhha');
+fetch('https://fashionist-shop-default-rtdb.firebaseio.com/products.json', {
+    method: 'POST',
+    headers: {
+        'Content-type' : 'application/json'
+    },
+    body: JSON.stringify(products)
+})
 
 export {products};
