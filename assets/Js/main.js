@@ -61,3 +61,7 @@ window.addEventListener('DOMContentLoaded', () => {
     renderProducts(offerWrapper, products.offers);
     renderProducts(arrivalWrapper, products.newArrival);
 })
+
+fetch('https://fashionist-shop-default-rtdb.firebaseio.com/test')
+.then(res => res.json())
+.then(res => console.log(res))
