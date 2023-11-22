@@ -63,6 +63,7 @@ window.addEventListener('load', () => {
 window.addEventListener('DOMContentLoaded', () => {
     getProducts()
     .then(products => {
+        console.log(products);
         renderProducts(offerWrapper, products.offers);
         renderProducts(arrivalWrapper, products.newArrival);
     })
