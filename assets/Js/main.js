@@ -79,7 +79,7 @@ const getApi = () => {
     fetch('https://fashionist-shop-default-rtdb.firebaseio.com/products.json')
     .then(response => {
         console.log(response)
-        response.json()
+        return response.json()
     })
     .then(res => console.log(res))
 }
