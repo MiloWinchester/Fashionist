@@ -17,7 +17,7 @@ const arrivalWrapper = $.querySelector('.arrival-wrapper');
 
 const productCardFragment = $.createDocumentFragment();
 
-let products = {};
+let products = getProducts();
 
 const removeFilter = () => {
     container.style.filter = 'none';
@@ -53,7 +53,7 @@ const renderProducts = (wrapper, products) => {
 }
 
 window.addEventListener('load', () => {
-    products = getProducts();
+    
     removeFilter();
     checkUrl();
 })
