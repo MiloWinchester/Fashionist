@@ -1442,4 +1442,6 @@ let products = {
     
 };
 
+console.log('hahahhahhha');
+
 export {products};
