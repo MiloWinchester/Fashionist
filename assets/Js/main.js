@@ -63,5 +63,4 @@ window.addEventListener('DOMContentLoaded', () => {
 })
 
 fetch('https://fashionist-shop-default-rtdb.firebaseio.com/test')
-.then(res => res.json())
-.then(res => console.log(res))
+.then(res => console.log(res));
