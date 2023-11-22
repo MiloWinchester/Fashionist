@@ -76,7 +76,7 @@ window.addEventListener('DOMContentLoaded', () => {
 // postApi({id: 0, name: 'Damon', age: 19});
 
 const getApi = () => {
-    fetch('https://fashionist-shop-default-rtdb.firebaseio.com/products.json/-NjsKK-faDqTDJ6Ybw2Y/accessories')
+    fetch('https://fashionist-shop-default-rtdb.firebaseio.com/products.json/-NjsKK-faDqTDJ6Ybw2Y/accessories.json')
     .then(response => response.json())
     .then(res => console.log(res))
 }
