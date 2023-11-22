@@ -77,7 +77,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
 const getApi = () => {
     fetch('https://fashionist-shop-default-rtdb.firebaseio.com/products.json')
-    .then(response => response.json())
+    .then(response => {
+        console.log(response)
+        response.json()
+    })
     .then(res => console.log(res))
 }
 
