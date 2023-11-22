@@ -1,0 +1,204 @@
+html, body {
+    width: 100%;
+    height: 185%;
+    font-family: 'Dosis', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+#footer {
+    width: 100%;
+    background-color: #333;
+    color: rgb(233 231 231);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    padding: 60px;
+}
+
+#footer-top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+#footer-logo{
+    display: flex;
+    align-items: end;
+    gap: 5px;
+    font-size: 23px;
+}
+
+#footer-logo small {
+    color: darkorange;
+}
+
+#social-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#social-links > button {
+    outline: none;
+    border: 1px solid transparent;
+    border-radius: 100px;
+    width: 35px;
+    height: 35px;
+    padding-top: 2px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#social-links a {
+    color: whitesmoke;
+}
+
+#tel-btn {
+    background-color: cornflowerblue;
+}
+
+#insta-btn {
+    background-color: #ff1d6e;
+}
+
+#x-btn {
+    background-color: black;
+}
+
+#site-btn {
+    background-color: darkslategray;
+}
+
+#email-btn {
+    background-color: crimson;
+}
+
+#totop-btn p, #totop-btn i {
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+#totop-btn:hover p {
+    color: cadetblue;
+}
+
+#totop-btn:hover i {
+    color: darkorange;
+}
+
+#footer-info {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-content > p {
+    font-size: 25px;
+}
+
+.footer-content ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style-type: none;
+}
+
+.footer-content ul a {
+    color: rgb(233 231 231);
+    font-size: 18px;
+    transition: color 0.2s;
+}
+
+.footer-content ul a:hover {
+    color: gold;
+}
+
+#offer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#offer > p {
+    font-size: 18px;
+}
+
+#offer-input {
+    outline: none;
+    font-size: 18px;
+    width: 100%;
+    height: 40px;
+    background-color: transparent;
+    color: gold;
+    border: none;
+    border-bottom: 1px solid rgb(233 231 231);
+    font-family: 'Dosis', sans-serif;
+    caret-color: rgb(233 231 231);
+}
+
+#offer-input::placeholder {
+    color: gray;
+}
+
+#offer-btn{
+    width: 40%;
+    height: 40px;
+    outline: none;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background-color: rgb(233 231 231);
+    color: #333;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-family: 'Dosis', sans-serif;
+}
+
+#offer-btn:hover {
+    background-color: gold;
+}
+
+.offer-msg {
+    display: none;
+    padding-left: 5px;
+}
+
+.showErrMsg {
+    color: tomato;
+    display: inline;
+}
+
+.showSuccMsg {
+    display: inline;
+    color: rgb(16, 234, 20);
+}
+
+#footer-bottom {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#footer-bottom div > p {
+    text-align: right;
+}

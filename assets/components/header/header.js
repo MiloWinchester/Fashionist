@@ -1,0 +1,225 @@
+"use strict"
+const $ = document;
+const template = $.createElement('template');
+template.innerHTML = `
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+<link rel="stylesheet" href="assets/Css/main.css">
+<link rel="stylesheet" href="assets/components/header/header.css">
+<header id="header">
+    <nav id="navbar">
+        <div id="header-logo">
+            <h1>
+                <a href="index.html">Fashionist</a>
+            </h1>
+        </div>
+        <ul id="navbar-list">
+            <li id="fav-bag-btns">
+                <button id="bag-btn">
+                    <a href="basket.html">
+                        <i class="bi bi-handbag"></i>
+                    </a>
+                </button>
+                <button id="fav-btn">
+                    <a href="favourite.html">
+                        <i class="bi bi-suit-heart"></i>
+                    </a>
+                </button>
+            </li>
+            <li id="login">
+                <button>
+                    <a href="signup.html" id="signup-btn">Sign in</a>
+                </button>
+            </li>
+            <li id="category">
+                <button>
+                    <a>
+                        <p>Category</p>
+                        <i class="bi bi-caret-down-fill"></i>
+                    </a>
+                </button>
+                <div class="category-box">
+                    <ul class="categories">
+                        <li>
+                            <a class="link" data-id="trend-container" data-url="index.html">Trending</a>
+                        </li>
+                        <hr>
+                        <li>
+                            <a data-id="arrival-container" data-url="index.html" class="link">New Arrival</a>
+                        </li>
+                        <hr>
+                        <li>
+                            <a data-id="offer-container" data-url="index.html" class="link">Offers</a>
+                        </li>
+                        <hr>
+                        <li>Brands</li>
+                        <hr>
+                        <li>Top Styles</li>
+                    </ul>
+                    <ul class="categories border-left">
+                        <li>
+                            <a class="link" data-id='bestsells-container' data-url="product.html">Best Sells</a>
+                        </li>
+                        <hr>
+                        <li>
+                            <a class="link" data-id="featured-container" data-url="product.html">Featured</a>
+                        </li>
+                        <hr>
+                        <li>Models</li>
+                        <hr>
+                        <li>
+                            <a data-id="accessory-container" data-url="product.html" class="link">Accessories</a>
+                        </li>
+                        <hr>
+                        <li>
+                            <a data-id="accessory-container" data-url="product.html" class="link">Under Wear</a>
+                        </li>
+                    </ul>
+                    <ul class="categories border-left">
+                        <li>
+                            <a data-id="shoes-container" data-url="product.html" class="link">Shoes & Sneakers</a>
+                        </li>
+                        <hr>
+                        <li>
+                            <a data-id="summer-container" data-url="product.html" class="link">T-Shirts & Shirts</a>
+                        </li>
+                        <hr>
+                        <li>
+                            <a data-id="jeans-container" data-url="product.html" class="link">Jeans & Pants</a>
+                        </li>
+                        <hr>
+                        <li>
+                            <a data-id="winter-container" data-url="product.html" class="link">Hoodies & Jackets</a>
+                        </li>
+                        <hr>
+                        <li>Hats & Bags</li>
+                    </ul>
+                </div>
+            </li>
+            <li id="product">
+                <button>
+                    <a href="product.html">
+                        Products
+                    </a>
+                </button>
+            </li>
+        </ul>
+    </nav>
+</header>
+`
+
+class header extends HTMLElement {
+    constructor () {
+        super();
+
+        this.attachShadow({mode: 'open'});
+        this.shadowRoot.appendChild(template.content.cloneNode(true));
+    }
+
+    connectedCallback () {
+        const header = this.shadowRoot.getElementById('header');
+        const categoryBtn = this.shadowRoot.getElementById('category');
+        const categoryBox = this.shadowRoot.querySelector('.category-box');
+        const links = this.shadowRoot.querySelectorAll('.link');
+
+        window.addEventListener('scroll', () => {
+            if ($.documentElement.scrollTop >= 30) {
+                header.classList.add('moved');
+            }else {
+                header.classList.remove('moved')
+                
+            }
+        });
+
+        categoryBtn.addEventListener('mouseover', () => {
+            categoryBtn.classList.add('open');
+            categoryBtn.classList.remove('close')
+        });
+        categoryBox.addEventListener('mouseout', () => {
+            categoryBtn.classList.remove('open');
+            categoryBtn.classList.add('close');
+        });
+
+        links.forEach(link => {
+            link.addEventListener('click', event => {
+                this.checkUrl(event.target);
+            })
+        })
+
+        window.addEventListener('load', () => {
+            this.getLoginInfo();
+            this.checkLoginCookie();
+        });
+    }
+
+    checkUrl (link) {
+        const url = link.dataset.url;
+        const currentUrl = location.href;
+        if (currentUrl.includes(url)) {
+            this.moveTo(link);
+        }else {
+            location.href = `http://127.0.0.1:5500/${url}#${link.dataset.id}`
+        }
+    }
+
+    moveTo (link) {
+        const targetId = link.dataset.id;
+        const targetElem = $.getElementById(targetId);
+        const targetTop = targetElem.offsetTop;
+        window.scrollTo({
+            behavior: 'smooth',
+            top: targetTop - 50,
+        })
+    }
+
+    getLoginInfo () {
+        const users = JSON.parse(localStorage.getItem('user'));
+
+        users.some(user => {
+            if (user.isLogin === true) {
+                this.addProfile();
+                this.checkLoginCookie();
+            }else {
+                this.removeProfile();
+            }
+        })
+        
+    }
+
+    checkLoginCookie () {
+        const cookies = $.cookie.split(';');
+        let expireTime = null;
+        let isLogin = null;
+        const users = JSON.parse(localStorage.getItem('user'));
+
+        cookies.filter(cookie => {
+            if (cookie.includes('loginExpire')) {
+                expireTime = cookie.substring(cookie.indexOf('=') + 1);
+            } else if (cookie.includes('isLogin')) {
+                isLogin = cookie.substring(cookie.indexOf('=') + 1);
+            }
+        })
+
+        const now = new Date();
+
+        if ((expireTime && expireTime < now.getTime()) || !isLogin) {
+            users.some(user => {
+                user.isLogin = false;
+            })
+            this.removeProfile();
+        }
+    }
+
+    addProfile () {
+        let signupBtn = this.shadowRoot.getElementById('signup-btn');
+        signupBtn.setAttribute('href', 'index.html');
+        signupBtn.innerHTML = 'Profile';
+    }
+
+    removeProfile () {
+        let signupBtn = this.shadowRoot.getElementById('signup-btn');
+        signupBtn.setAttribute('href', 'signup.html');
+        signupBtn.innerHTML = 'Sign in';
+    }
+}
+
+export {header};

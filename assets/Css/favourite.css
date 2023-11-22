@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner&display=swap');
+
+html, body {
+    width: 100%;
+    min-height: 92%;
+    height: auto;
+    font-family: 'Dosis', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --theme: #333;
+    --color: rgb(233 231 231);
+    --slide-btn-size: 20px;
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--theme);
+    transition: background-color 0.2s;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--color);
+    border-radius: 3px;
+    transition: background-color 0.2s;
+}
+
+#container {
+    width: 100%;
+    height: 100%;
+    filter: blur(5px);
+}
+
+a {
+    text-decoration: none;
+}
+
+#favourite-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    background-color: var(--theme);
+    color: var(--color);
+    padding: 50px;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.fav-header-info {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.favourite-title, .edit-title {
+    font-size: 50px;
+    color: #708090;
+}
+
+.edit-title {
+    display: none;
+}
+
+.edit-fav-btn, .edit-done-fav-btn {
+    width: 130px;
+    height: 50px;
+    font-size: 23px;
+    outline: none;
+    background-color: transparent;
+    color: var(--color);
+    border: 1px solid var(--color);
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Dosis', sans-serif;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.edit-done-fav-btn {
+    background-color: darkcyan;
+    color: rgb(233 231 231);
+    display: none;
+}
+
+.edit-fav-btn:hover, .edit-done-fav-btn:hover {
+    border-width: 2px;
+}
+
+.editmode {
+    display: none;
+}
+
+.favourite-title.editmode ~ .edit-title {
+    display: block;
+}
+
+.edit-fav-btn.editmode ~ .edit-done-fav-btn {
+    display: block;
+}
+
+.product-list {
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+    display: flex;
+    align-items: start;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.product-container {
+    width: 30%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    border: 1px solid gray;
+    border-radius: 20px;
+    position: relative;
+}
+
+.product-img {
+    width: 100%;
+    height: 50%;
+}
+
+.product-img > img {
+    height: auto;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.product-details {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.fav-btn {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-size: 40px;
+    color: tomato;
+    cursor: pointer;
+    position: absolute;
+    top: 30px;
+    right: 35px;
+    display: none;
+    opacity: 0;
+}
+
+.show-fav-btn {
+    display: block;
+    opacity: 1;
+    animation: beatFade 0.75s infinite;
+}
+
+@keyframes beatFade {
+    from{
+        display: none;
+        opacity: 0.5;
+        transform: scale(0.75, 0.75);
+    }
+    to{
+        display: block;
+        opacity: 1;
+        transform: scale(1, 1);
+    }
+}
+
+.product-price {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.prices {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.price {
+    font-size: 40px;
+}
+
+.offer-price {
+    font-size: 40px;
+    display: none;
+}
+
+.line-through {
+    text-decoration: line-through;
+    font-size: 30px;
+    opacity: 0.75;
+}
+
+.price.line-through ~ .offer-price {
+    display: inline;
+}
+
+.product-btns {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.detail-btn, .add-btn {
+    width: 70px;
+    height: 40px;
+    outline: none;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    font-family: 'Dosis', sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+    color: rgb(233 231 231);
+    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.detail-btn {
+    background-color: #4682b4;
+}
+
+.detail-btn > a {
+    color: rgb(233 231 231);
+}
+
+.add-btn {
+    background-color: darkorange;
+    font-size: 21px;
+    width: 40px;
+}
+
+.detail-btn:hover , .add-btn:hover {
+    background-color: transparent;
+}
+
+.detail-btn:hover {
+    border-color: #4682b4;
+    border-width: 2px;
+    box-shadow: 0px 0px 5px 0px #4682b4;
+}
+
+.add-btn:hover {
+    border-color: darkorange;
+    box-shadow: 0px 0px 5px 0px darkorange;
+}

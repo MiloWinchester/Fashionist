@@ -1,0 +1,153 @@
+.item-container {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #364656;
+    color: rgb(233 231 231);
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.item-img-container {
+    width: 100%;
+    height: 60%;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    position: relative;
+}
+
+.item-slide, .item-slide > img {
+    border-radius: 10px;
+    cursor: auto;
+}
+
+.item-slide > img {
+    min-height: 190px;
+}
+
+.item-discount {
+    position: absolute;
+    top: 3%;
+    left: 5%;
+    color: tomato;
+    font-size: 25px;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.item-button-prev, .item-button-next {
+    color: #33333376;
+    z-index: 1;
+    text-align: center;
+    cursor: pointer;
+    --swiper-navigation-size: 20px;
+    font-size: var(--swiper-navigation-size);
+}
+
+.item-pagination {
+    --swiper-theme-color: gold;
+    color: var(--swiper-theme-color);
+}
+
+.item-info-container {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.item-title {
+    font-size: 23px;
+}
+
+.item-brand {
+    font-size: 18px;
+}
+
+.item-shop {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item-price-info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.item-price {
+    font-size: 30px;
+}
+
+.line-through {
+    text-decoration: line-through;
+    font-size: 20px;
+    opacity: 0.75;
+}
+
+.item-offer {
+    display: none;
+    font-size: 30px;
+}
+
+.item-price.line-through ~ .item-offer {
+    display: inline;
+}
+
+.item-btns {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.detail-btn, .add-btn {
+    width: 50px;
+    height: 31px;
+    outline: none;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    font-family: 'Dosis', sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    color: rgb(233 231 231);
+    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.detail-btn {
+    background-color: #4682b4;
+}
+
+.detail-btn > a {
+    color: rgb(233 231 231);
+}
+
+.add-btn {
+    background-color: darkorange;
+    font-size: 19px;
+    width: 30px;
+}
+
+.detail-btn:hover , .add-btn:hover {
+    background-color: transparent;
+}
+
+.detail-btn:hover {
+    border-color: #4682b4;
+    border-width: 2px;
+    box-shadow: 0px 0px 5px 0px #4682b4;
+}
+
+.add-btn:hover {
+    border-color: darkorange;
+    box-shadow: 0px 0px 5px 0px darkorange;
+}

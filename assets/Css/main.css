@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner&display=swap');
+
+html, body {
+    width: 100%;
+    height: 250%;
+    font-family: 'Dosis', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --theme: #333;
+    --color: rgb(233 231 231);
+    --slide-btn-size: 20px;
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--theme);
+    transition: background-color 0.2s;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--color);
+    border-radius: 3px;
+    transition: background-color 0.2s;
+}
+
+#container {
+    width: 100%;
+    height: 100%;
+    filter: blur(5px);
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+#main {
+    width: 100%;
+    height: 14%;
+    background-color: var(--theme);
+    color: var(--color);
+    transition: color 0.2s, background-color 0.2s;
+}
+
+#main-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#content-text {
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+
+#content-text > h1 > span {
+    font-size: 80px;
+    color: darkcyan;
+}
+
+#content-text > p > b {
+    color: #FDD513;
+    font-size: 80px;
+}
+
+#content-image {
+    width: 50%;
+}
+
+#content-image > img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+};
+
+.section {
+    width: 100%;
+    height: 15%;
+}
+
+#first-shop-section{
+    width: 100%;
+    height: 100%;
+    background-color: var(--theme);
+    color: var(--color);
+    transition: color 0.2s, background-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 50px;
+}
+
+.shop-section-image {
+    width: 50%;
+    height: 100%;
+}
+
+.shop-section-image > img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.shop-section-content {
+    font-size: 45px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.shop-btn {
+    outline: none;
+    width: 150px;
+    height: 60px;
+    background-color: orange;
+    border: 1px solid orange;
+    border-radius: 10px;
+    font-size: 25px;
+    cursor: pointer;
+    margin-top: 5px;
+    transition: color 0.2s, background-color 0.2s, width 0.2s, height 0.2s;
+}
+
+.shop-btn > a {
+    color: rgb(233 231 231);
+    font-family: 'Dosis', sans-serif;
+    transition: color 0.2s;
+}
+
+.shop-btn:hover {
+    background-color: var(--theme);
+    width: 155px;
+    height: 65px;
+}
+
+.shop-btn:hover:hover a {
+    color: var(--color);
+}
+
+#sec-shop-section {
+    width: 100%;
+    height: 100%;
+    background-color: var(--theme);
+    color: var(--color);
+    transition: color 0.2s, background-color 0.2s;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-around;
+    padding: 50px;
+}
+
+#trend-container, #offer-container, #arrival-container{
+    width: 100%;
+    height: 19%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--theme);
+    color: var(--color);
+    padding: 50px;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+#offer-container, #arrival-container {
+    height: 16%;
+}
+
+.slide-section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 30px;
+}
+
+.section-title {
+    font-size: 40px;
+    color: #708090;
+}
+
+.trend-swiper, .offer-swiper, .arrival-swiper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    position: relative;
+}
+
+.slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide > img{
+    width: 100%;
+    height: auto;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.trend-button-prev , .trend-button-next, 
+.offer-button-prev, .offer-button-next,
+.arrival-button-prev, .arrival-button-next{
+    color: rgb(233 231 231);
+    background-color: #33333376;
+    border-radius: 50%;
+    padding: 30px;
+}
+
+.trend-button-prev, .offer-button-prev, .arrival-button-prev {
+    padding-right: 33px;
+    left: 5px;
+}
+
+.trend-button-next, .offer-button-next, .arrival-button-next {
+    padding-left: 33px;
+    right: 5px;
+}
+
+.offer-button-prev, .arrival-button-prev{
+    --swiper-navigation-size: 25px;
+    font-size: var(--swiper-navigation-size);
+    padding: 20px;
+}
+
+.offer-button-next, .arrival-button-next {
+    --swiper-navigation-size: 25px;
+    font-size: var(--swiper-navigation-size);
+    padding: 20px;
+}
+
+.offer-swiper {
+    border-radius: 10px;
+    height: 100%;
+}
+
+#info-container {
+    width: 100%;
+    height: auto;
+}
+
+#info-box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 40px 30px 40px 30px;
+    background-color: var(--theme);
+    color: var(--color);
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.infos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.info-icon {
+    font-size: 30px;
+    border: 2px dotted orange;
+    border-radius: 70px;
+    padding: 10px 15px 10px 15px;
+    color: orange;
+}
+
+.info-text {
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
