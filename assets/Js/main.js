@@ -62,14 +62,9 @@ window.addEventListener('DOMContentLoaded', () => {
     renderProducts(arrivalWrapper, products.newArrival);
 })
 
-const getProducts = () => {
-    let products = {};
-    fetch('https://fashionist-shop-default-rtdb.firebaseio.com/products/-NjsKK-faDqTDJ6Ybw2Y.json')
-    .then(response => response.json())
-    .then(res => {
-        console.log(res)
-        products = res;
-    });
+async function getProducts ()  {
+    let response = await fetch('https://fashionist-shop-default-rtdb.firebaseio.com/products/-NjsKK-faDqTDJ6Ybw2Y.json')
+    let products = await response.json();
 
     if (products) {
         return products;
