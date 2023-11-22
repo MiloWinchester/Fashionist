@@ -18,14 +18,15 @@ const arrivalWrapper = $.querySelector('.arrival-wrapper');
 const productCardFragment = $.createDocumentFragment();
 
 function getProducts ()  {
-    // let productsData = null;
-    return fetch('https://fashionist-shop-default-rtdb.firebaseio.com/products/-NjsKK-faDqTDJ6Ybw2Y.json')
+    let productsData = null;
+    fetch('https://fashionist-shop-default-rtdb.firebaseio.com/products/-NjsKK-faDqTDJ6Ybw2Y.json')
     .then(response => response.json())
+    .then(res => productsData = res)
 
-    // if (productsData) {
-    //     console.log(productsData)
-    //     products = productsData;
-    // }
+    if (productsData) {
+        console.log(productsData)
+        return productsData;
+    }
 }
 
 const removeFilter = () => {
@@ -61,15 +62,23 @@ const renderProducts = (wrapper, products) => {
     wrapper.append(productCardFragment)
 }
 
+document.onreadystatechange = () => {
+    let products = null;
+    if (document.readyState === 'interactive') {
+        products = getProducts()
+    }else if (document.readyState === 'complete') {
+        domContentLoad(products)
+    }
+}
+
 window.addEventListener('load', () => {
     removeFilter();
     checkUrl();
 })
 
-window.addEventListener('DOMContentLoaded', () => {
-    getProducts()
-    .then(response => {
-        renderProducts(offerWrapper, response.offers);
-        renderProducts(arrivalWrapper, response.newArrival);
+const domContentLoad = products => {
+    window.addEventListener('DOMContentLoaded', () => {
+        renderProducts(offerWrapper, products.offers);
+        renderProducts(arrivalWrapper, products.newArrival);
     })
-})
+}
