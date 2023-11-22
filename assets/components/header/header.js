@@ -174,14 +174,16 @@ class header extends HTMLElement {
     getLoginInfo () {
         const users = JSON.parse(localStorage.getItem('user'));
 
-        users.some(user => {
-            if (user.isLogin === true) {
-                this.addProfile();
-                this.checkLoginCookie();
-            }else {
-                this.removeProfile();
-            }
-        })
+        if (users) {
+            users.some(user => {
+                if (user.isLogin === true) {
+                    this.addProfile();
+                    this.checkLoginCookie();
+                }else {
+                    this.removeProfile();
+                }
+            })
+        }
         
     }
 
