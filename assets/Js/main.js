@@ -62,8 +62,15 @@ window.addEventListener('DOMContentLoaded', () => {
     renderProducts(arrivalWrapper, products.newArrival);
 })
 
-fetch('https://fashionist-shop-default-rtdb.firebaseio.com/test', {
-    method: 'GET',
-    mode: 'no-cors'
-})
-.then(res => console.log(res));
+const postApi = userData => {
+    fetch('https://fashionist-shop-default-rtdb.firebaseio.com/users.json', {
+        method: 'POST',
+        headers: {
+            'Content-type' : 'application/json'
+        },
+        body: JSON.stringify(userData)
+    })
+    .then(res => console.log(res));
+}
+
+postApi({id: 0, name: 'Damon', age: 19});
