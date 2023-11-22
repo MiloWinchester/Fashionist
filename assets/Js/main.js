@@ -3,7 +3,6 @@ import { header } from "../components/header/header.js";
 import { footer } from "../components/footer/footer.js";
 import { themeBtn } from "../components/themeBtn/themeBtn.js";
 import { loader } from "../components/loader/loader.js";
-import { products } from "./productsData.js";
 import { generateProductCard } from "./item.js";
 
 window.customElements.define('site-header', header);
@@ -58,27 +57,21 @@ window.addEventListener('load', () => {
 })
 
 window.addEventListener('DOMContentLoaded', () => {
+    const products = getProducts();
     renderProducts(offerWrapper, products.offers);
     renderProducts(arrivalWrapper, products.newArrival);
 })
 
-// const postApi = userData => {
-//     fetch('https://fashionist-shop-default-rtdb.firebaseio.com/users.json', {
-//         method: 'POST',
-//         headers: {
-//             'Content-type' : 'application/json'
-//         },
-//         body: JSON.stringify(userData)
-//     })
-//     .then(res => console.log(res));
-// }
-
-// postApi({id: 0, name: 'Damon', age: 19});
-
-const getApi = () => {
+const getProducts = () => {
+    let products = {};
     fetch('https://fashionist-shop-default-rtdb.firebaseio.com/products/-NjsKK-faDqTDJ6Ybw2Y.json')
     .then(response => response.json())
-    .then(res => console.log(res))
-}
+    .then(res => {
+        console.log(res)
+        products = res;
+    });
 
-getApi();
+    if (products) {
+        return products;
+    }
+}
