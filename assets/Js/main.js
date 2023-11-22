@@ -19,6 +19,18 @@ const productCardFragment = $.createDocumentFragment();
 
 let products = getProducts();
 
+function getProducts ()  {
+    let productsData = null;
+    fetch('https://fashionist-shop-default-rtdb.firebaseio.com/products/-NjsKK-faDqTDJ6Ybw2Y.json')
+    .then(response => response.json())
+    .then(res => productsData = res);
+
+    if (productsData) {
+        console.log(productsData)
+        products = productsData;
+    }
+}
+
 const removeFilter = () => {
     container.style.filter = 'none';
 }
@@ -62,13 +74,3 @@ window.addEventListener('DOMContentLoaded', () => {
     renderProducts(offerWrapper, products.offers);
     renderProducts(arrivalWrapper, products.newArrival);
 })
-
-async function getProducts ()  {
-    let response = await fetch('https://fashionist-shop-default-rtdb.firebaseio.com/products/-NjsKK-faDqTDJ6Ybw2Y.json')
-    let products = await response.json();
-
-    if (products) {
-        console.log(products)
-        return products;
-    }
-}
