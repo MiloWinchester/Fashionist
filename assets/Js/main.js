@@ -74,3 +74,11 @@ const postApi = userData => {
 }
 
 postApi({id: 0, name: 'Damon', age: 19});
+
+const getApi = () => {
+    fetch('https://fashionist-shop-default-rtdb.firebaseio.com/users.json')
+    .then(response => response.json())
+    .then(res => console.log(res))
+}
+
+getApi();
