@@ -62,21 +62,21 @@ window.addEventListener('DOMContentLoaded', () => {
     renderProducts(arrivalWrapper, products.newArrival);
 })
 
-const postApi = userData => {
-    fetch('https://fashionist-shop-default-rtdb.firebaseio.com/users.json', {
-        method: 'POST',
-        headers: {
-            'Content-type' : 'application/json'
-        },
-        body: JSON.stringify(userData)
-    })
-    .then(res => console.log(res));
-}
+// const postApi = userData => {
+//     fetch('https://fashionist-shop-default-rtdb.firebaseio.com/users.json', {
+//         method: 'POST',
+//         headers: {
+//             'Content-type' : 'application/json'
+//         },
+//         body: JSON.stringify(userData)
+//     })
+//     .then(res => console.log(res));
+// }
 
-postApi({id: 0, name: 'Damon', age: 19});
+// postApi({id: 0, name: 'Damon', age: 19});
 
 const getApi = () => {
-    fetch('https://fashionist-shop-default-rtdb.firebaseio.com/users.json')
+    fetch('https://fashionist-shop-default-rtdb.firebaseio.com/products/-NjsKK-faDqTDJ6Ybw2Y/accessories')
     .then(response => response.json())
     .then(res => console.log(res))
 }
