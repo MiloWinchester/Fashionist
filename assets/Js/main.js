@@ -56,8 +56,8 @@ window.addEventListener('load', () => {
     checkUrl();
 })
 
-window.addEventListener('DOMContentLoaded', async function () {
-    const products = await getProducts();
+window.addEventListener('DOMContentLoaded', () => {
+    const products = getProducts();
     renderProducts(offerWrapper, products.offers);
     renderProducts(arrivalWrapper, products.newArrival);
 })
