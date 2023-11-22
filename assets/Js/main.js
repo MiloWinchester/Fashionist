@@ -62,5 +62,8 @@ window.addEventListener('DOMContentLoaded', () => {
     renderProducts(arrivalWrapper, products.newArrival);
 })
 
-fetch('https://fashionist-shop-default-rtdb.firebaseio.com/test')
+fetch('https://fashionist-shop-default-rtdb.firebaseio.com/test', {
+    method: 'GET',
+    mode: 'no-cors'
+})
 .then(res => console.log(res));

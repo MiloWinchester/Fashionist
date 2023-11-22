@@ -204,10 +204,12 @@ class header extends HTMLElement {
         const now = new Date();
 
         if ((expireTime && expireTime < now.getTime()) || !isLogin) {
-            users.some(user => {
-                user.isLogin = false;
-            })
-            this.removeProfile();
+            if (users) {
+                users.some(user => {
+                    user.isLogin = false;
+                })
+                this.removeProfile();
+            }
         }
     }
 
