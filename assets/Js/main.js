@@ -67,7 +67,7 @@ async function getProducts ()  {
     let products = await response.json();
 
     if (products) {
-        console.log(products);
+        console.log(products)
         return products;
     }
 }
