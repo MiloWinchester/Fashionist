@@ -17,9 +17,9 @@ const arrivalWrapper = $.querySelector('.arrival-wrapper');
 
 const productCardFragment = $.createDocumentFragment();
 
-function getProducts ()  {
-    return fetch('https://fashionist-shop-default-rtdb.firebaseio.com/products/-NjsKK-faDqTDJ6Ybw2Y.json')
-    .then(response => response.json())
+async function getProducts ()  {
+    return await fetch('https://fashionist-shop-default-rtdb.firebaseio.com/products/-NjsKK-faDqTDJ6Ybw2Y.json')
+        .then(response => response.json())
 }
 
 const removeFilter = () => {
