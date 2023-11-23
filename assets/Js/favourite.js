@@ -3,7 +3,6 @@ import { header } from "../components/header/header.js";
 import { footer } from "../components/footer/footer.js";
 import { themeBtn } from "../components/themeBtn/themeBtn.js";
 import { loader } from "../components/loader/loader.js";
-import { products } from "./productsData.js";
 
 window.customElements.define('site-header', header);
 window.customElements.define('theme-btn', themeBtn);
@@ -60,7 +59,3 @@ doneBtn.addEventListener('click', () => {
     changeBtnToDone();
     removeFavBtns();
 })
-
-fetch('http://127.0.0.1:5500/productData.html')
-.then(response => JSON.parse(response))
-.then(res => console.log(res))

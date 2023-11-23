@@ -65,4 +65,4 @@ window.addEventListener('DOMContentLoaded', () => {
     })
 })
 
-console.log('commit modular data getter');
+console.log('handling login/signup');

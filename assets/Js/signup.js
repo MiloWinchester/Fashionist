@@ -26,10 +26,26 @@ const phoneRegex = new RegExp('^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-
 
 let users = [];
 
-signupForm.addEventListener('submit', event => {
-    event.preventDefault();
-    signup();
-})
+async function getUsers () {
+    let response = await fetch('https://fashionist-shop-default-rtdb.firebaseio.com/users.json')
+    let allUsers = await response.json();
+    
+    if (allUsers) {
+        users = allUsers;
+    }
+}
+
+async function setNewUser (newUser) {
+    await fetch('https://fashionist-shop-default-rtdb.firebaseio.com/users.json', {
+        method: "POST",
+        headers: {
+            'Content-type' : 'application/json'
+        },
+        body : JSON.stringify(newUser)
+    })
+    .then(response => console.log(response))
+    .catch(err => console.error(err));
+}
 
 const signup = () => {
     let [userName, userLastname, userEmail, userPass, userPhone] = 
@@ -48,12 +64,14 @@ const signup = () => {
                 email : userEmail,
                 password : userPass,
                 phone : userPhone,
-                isLogin : false
+                isLogin : false,
+                bag: []
             }
     
-            users.push(newUser);
+            setNewUser(newUser);
+            // users.push(newUser);
             showSuccessModal();
-            setLocalStorage(users);
+            // setLocalStorage(users);
             changePage();
         }
     }
@@ -201,9 +219,9 @@ const hideSuccessModal = () => {
     }, 500)
 }
 
-const setLocalStorage = users => {
-    localStorage.setItem('user', JSON.stringify(users));
-}
+// const setLocalStorage = users => {
+//     localStorage.setItem('user', JSON.stringify(users));
+// }
 
 const changePage = () => {
     setTimeout(() => {
@@ -215,4 +233,14 @@ const removeFilter = () => {
     container.style.filter = 'none'
 }
 
-window.addEventListener('load', removeFilter);
+window.addEventListener('load', () => {
+    getUsers();
+    removeFilter();
+});
+
+signupForm.addEventListener('submit', event => {
+    event.preventDefault();
+    signup();
+})
+
+console.log('get all users, and set new user');

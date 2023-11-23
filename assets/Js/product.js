@@ -71,5 +71,3 @@ window.addEventListener('DOMContentLoaded', () => {
         render(winterWrapper, products.winterCollection);
     })
 })
-
-console.log('commit getproducts in product.js');
