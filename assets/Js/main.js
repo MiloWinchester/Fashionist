@@ -3,6 +3,7 @@ import { header } from "../components/header/header.js";
 import { footer } from "../components/footer/footer.js";
 import { themeBtn } from "../components/themeBtn/themeBtn.js";
 import { loader } from "../components/loader/loader.js";
+import { getProducts } from "./productsData.js";
 import { generateProductCard } from "./item.js";
 
 window.customElements.define('site-header', header);
@@ -16,11 +17,6 @@ const offerWrapper = $.querySelector('.offer-wrapper');
 const arrivalWrapper = $.querySelector('.arrival-wrapper');
 
 const productCardFragment = $.createDocumentFragment();
-
-async function getProducts ()  {
-    return await fetch('https://fashionist-shop-default-rtdb.firebaseio.com/products/-NjsKK-faDqTDJ6Ybw2Y.json')
-        .then(response => response.json())
-}
 
 const removeFilter = () => {
     container.style.filter = 'none';
@@ -69,4 +65,4 @@ window.addEventListener('DOMContentLoaded', () => {
     })
 })
 
-console.log('commit.no2');
+console.log('commit modular data getter');

@@ -3,7 +3,7 @@ import { header } from "../components/header/header.js";
 import { footer } from "../components/footer/footer.js";
 import { themeBtn } from "../components/themeBtn/themeBtn.js";
 import { loader } from "../components/loader/loader.js";
-import { products } from "./productsData.js";
+import { getProducts } from "./productsData.js";
 import { generateProductCard } from "./item.js";
 
 window.customElements.define('site-header', header);
@@ -61,11 +61,15 @@ window.addEventListener('load', () => {
 })
 
 window.addEventListener('DOMContentLoaded', () => {
-    render(bestSellsWrapper, products.bestSells);
-    render(shoessWrapper, products.shoes);
-    render(jeansWrapper, products.pants);
-    render(accessoryWrapper, products.accessories);
-    render(UnderWearWrapper, products.underWear);
-    render(summerWrapper, products.summerCollection);
-    render(winterWrapper, products.winterCollection)
+    getProducts().then(products => {
+        render(bestSellsWrapper, products.bestSells);
+        render(shoessWrapper, products.shoes);
+        render(jeansWrapper, products.pants);
+        render(accessoryWrapper, products.accessories);
+        render(UnderWearWrapper, products.underWear);
+        render(summerWrapper, products.summerCollection);
+        render(winterWrapper, products.winterCollection);
+    })
 })
+
+console.log('commit getproducts in product.js');
