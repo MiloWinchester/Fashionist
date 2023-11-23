@@ -28,14 +28,12 @@ const checkUrl = () => {
     if (currentUrl.includes('#')) {
         const urlId = currentUrl.substring(currentUrl.indexOf('#') + 1);
         moveToSection(urlId);
-        console.log(urlId);
     }
 }
 
 const moveToSection = id => {
     const targetElem = $.getElementById(id);
     const targetTop = targetElem.offsetTop;
-    console.log(targetTop);
 
     window.scrollTo({
         behavior: 'smooth',
@@ -45,7 +43,7 @@ const moveToSection = id => {
 
 const renderProducts = (wrapper, products) => {
     wrapper.innerHTML = '';
-    console.log(products);
+    
     generateProductCard(products, productCardFragment);
 
     wrapper.append(productCardFragment)
@@ -59,7 +57,6 @@ window.addEventListener('load', () => {
 window.addEventListener('DOMContentLoaded', () => {
     getProducts()
     .then(products => {
-        console.log(products);
         renderProducts(offerWrapper, products.offers);
         renderProducts(arrivalWrapper, products.newArrival);
     })

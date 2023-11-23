@@ -32,6 +32,9 @@ async function getUsers () {
     
     if (allUsers) {
         users = allUsers;
+        console.log(users);
+    }else {
+        users = [];
     }
 }
 
@@ -225,7 +228,7 @@ const hideSuccessModal = () => {
 
 const changePage = () => {
     setTimeout(() => {
-        location.href = 'http://127.0.0.1:5500/login.html';
+        // location.href = 'http://127.0.0.1:5500/login.html';
     }, 4000)
 }
 
