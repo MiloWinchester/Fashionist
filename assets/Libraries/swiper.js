@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
     const trendSwiper = new Swiper(".trend-swiper", {
         loop: true,
         slidesPerView: 2,
@@ -177,11 +177,8 @@ window.addEventListener('DOMContentLoaded', () => {
           hide: true,
         },
     });
-})
 
-
-// Product card swiper
-window.addEventListener('load', () => {
+    // Product card swiper
     const itemSwiper = new Swiper(".item-swiper", {
         navigation: {
             nextEl: ".item-button-next",
