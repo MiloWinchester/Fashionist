@@ -246,4 +246,4 @@ signupForm.addEventListener('submit', event => {
     signup();
 })
 
-console.log('get all users, and set new user');
+console.log('get all users, and set new user.no2');
