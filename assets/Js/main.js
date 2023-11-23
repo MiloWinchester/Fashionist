@@ -68,3 +68,5 @@ window.addEventListener('DOMContentLoaded', () => {
         renderProducts(arrivalWrapper, products.newArrival);
     })
 })
+
+console.log('commit.no2');
