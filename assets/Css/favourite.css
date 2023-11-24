@@ -241,7 +241,7 @@ a {
 }
 
 .detail-btn > a {
-    color: rgb(233 231 231);
+    color: var(--color);
 }
 
 .add-btn {
