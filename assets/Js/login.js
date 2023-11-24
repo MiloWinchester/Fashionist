@@ -32,7 +32,7 @@ async function getUsers () {
 }
 
 async function updateUser (user) {
-    await fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${user.id}.json`, {
+    await fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${user[0]}.json`, {
         method: 'PUT',
         headers: {
             'Content-type' : 'application/json'
@@ -48,8 +48,8 @@ const login = () => {
     if (userEmail && userPass) {
 
         users.some(user => {
-            if (userEmail === user.email) {
-                user.isLogin = true;
+            if (userEmail === user[1].email) {
+                user[1].isLogin = true;
                 updateUser(user);
                 console.log("logged in user: ",user);
             }
@@ -64,7 +64,7 @@ const login = () => {
     }
 }
 
-console.log('refactor login page.no2');
+console.log('refactor login page.no4');
 
 const getEmail = () => {
     let userEmail = emailInput.value.toLowerCase();
@@ -76,7 +76,7 @@ const getEmail = () => {
     }
 
     let hasSignedup = users.some(user => {
-        return userEmail === user.email;
+        return userEmail === user[1].email;
     })
     
     if (!userEmail) {
@@ -105,8 +105,8 @@ const getPass = () => {
     }
 
     let isPasswordCorrect = users.some(user => {
-        if (userEmail === user.email) {
-            return userPass === user.password;
+        if (userEmail === user[1].email) {
+            return userPass === user[1].password;
         }
     })
 
