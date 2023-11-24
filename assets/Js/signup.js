@@ -32,7 +32,7 @@ async function getUsers () {
     
     if (allUsers) {
         for (let user in allUsers) {
-            users.push(user)
+            users.push(allUsers[user])
         }
         console.log(users);
     }else {
@@ -242,4 +242,4 @@ signupForm.addEventListener('submit', event => {
     signup();
 })
 
-console.log('get all users, and set new user.no4');
+console.log('get all users, and set new user.no5');
