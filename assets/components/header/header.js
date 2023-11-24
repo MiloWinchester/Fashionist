@@ -106,7 +106,7 @@ template.innerHTML = `
     </nav>
 </header>
 `
-console.log('no1');
+console.log('no2');
 
 class header extends HTMLElement {
     constructor () {
@@ -181,14 +181,14 @@ class header extends HTMLElement {
             if (user.isLogin) {
                 console.log(user.isLogin);
                 this.checkLoginCookie()
-                this.checkExpireTime(user);
+                this.checkExpireTime(user, userId);
             }else {
                 this.removeProfile();
             }
         }
     }
 
-    async updateUser (user) {
+    async updateUser (user, userId) {
         fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${userId}.json`, {
             method: 'PUT',
             headers: {
@@ -230,7 +230,7 @@ class header extends HTMLElement {
         }
     }
 
-    checkExpireTime (user) {
+    checkExpireTime (user, userId) {
         const cookies = $.cookie.split(';');
         let expire = null;
 
@@ -247,7 +247,7 @@ class header extends HTMLElement {
             this.addProfile();
         }else {
             user.isLogin = false;
-            this.updateUser(user);
+            this.updateUser(user, userId);
             this.removeProfile();
         }
 

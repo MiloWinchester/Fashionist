@@ -189,5 +189,3 @@ loginForm.addEventListener('submit', event => {
     event.preventDefault();
     login();
 })
-
-console.log('fok you');
