@@ -34,7 +34,6 @@ async function getUsers () {
         for (let user in allUsers) {
             users.push(allUsers[user])
         }
-        console.log(users);
     }else {
         users = [];
     }
@@ -75,6 +74,7 @@ const signup = () => {
     
             setNewUser(newUser);
             showSuccessModal();
+            resetInputs();
             changePage();
         }
     }
@@ -224,8 +224,13 @@ const hideSuccessModal = () => {
 
 const changePage = () => {
     setTimeout(() => {
-        // location.href = 'http://127.0.0.1:5500/login.html';
+        location.href = 'https://milowinchester.github.io/Fashionist/login.html';
     }, 4000)
+}
+
+const resetInputs = () => {
+    [nameInput.value, lastnameInput.value, emailInput.value, 
+    passInput.value, passConfirmInput.value, phoneInput.value] = ['', '', '', '', '', ''];
 }
 
 const removeFilter = () => {
@@ -242,4 +247,4 @@ signupForm.addEventListener('submit', event => {
     signup();
 })
 
-console.log('get all users, and set new user.no5');
+console.log('no6');
