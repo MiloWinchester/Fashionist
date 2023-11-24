@@ -37,7 +37,7 @@ async function updateUser (user) {
         headers: {
             'Content-type' : 'application/json'
         },
-        body: JSON.stringify(user)
+        body: JSON.stringify(user[1])
     }).then(res => console.log(res))
     .catch(err => console.log(err))
 }
@@ -64,7 +64,7 @@ const login = () => {
     }
 }
 
-console.log('refactor login page.no4');
+console.log('refactor login page.no5');
 
 const getEmail = () => {
     let userEmail = emailInput.value.toLowerCase();
