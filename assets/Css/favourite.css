@@ -232,7 +232,7 @@ a {
     font-family: 'Dosis', sans-serif;
     font-size: 20px;
     cursor: pointer;
-    color: rgb(233 231 231);
+    color: var(--color);
     transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 

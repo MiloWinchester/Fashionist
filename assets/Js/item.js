@@ -69,7 +69,7 @@ const generateProductCard = (items, cardFragment) => {
         let addBtn = $.createElement('button');
         addBtn.classList.add('add-btn');
         addBtn.innerHTML = '<i class="bi bi-plus-lg"></i>';
-        addBtn.title = 'Add to basket';
+        addBtn.title = 'Add to bag';
 
         btnContainer.append(detailBtn, addBtn);
         itemShop.append(btnContainer);

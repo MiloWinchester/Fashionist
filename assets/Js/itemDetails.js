@@ -37,7 +37,7 @@ const getProduct = () => {
         productInfo = product;
         renderProduct();
     }else {
-        console.log('No product found');
+        console.error('No product found');
     }
 }
 
