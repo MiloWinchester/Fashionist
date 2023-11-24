@@ -106,10 +106,7 @@ template.innerHTML = `
     </nav>
 </header>
 `
-
-import currentUserId from "../../Js/login";
-console.log("refactor login info.no1");
-console.log("current id: ",currentUserId);
+console.log('no1');
 
 class header extends HTMLElement {
     constructor () {
@@ -175,20 +172,24 @@ class header extends HTMLElement {
     }
 
     async userLoginInfo () {
-       let response = await fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${currentUserId}.json`)
-       let user = await response.json();
+        let userId = this.getUserId();
+        
+        if (userId) {
+            let response = await fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${userId}.json`)
+            let user = await response.json();
 
-       if (user.isLogin) {
-        console.log(user.isLogin);
-        this.checkLoginCookie()
-        this.checkExpireTime(user);
-       }else {
-        this.removeProfile();
-       }
+            if (user.isLogin) {
+                console.log(user.isLogin);
+                this.checkLoginCookie()
+                this.checkExpireTime(user);
+            }else {
+                this.removeProfile();
+            }
+        }
     }
 
     async updateUser (user) {
-        fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${currentUserId}.json`, {
+        fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${userId}.json`, {
             method: 'PUT',
             headers: {
                 'Content-type' : 'application/json'
@@ -196,6 +197,22 @@ class header extends HTMLElement {
             body: JSON.stringify(user)
         }).then(res => console.log(res))
         .catch(err => console.error(err))
+    }
+
+    getUserId () {
+        const cookies = $.cookie.split(';');
+        let userId = null;
+
+        cookies.filter(cookie => {
+            if (cookie.includes('id')) {
+                userId = cookie.substring(cookie.indexOf('=') + 1);
+            }
+        })
+
+        if (userId) {
+            console.log(userId);
+            return userId;
+        }
     }
 
     checkLoginCookie () {

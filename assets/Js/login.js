@@ -18,7 +18,6 @@ const container = $.getElementById('container');
 const emailRegex = new RegExp('^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})?$');
 
 let users = [];
-let currentUserId = null;
 
 async function getUsers () {
     let response = await fetch('https://fashionist-shop-default-rtdb.firebaseio.com/users.json');
@@ -42,10 +41,6 @@ async function updateUser (user) {
     .catch(err => console.log(err))
 }
 
-const updateCurrentUser = user => {
-    currentUserId = user[0];
-}
-
 const login = () => {
     let [userEmail, userPass] = [getEmail(), getPass()];
 
@@ -55,14 +50,14 @@ const login = () => {
             if (userEmail === user[1].email) {
                 user[1].isLogin = true;
                 updateUser(user);
-                updateCurrentUser(user);
+                setUserIdCookie(user[0]);
             }
         });
         
         if (rememberCheckbox.checked) {
             setLoginCookie();
         }
-        
+
         setExpireCookie();
         showModal();
         changePage();
@@ -164,12 +159,13 @@ const setLoginCookie = () => {
 }
 
 const setExpireCookie = () => {
-    let now = new Date;
-    let expire = now.getTime() + 24 * 60 * 60 * 1000;
-    now.setTime(expire);
-
     $.cookie = `expireTime=${expire};path=/`;
 }
+
+const setUserIdCookie = userId => {
+    $.cookie = `id=${userId};path=/`;
+}
+
 
 const changePage = () => {
     setTimeout(() => {
@@ -190,5 +186,3 @@ loginForm.addEventListener('submit', event => {
     event.preventDefault();
     login();
 })
-
-export default currentUserId;
