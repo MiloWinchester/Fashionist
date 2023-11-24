@@ -164,16 +164,20 @@ class footer extends HTMLElement {
         const currentUrl = location.href;
 
         if (!currentUrl.includes('#')) {
-            let scrollPosition = $.documentElement.scrollTop;
+            // let scrollPosition = $.documentElement.scrollTop;
 
-            let moveToTop = setInterval(() => {
-                if (scrollPosition < 0) {
-                    clearInterval(moveToTop);
-                }
+            // let moveToTop = setInterval(() => {
+            //     if (scrollPosition < 0) {
+            //         clearInterval(moveToTop);
+            //     }
 
-                scrollPosition = scrollPosition - 50;
-                $.documentElement.scrollTop = scrollPosition;
-            }, 10)
+            //     scrollPosition = scrollPosition - 50;
+            //     $.documentElement.scrollTop = scrollPosition;
+            // }, 10)
+            window.scrollTo({
+                behavior: 'smooth',
+                top: 0,
+            })
         }
     }
 

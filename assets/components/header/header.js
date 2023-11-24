@@ -179,7 +179,6 @@ class header extends HTMLElement {
             let user = await response.json();
 
             if (user.isLogin) {
-                console.log(user.isLogin);
                 this.checkLoginCookie()
                 this.checkExpireTime(user, userId);
             }else {
@@ -210,7 +209,6 @@ class header extends HTMLElement {
         })
 
         if (userId) {
-            console.log(userId);
             return userId;
         }
     }
@@ -243,7 +241,6 @@ class header extends HTMLElement {
         let now = new Date();
 
         if (expire > now.getTime()) {
-            console.log(expire);
             this.addProfile();
         }else {
             user.isLogin = false;

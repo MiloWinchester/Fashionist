@@ -60,6 +60,7 @@ const login = () => {
 
         setExpireCookie();
         showModal();
+        resetInputs();
         changePage();
     }
 }
@@ -175,6 +176,10 @@ const changePage = () => {
         location.href = 'https://milowinchester.github.io/Fashionist/index.html';
     }, 4000);
 };
+
+const resetInputs = () => {
+    [emailInput.value, passInput.value] = ['', ''];
+}
 
 const removeFilter = () => {
     container.style.filter = 'none'
