@@ -48,15 +48,14 @@ const login = () => {
 
     if (userEmail && userPass) {
 
-        let user = users.some(user => {
+        users.some(user => {
             if (userEmail === user.email) {
                 user.isLogin = true;
-                return users.indexOf(user);
+                updateUser(user);
+                console.log("logged in user: ",user);
             }
         });
-        console.log("logged in user: ",user);
-        updateUser(user);
-
+        
         if (rememberCheckbox.checked) {
             setCookie();
         }
@@ -66,7 +65,7 @@ const login = () => {
     }
 }
 
-console.log('refactor login page');
+console.log('refactor login page.no2');
 
 const getEmail = () => {
     let userEmail = emailInput.value.toLowerCase();
