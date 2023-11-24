@@ -18,6 +18,7 @@ const container = $.getElementById('container');
 const emailRegex = new RegExp('^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})?$');
 
 let users = [];
+let currentUserId = null;
 
 async function getUsers () {
     let response = await fetch('https://fashionist-shop-default-rtdb.firebaseio.com/users.json');
@@ -25,7 +26,6 @@ async function getUsers () {
 
     if (allUsers) {
         users = Object.entries(allUsers);
-        console.log(users);
     }else {
         users = [];
     }
@@ -42,6 +42,10 @@ async function updateUser (user) {
     .catch(err => console.log(err))
 }
 
+const updateCurrentUser = user => {
+    currentUser = user[0];
+}
+
 const login = () => {
     let [userEmail, userPass] = [getEmail(), getPass()];
 
@@ -51,20 +55,19 @@ const login = () => {
             if (userEmail === user[1].email) {
                 user[1].isLogin = true;
                 updateUser(user);
-                console.log("logged in user: ",user);
+                updateCurrentUser(user);
             }
         });
         
         if (rememberCheckbox.checked) {
-            setCookie();
+            setLoginCookie();
         }
         
+        setExpireCookie();
         showModal();
         changePage();
     }
 }
-
-console.log('refactor login page.no5');
 
 const getEmail = () => {
     let userEmail = emailInput.value.toLowerCase();
@@ -151,18 +154,26 @@ const hideModal = () => {
     }, 500);
 }
 
-const setCookie = () => {
+const setLoginCookie = () => {
     let now = new Date;
     let expire = now.getTime() + 24 * 60 * 60 * 1000;
     now.setTime(expire);
 
     $.cookie = `isLogin=${true};path=/;expires=${now}`;
-    $.cookie = `loginExpire=${expire};path=/;expires=${now}`
+    $.cookie = `expireTime=${expire};path=/`;
+}
+
+const setExpireCookie = () => {
+    let now = new Date;
+    let expire = now.getTime() + 24 * 60 * 60 * 1000;
+    now.setTime(expire);
+
+    $.cookie = `expireTime=${expire};path=/`;
 }
 
 const changePage = () => {
     setTimeout(() => {
-        // location.href = 'https://milowinchester.github.io/Fashionist/index.html';
+        location.href = 'https://milowinchester.github.io/Fashionist/index.html';
     }, 4000);
 };
 
@@ -179,3 +190,5 @@ loginForm.addEventListener('submit', event => {
     event.preventDefault();
     login();
 })
+
+export default currentUserId;

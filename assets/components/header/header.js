@@ -107,6 +107,10 @@ template.innerHTML = `
 </header>
 `
 
+import currentUserId from "../../Js/login";
+console.log("refactor login info.no1");
+console.log("current id: ",currentUserId);
+
 class header extends HTMLElement {
     constructor () {
         super();
@@ -146,8 +150,7 @@ class header extends HTMLElement {
         })
 
         window.addEventListener('load', () => {
-            this.getLoginInfo();
-            this.checkLoginCookie();
+            this.userLoginInfo();
         });
     }
 
@@ -157,7 +160,7 @@ class header extends HTMLElement {
         if (currentUrl.includes(url)) {
             this.moveTo(link);
         }else {
-            location.href = `http://127.0.0.1:5500/${url}#${link.dataset.id}`
+            location.href = `https://milowinchester.github.io/Fashionist/${url}#${link.dataset.id}`
         }
     }
 
@@ -171,46 +174,66 @@ class header extends HTMLElement {
         })
     }
 
-    getLoginInfo () {
-        const users = JSON.parse(localStorage.getItem('user'));
+    async userLoginInfo () {
+       let response = await fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${currentUserId}.json`)
+       let user = await response.json();
 
-        if (users) {
-            users.some(user => {
-                if (user.isLogin === true) {
-                    this.addProfile();
-                    this.checkLoginCookie();
-                }else {
-                    this.removeProfile();
-                }
-            })
-        }
-        
+       if (user.isLogin) {
+        console.log(user.isLogin);
+        this.checkLoginCookie()
+        this.checkExpireTime(user);
+       }else {
+        this.removeProfile();
+       }
+    }
+
+    async updateUser (user) {
+        fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${currentUserId}.json`, {
+            method: 'PUT',
+            headers: {
+                'Content-type' : 'application/json'
+            },
+            body: JSON.stringify(user)
+        }).then(res => console.log(res))
+        .catch(err => console.error(err))
     }
 
     checkLoginCookie () {
         const cookies = $.cookie.split(';');
-        let expireTime = null;
-        let isLogin = null;
-        const users = JSON.parse(localStorage.getItem('user'));
+        let isLogin = false;
 
         cookies.filter(cookie => {
-            if (cookie.includes('loginExpire')) {
-                expireTime = cookie.substring(cookie.indexOf('=') + 1);
-            } else if (cookie.includes('isLogin')) {
+            if (cookie.includes('isLogin')) {
                 isLogin = cookie.substring(cookie.indexOf('=') + 1);
             }
         })
 
-        const now = new Date();
-
-        if ((expireTime && expireTime < now.getTime()) || !isLogin) {
-            if (users) {
-                users.some(user => {
-                    user.isLogin = false;
-                })
-                this.removeProfile();
-            }
+        if (isLogin) {
+            this.addProfile();
         }
+    }
+
+    checkExpireTime (user) {
+        const cookies = $.cookie.split(';');
+        let expire = null;
+
+        cookies.filter(cookie => {
+            if (cookie.includes('expireTime')) {
+                expire = cookie.substring(cookie.indexOf('=') + 1);
+            }
+        })
+
+        let now = new Date();
+
+        if (expire > now.getTime()) {
+            console.log(expire);
+            this.addProfile();
+        }else {
+            user.isLogin = false;
+            this.updateUser(user);
+            this.removeProfile();
+        }
+
     }
 
     addProfile () {
