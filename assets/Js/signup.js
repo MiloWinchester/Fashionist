@@ -72,9 +72,7 @@ const signup = () => {
             }
     
             setNewUser(newUser);
-            // users.push(newUser);
             showSuccessModal();
-            // setLocalStorage(users);
             changePage();
         }
     }
@@ -222,10 +220,6 @@ const hideSuccessModal = () => {
     }, 500)
 }
 
-// const setLocalStorage = users => {
-//     localStorage.setItem('user', JSON.stringify(users));
-// }
-
 const changePage = () => {
     setTimeout(() => {
         // location.href = 'http://127.0.0.1:5500/login.html';
@@ -246,4 +240,4 @@ signupForm.addEventListener('submit', event => {
     signup();
 })
 
-console.log('get all users, and set new user.no2');
+console.log('get all users, and set new user.no3');

@@ -61,5 +61,3 @@ window.addEventListener('DOMContentLoaded', () => {
         renderProducts(arrivalWrapper, products.newArrival);
     })
 })
-
-console.log('handling login/signup');
