@@ -117,7 +117,7 @@ const generateProductImages = (imgWrapper, images) => {
 }
 
 const goToDetails = () => {
-    location.href = 'http://127.0.0.1:5500/itemDetails.html';
+    location.href = 'https://milowinchester.github.io/Fashionist/itemDetails.html';
 }
 
 const setDataToStorage = product => {
