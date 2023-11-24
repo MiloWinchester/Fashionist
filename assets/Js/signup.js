@@ -31,7 +31,7 @@ async function getUsers () {
     let allUsers = await response.json();
     
     if (allUsers) {
-        users = allUsers;
+        users.push(allUsers);
         console.log(users);
     }else {
         users = [];
