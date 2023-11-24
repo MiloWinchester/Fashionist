@@ -106,7 +106,6 @@ template.innerHTML = `
     </nav>
 </header>
 `
-console.log('no2');
 
 class header extends HTMLElement {
     constructor () {

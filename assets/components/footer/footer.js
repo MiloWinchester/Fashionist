@@ -149,36 +149,17 @@ class footer extends HTMLElement {
         this.offerMsg = this.shadowRoot.querySelector('.offer-msg');
         this.emailRegex = new RegExp('^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})?$');
 
-        window.addEventListener('load', () => {
-            this.goToTop();
-        })
-
         this.toTopBtn.addEventListener('click', this.goToTop);
         this.submitOfferBtn.addEventListener('click', () => {
             this.submitOffer()
         });
-        
     }
 
     goToTop () {
-        const currentUrl = location.href;
-
-        if (!currentUrl.includes('#')) {
-            // let scrollPosition = $.documentElement.scrollTop;
-
-            // let moveToTop = setInterval(() => {
-            //     if (scrollPosition < 0) {
-            //         clearInterval(moveToTop);
-            //     }
-
-            //     scrollPosition = scrollPosition - 50;
-            //     $.documentElement.scrollTop = scrollPosition;
-            // }, 10)
-            window.scrollTo({
-                behavior: 'smooth',
-                top: 0,
-            })
-        }
+        window.scrollTo({
+            behavior: 'smooth',
+            top: 0,
+        })
     }
 
     submitOffer () {
