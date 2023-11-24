@@ -246,5 +246,3 @@ signupForm.addEventListener('submit', event => {
     event.preventDefault();
     signup();
 })
-
-console.log('no6');

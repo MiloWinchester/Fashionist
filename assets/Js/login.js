@@ -17,23 +17,45 @@ const container = $.getElementById('container');
 
 const emailRegex = new RegExp('^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})?$');
 
-loginForm.addEventListener('submit', event => {
-    event.preventDefault();
-    login();
-})
+let users = [];
+
+async function getUsers () {
+    let response = await fetch('https://fashionist-shop-default-rtdb.firebaseio.com/users.json');
+    let allUsers = await response.json();
+
+    if (allUsers) {
+        for (let user in allUsers) {
+            users.push(allUsers[user])
+        }
+    }else {
+        users = [];
+    }
+}
+
+async function updateUser (user) {
+    await fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${user.id}.json`, {
+        method: 'PUT',
+        headers: {
+            'Content-type' : 'application/json'
+        },
+        body: JSON.stringify(user)
+    }).then(res => console.log(res))
+    .catch(err => console.log(err))
+}
 
 const login = () => {
     let [userEmail, userPass] = [getEmail(), getPass()];
 
     if (userEmail && userPass) {
-        let users = getStorage();
 
-        users.some(user => {
+        let user = users.some(user => {
             if (userEmail === user.email) {
                 user.isLogin = true;
-                setStorage(users);
+                return users.indexOf(user);
             }
         });
+        console.log("logged in user: ",user);
+        updateUser(user);
 
         if (rememberCheckbox.checked) {
             setCookie();
@@ -44,9 +66,10 @@ const login = () => {
     }
 }
 
+console.log('refactor login page');
+
 const getEmail = () => {
     let userEmail = emailInput.value.toLowerCase();
-    let users = getStorage()
 
     if (!users) {
         emailErr.innerHTML = 'Please sign up first'
@@ -75,7 +98,6 @@ const getEmail = () => {
 
 const getPass = () => {
     let userPass = passInput.value;
-    let users = getStorage();
     let userEmail = getEmail();
 
     if (!users) {
@@ -90,7 +112,10 @@ const getPass = () => {
         }
     })
 
-    if (!userPass) {
+    if (!userEmail) {
+        passErr.innerHTML = 'Enter your email first';
+        error(passInput);
+    }else if (!userPass) {
         passErr.innerHTML = 'Enter your password!';
         error(passInput);
     }else if (!isPasswordCorrect) {
@@ -100,19 +125,6 @@ const getPass = () => {
         success(passInput, passErr);
         return userPass;
     }
-}
-
-const getStorage = () => {
-    let getUserStorage = JSON.parse(localStorage.getItem('user'));
-    if (getUserStorage) {
-        return getUserStorage;
-    }else {
-        return false;
-    }
-}
-
-const setStorage = user => {
-    localStorage.setItem('user', JSON.stringify(user))
 }
 
 const error = input => {
@@ -152,7 +164,7 @@ const setCookie = () => {
 
 const changePage = () => {
     setTimeout(() => {
-        location.href = 'http://127.0.0.1:5500/index.html';
+        // location.href = 'https://milowinchester.github.io/Fashionist/index.html';
     }, 4000);
 };
 
@@ -160,4 +172,12 @@ const removeFilter = () => {
     container.style.filter = 'none'
 }
 
-window.addEventListener('load', removeFilter);
+window.addEventListener('load', () => {
+    getUsers();
+    removeFilter();
+});
+
+loginForm.addEventListener('submit', event => {
+    event.preventDefault();
+    login();
+})
