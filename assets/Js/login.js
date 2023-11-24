@@ -24,9 +24,8 @@ async function getUsers () {
     let allUsers = await response.json();
 
     if (allUsers) {
-        for (let user in allUsers) {
-            users.push(allUsers[user])
-        }
+        users = Object.entries(allUsers);
+        console.log(users);
     }else {
         users = [];
     }
