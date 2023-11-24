@@ -43,7 +43,7 @@ async function updateUser (user) {
 }
 
 const updateCurrentUser = user => {
-    currentUser = user[0];
+    currentUserId = user[0];
 }
 
 const login = () => {
