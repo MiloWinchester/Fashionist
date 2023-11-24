@@ -161,7 +161,7 @@ const setLoginCookie = () => {
 const setExpireCookie = () => {
     let now = new Date;
     let expire = now.getTime() + 24 * 60 * 60 * 1000;
-    
+
     $.cookie = `expireTime=${expire};path=/`;
 }
 
@@ -189,3 +189,5 @@ loginForm.addEventListener('submit', event => {
     event.preventDefault();
     login();
 })
+
+console.log('fok you');
