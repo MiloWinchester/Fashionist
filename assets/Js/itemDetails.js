@@ -231,7 +231,15 @@ async function getUser (userId) {
 }
 
 const updateUser = user => {
-    let updatedUser = user.favourites.push(productInfo);
+    let updatedUser = null;
+    if (!user.favourites) {
+        user.favourites = [productInfo];
+        updatedUser = user;
+    }else {
+        user.favourites.push(productInfo);
+        updatedUser = user;
+    }
+    
     return updatedUser;
 }
 
@@ -254,3 +262,5 @@ favouriteBtn.addEventListener('click', () => {
     chooseFavourite();
     setFavourite();
 })
+
+console.log('no2');
