@@ -203,6 +203,8 @@ async function setFavourite () {
         body: JSON.stringify(updatedUser)
     }).then(res => console.log(res))
     .catch(err => console.error(err))
+
+    updateProductData();
 }
 
 const checkUserLogin = () => {
@@ -247,9 +249,6 @@ async function removeFavourite () {
     let userId = checkUserLogin();
     let user = await getUser(userId);
     let updatedUser = userRemoveUpdate(user);
-    console.log(userId);
-    console.log(user);
-    console.log(updatedUser);
 
     fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${userId}.json`, {
         method: 'PUT',
@@ -259,6 +258,8 @@ async function removeFavourite () {
         body: JSON.stringify(updatedUser)
     }).then(res => console.log(res))
     .catch(err => console.error(err))
+
+    updateProductData();
 }
 
 const userRemoveUpdate = user => {
@@ -270,12 +271,29 @@ const userRemoveUpdate = user => {
     return updatedUser;
 }
 
+const updateProductData = () => {
+    if (productInfo.isFavourite) {
+        productInfo.isFavourite = false
+    }else {
+        productInfo.isFavourite = true;
+    }
+
+    localStorage.setItem('product', JSON.stringify(productInfo));
+}
+
+const checkFavourite = () => {
+    if (productInfo.isFavourite) {
+        favouriteIcon.className = 'bi bi-suit-heart-fill fav-icon';
+    }
+}
+
 window.addEventListener('load', () => {
     removeFilter();
 });
 
 window.addEventListener('DOMContentLoaded', () => {
     getProduct();
+    checkFavourite();
 })
 
 sizeBtns.forEach(btn => {
@@ -289,4 +307,4 @@ favouriteBtn.addEventListener('click', () => {
     chooseFavourite();
 })
 
-console.log('no3');
+console.log('no4');
