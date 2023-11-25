@@ -290,6 +290,8 @@ async function updateProductData () {
             if (product == productInfo) {
                 currentProduct = product;
             }
+            console.log(product);
+            console.log(productInfo);
         }
         console.log(Array.isArray(allProducts[collection]));
 
@@ -352,4 +354,4 @@ favouriteBtn.addEventListener('click', () => {
     chooseFavourite();
 })
 
-console.log('no8');
+console.log('no9');
