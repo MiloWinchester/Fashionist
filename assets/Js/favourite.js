@@ -52,6 +52,7 @@ const removeFavBtns = () => {
 }
 
 window.addEventListener('load', () => {
+    getProducts()
     removeFilter();
 })
 
@@ -66,3 +67,5 @@ doneBtn.addEventListener('click', () => {
     changeBtnToDone();
     removeFavBtns();
 })
+
+console.log('no1');
