@@ -265,7 +265,7 @@ async function userRemoveUpdate (user) {
     let updatedUser = null;
     let productIndex = user.favourites.indexOf(productInfo);
     user.favourites.splice(productIndex, 1);
-    updateUser = user;
+    updatedUser = user;
 
     return updatedUser;
 }
@@ -289,4 +289,4 @@ favouriteBtn.addEventListener('click', () => {
     chooseFavourite();
 })
 
-console.log('no5');
+console.log('no2');
