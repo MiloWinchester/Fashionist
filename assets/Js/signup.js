@@ -69,7 +69,8 @@ const signup = () => {
                 password : userPass,
                 phone : userPhone,
                 isLogin : false,
-                bag: []
+                bag: [],
+                favourites: []
             }
     
             setNewUser(newUser);

@@ -155,14 +155,6 @@ const chooseSize = size => {
     size.classList.add('chosen-size')
 }
 
-let chooseFavourite = () => {
-    if (favouriteIcon.className.includes('fill')) {
-        favouriteIcon.className = 'bi bi-suit-heart fav-icon';
-    }else {
-        favouriteIcon.className = 'bi bi-suit-heart-fill fav-icon';
-    }
-}
-
 const rejectImg = () => {
     const images = $.querySelectorAll('.img');
     images.forEach(img => {
@@ -186,6 +178,61 @@ const rejectColor = () => {
 
 const chooseColor = color => {
     color.classList.add('chosen-color');
+}
+
+let chooseFavourite = () => {
+    if (favouriteIcon.className.includes('fill')) {
+        favouriteIcon.className = 'bi bi-suit-heart fav-icon';
+    }else {
+        favouriteIcon.className = 'bi bi-suit-heart-fill fav-icon';
+    }
+}
+
+const setFavourite = () => {
+    let userId = checkUserLogin();
+    let user = getUser(userId);
+    let updatedUser = updateUser(user);
+    console.log(userId);
+    console.log(user);
+    console.log(updatedUser);
+
+    fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${userId}.json`, {
+        method: 'PUT',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify(updatedUser)
+    }).then(res => console.log(res))
+    .catch(err => console.error(err))
+}
+
+const checkUserLogin = () => {
+    let cookies = $.cookie.split(';');
+    let userId = null;
+
+    cookies.filter(cookie => {
+        if (cookie.includes('id')) {
+            userId = cookie.substring(cookie.indexOf('=') + 1)
+        }
+    })
+
+    if (userId) {
+        return userId;
+    }
+}
+
+async function getUser (userId) {
+    let response = await fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${userId}.json`)
+    let user = await response.json();
+
+    if (user) {
+        return user;
+    }
+}
+
+const updateUser = user => {
+    let updatedUser = user.favourites.push(productInfo);
+    return updatedUser;
 }
 
 window.addEventListener('load', () => {

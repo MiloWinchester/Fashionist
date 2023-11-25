@@ -15,19 +15,48 @@ const editBtn = $.querySelector('.edit-fav-btn');
 const doneBtn = $.querySelector('.edit-done-fav-btn')
 const favTitle = $.querySelector('.favourite-title');
 
-let products = [];
+let user = {};
 
-async function getProducts () {
-    let response = await fetch('https://fashionist-shop-default-rtdb.firebaseio.com/products/-NjsKK-faDqTDJ6Ybw2Y.json')
-    let productsData = await response.json();
+async function getUser () {
+    let userId = checkUserLogin();
 
-    if (productsData) {
-        for (let product in productsData) {
-            products.push(productsData[product]);
-        }
-        console.log(products);
+    let response = await fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${userId}.json`)
+    let userData = await response.json();
+
+    if (userData) {
+        user = userData;
+        console.log(user);
     }
 }
+
+const checkUserLogin = () => {
+    let cookies = $.cookie.split(';');
+    let userId = null;
+
+    cookies.filter(cookie => {
+        if (cookie.includes('id')) {
+            userId = cookie.substring(cookie.indexOf('=') + 1)
+        }
+    })
+
+    if (userId) {
+        return userId;
+    }
+}
+
+// const filterFavourites = () => {
+//     let favourites = products.filter(collection => {
+//         let favProducts = collection.filter(product => {
+//             if (product.isFavourite === true) {
+//                 return product
+//             }
+//         })
+
+//         if (favProducts) {
+//             return favProducts;
+//         }
+//     })
+// }
 
 const removeFilter = () => {
     container.style.filter = 'none';
@@ -58,7 +87,7 @@ const removeFavBtns = () => {
 }
 
 window.addEventListener('load', () => {
-    getProducts()
+    getUser()
     removeFilter();
 })
 
@@ -74,4 +103,4 @@ doneBtn.addEventListener('click', () => {
     removeFavBtns();
 })
 
-console.log('no2');
+console.log('no4');
