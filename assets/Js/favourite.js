@@ -16,6 +16,13 @@ const doneBtn = $.querySelector('.edit-done-fav-btn')
 const favTitle = $.querySelector('.favourite-title');
 
 
+async function getProducts () {
+    let response = await fetch('https://fashionist-shop-default-rtdb.firebaseio.com/products/-NjsKK-faDqTDJ6Ybw2Y.json')
+    let products = await response.json();
+
+    console.log(products);
+}
+
 const removeFilter = () => {
     container.style.filter = 'none';
 }
