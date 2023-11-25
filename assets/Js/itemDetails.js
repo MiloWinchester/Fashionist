@@ -3,6 +3,7 @@ import { header } from "../components/header/header.js";
 import { footer } from "../components/footer/footer.js";
 import { themeBtn } from "../components/themeBtn/themeBtn.js";
 import { loader } from "../components/loader/loader.js";
+import { getProducts } from "./productsData.js";
 
 window.customElements.define('site-header', header);
 window.customElements.define('theme-btn', themeBtn);
@@ -271,14 +272,52 @@ const userRemoveUpdate = user => {
     return updatedUser;
 }
 
-const updateProductData = () => {
+async function updateProductData () {
     if (productInfo.isFavourite) {
         productInfo.isFavourite = false
     }else {
         productInfo.isFavourite = true;
     }
 
-    localStorage.setItem('product', JSON.stringify(productInfo));
+    let allProducts = await getAllProducts();
+    console.log(allProducts);
+
+    for(let collection in allProducts) {
+        console.log(allProducts[collection]);
+        let currentProduct = allProducts[collection].find(product => {
+            return product === productInfo;
+        })
+
+        if (currentProduct) {
+            console.log(currentProduct);
+            if (currentProduct.isFavourite) {
+                currentProduct.isFavourite = false;
+            }else {
+                currentProduct.isFavourite = true;
+            } 
+            console.log(allProducts[collection]);
+        }
+    }
+
+    // fetch('https://fashionist-shop-default-rtdb.firebaseio.com/products/-NjsKK-faDqTDJ6Ybw2Y.json', {
+    //     method: "PUT",
+    //     headers: {
+    //         'Content-type': 'application/json'
+    //     },
+    //     body: JSON.stringify(allProducts)
+    // }).then(res => console.log(res))
+    // .catch(err => console.error(err))
+}
+
+async function getAllProducts () {
+    let products = {};
+
+    await getProducts().then(productsData => {
+        products = productsData
+    })
+    .catch(err => console.error(err));
+
+    return products;
 }
 
 const checkFavourite = () => {
@@ -307,4 +346,4 @@ favouriteBtn.addEventListener('click', () => {
     chooseFavourite();
 })
 
-console.log('no4');
+console.log('no5');
