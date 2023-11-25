@@ -15,12 +15,18 @@ const editBtn = $.querySelector('.edit-fav-btn');
 const doneBtn = $.querySelector('.edit-done-fav-btn')
 const favTitle = $.querySelector('.favourite-title');
 
+let products = [];
 
 async function getProducts () {
     let response = await fetch('https://fashionist-shop-default-rtdb.firebaseio.com/products/-NjsKK-faDqTDJ6Ybw2Y.json')
-    let products = await response.json();
+    let productsData = await response.json();
 
-    console.log(products);
+    if (productsData) {
+        for (let product in productsData) {
+            products.push(productsData[product]);
+        }
+        console.log(products);
+    }
 }
 
 const removeFilter = () => {
@@ -68,4 +74,4 @@ doneBtn.addEventListener('click', () => {
     removeFavBtns();
 })
 
-console.log('no1');
+console.log('no2');
