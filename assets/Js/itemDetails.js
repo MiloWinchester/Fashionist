@@ -288,6 +288,7 @@ async function updateProductData () {
             return product === productInfo;
         })
 
+        console.log(currentProduct);
         if (currentProduct) {
             console.log(currentProduct);
             if (currentProduct.isFavourite) {
