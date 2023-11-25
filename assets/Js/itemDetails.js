@@ -180,11 +180,13 @@ const chooseColor = color => {
     color.classList.add('chosen-color');
 }
 
-let chooseFavourite = () => {
+const chooseFavourite = () => {
     if (favouriteIcon.className.includes('fill')) {
         favouriteIcon.className = 'bi bi-suit-heart fav-icon';
+        removeFavourite();
     }else {
         favouriteIcon.className = 'bi bi-suit-heart-fill fav-icon';
+        setFavourite();
     }
 }
 
@@ -192,9 +194,6 @@ async function setFavourite () {
     let userId = checkUserLogin();
     let user = await getUser(userId);
     let updatedUser = updateUser(user);
-    console.log(userId);
-    console.log(user);
-    console.log(updatedUser);
 
     fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${userId}.json`, {
         method: 'PUT',
@@ -232,7 +231,7 @@ async function getUser (userId) {
 
 const updateUser = user => {
     let updatedUser = null;
-    console.log(user);
+    
     if (!user.favourites) {
         user.favourites = [productInfo];
         updatedUser = user;
@@ -241,6 +240,33 @@ const updateUser = user => {
         updatedUser = user;
     }
     
+    return updatedUser;
+}
+
+async function removeFavourite () {
+    let userId = checkUserLogin();
+    let user = await getUser(userId);
+    let updatedUser = userRemoveUpdate(user);
+    console.log(userId);
+    console.log(user);
+    console.log(updatedUser);
+
+    fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${userId}.json`, {
+        method: 'PUT',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify(updatedUser)
+    }).then(res => console.log(res))
+    .catch(err => console.error(err))
+}
+
+async function userRemoveUpdate (user) {
+    let updatedUser = null;
+    let productIndex = user.favourites.indexOf(productInfo);
+    user.favourites.splice(productIndex, 1);
+    updateUser = user;
+
     return updatedUser;
 }
 
@@ -261,7 +287,6 @@ sizeBtns.forEach(btn => {
 
 favouriteBtn.addEventListener('click', () => {
     chooseFavourite();
-    setFavourite();
 })
 
-console.log('no3');
+console.log('no5');
