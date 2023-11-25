@@ -278,7 +278,6 @@ async function updateProductData () {
     console.log(allProducts);
 
     for(let collection in allProducts) {
-        console.log(allProducts[collection]);
         let currentProduct = {};
 
         for (let product of allProducts[collection]){
@@ -286,9 +285,7 @@ async function updateProductData () {
                 currentProduct = product;
             }
             console.log(product);
-            console.log(typeof(product))
             console.log(productInfo);
-            console.log(typeof(productInfo))
         }
 
         console.log(currentProduct);
