@@ -188,9 +188,9 @@ let chooseFavourite = () => {
     }
 }
 
-const setFavourite = () => {
+async function setFavourite () {
     let userId = checkUserLogin();
-    let user = getUser(userId);
+    let user = await getUser(userId);
     let updatedUser = updateUser(user);
     console.log(userId);
     console.log(user);
@@ -232,6 +232,7 @@ async function getUser (userId) {
 
 const updateUser = user => {
     let updatedUser = null;
+    console.log(user);
     if (!user.favourites) {
         user.favourites = [productInfo];
         updatedUser = user;
@@ -263,4 +264,4 @@ favouriteBtn.addEventListener('click', () => {
     setFavourite();
 })
 
-console.log('no2');
+console.log('no3');
