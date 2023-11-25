@@ -273,11 +273,6 @@ const userRemoveUpdate = user => {
 }
 
 async function updateProductData () {
-    if (productInfo.isFavourite) {
-        productInfo.isFavourite = false
-    }else {
-        productInfo.isFavourite = true;
-    }
 
     let allProducts = await getAllProducts();
     console.log(allProducts);
@@ -354,4 +349,4 @@ favouriteBtn.addEventListener('click', () => {
     chooseFavourite();
 })
 
-console.log('no9');
+console.log('no1');
