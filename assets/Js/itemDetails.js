@@ -284,7 +284,7 @@ async function updateProductData () {
 
     for(let collection in allProducts) {
         console.log(allProducts[collection]);
-        let currentProduct = allProducts[collection].find(product => {
+        let currentProduct = allProducts[collection].forEach(product => {
             return product === productInfo;
         })
 
@@ -347,4 +347,4 @@ favouriteBtn.addEventListener('click', () => {
     chooseFavourite();
 })
 
-console.log('no5');
+console.log('no6');
