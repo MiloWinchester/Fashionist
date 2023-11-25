@@ -292,6 +292,9 @@ async function updateProductData () {
             }
         }
 
+        console.log(Array.isArray(collection));
+        console.log(Array.isArray(allProducts[collection]));
+
         console.log(currentProduct);
         if (currentProduct) {
             console.log(currentProduct);
