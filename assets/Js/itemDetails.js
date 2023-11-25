@@ -284,9 +284,13 @@ async function updateProductData () {
 
     for(let collection in allProducts) {
         console.log(allProducts[collection]);
-        let currentProduct = allProducts[collection].forEach(product => {
-            return product === productInfo;
-        })
+        let currentProduct = null;
+
+        for (let product of collection){
+            if (product == productInfo) {
+                currentProduct = product;
+            }
+        }
 
         console.log(currentProduct);
         if (currentProduct) {
@@ -347,4 +351,4 @@ favouriteBtn.addEventListener('click', () => {
     chooseFavourite();
 })
 
-console.log('no6');
+console.log('no7');
