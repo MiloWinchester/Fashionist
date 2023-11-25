@@ -261,7 +261,7 @@ async function removeFavourite () {
     .catch(err => console.error(err))
 }
 
-async function userRemoveUpdate (user) {
+const userRemoveUpdate = user => {
     let updatedUser = null;
     let productIndex = user.favourites.indexOf(productInfo);
     user.favourites.splice(productIndex, 1);
@@ -289,4 +289,4 @@ favouriteBtn.addEventListener('click', () => {
     chooseFavourite();
 })
 
-console.log('no2');
+console.log('no3');
