@@ -146,10 +146,9 @@ a {
 }
 
 .product-img > img {
-    height: auto;
+    height: 100%;
     width: 100%;
     border-radius: 20px;
-    max-height: 100%;
 }
 
 .product-details {
