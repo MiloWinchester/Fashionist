@@ -283,21 +283,22 @@ async function updateProductData () {
         for (let product of allProducts[collection]){
             if (product == productInfo) {
                 currentProduct = product;
+                console.log(currentProduct);
             }
             console.log(product);
             console.log(productInfo);
         }
 
-        console.log(currentProduct);
-        if (currentProduct) {
-            console.log(currentProduct);
-            if (currentProduct.isFavourite) {
-                currentProduct.isFavourite = false;
-            }else {
-                currentProduct.isFavourite = true;
-            } 
-            console.log(allProducts[collection]);
-        }
+        // console.log(currentProduct);
+        // if (currentProduct) {
+        //     console.log(currentProduct);
+        //     if (currentProduct.isFavourite) {
+        //         currentProduct.isFavourite = false;
+        //     }else {
+        //         currentProduct.isFavourite = true;
+        //     } 
+        //     console.log(allProducts[collection]);
+        // }
     }
 
     // fetch('https://fashionist-shop-default-rtdb.firebaseio.com/products/-NjsKK-faDqTDJ6Ybw2Y.json', {
@@ -347,4 +348,4 @@ favouriteBtn.addEventListener('click', () => {
     chooseFavourite();
 })
 
-console.log('no1');
+console.log('no2');
