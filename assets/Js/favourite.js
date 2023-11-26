@@ -160,8 +160,7 @@ async function changeFavouriteState (icon, product) {
 
 async function addProductToFav (product) {
     let userId = checkUserLogin();
-    let user = await getUser();
-    let updatedUser = addToUserFav(user, product);
+    let updatedUser = addToUserFav(product);
     console.log(user, product);
 
     fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${userId}.json`, {
@@ -174,7 +173,7 @@ async function addProductToFav (product) {
     .catch(err => console.error(err))
 }
 
-const addToUserFav = (user, product) => {
+const addToUserFav = (product) => {
     let updatedUser = null;
     
     if (!user.favourites) {
@@ -190,8 +189,7 @@ const addToUserFav = (user, product) => {
 
 async function removeProductFromFav (product) {
     let userId = checkUserLogin();
-    let user = await getUser();
-    let updatedUser = removeFromUserFav(user, product);
+    let updatedUser = removeFromUserFav(product);
     console.log(user, product);
 
     fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${userId}.json`, {
@@ -204,7 +202,7 @@ async function removeProductFromFav (product) {
     .catch(err => console.error(err))
 }
 
-const removeFromUserFav = (user, product) => {
+const removeFromUserFav = (product) => {
     let updatedUser = null;
     let productIndex = user.favourites.indexOf(product);
     user.favourites.splice(productIndex, 1);
