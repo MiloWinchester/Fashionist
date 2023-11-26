@@ -183,16 +183,6 @@ a {
 }
 
 @keyframes beatFade {
-    /* from{
-        display: none;
-        opacity: 0.5;
-        transform: scale(0.75, 0.75);
-    }
-    to{
-        display: block;
-        opacity: 1;
-        transform: scale(1, 1);
-    } */
 
     0% {
         opacity: 0.5;
@@ -212,6 +202,11 @@ a {
     75% {
         opacity: 1;
         transform: scale(1, 1);
+    }
+
+    100% {
+        opacity: 0.5;
+        transform: scale(0.75, 0.75);
     }
 }
 
