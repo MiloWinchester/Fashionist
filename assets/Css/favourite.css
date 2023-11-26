@@ -149,6 +149,7 @@ a {
     height: auto;
     width: 100%;
     border-radius: 20px;
+    max-height: 100%;
 }
 
 .product-details {
@@ -237,7 +238,7 @@ a {
     border: 1px solid transparent;
     border-radius: 5px;
     font-family: 'Dosis', sans-serif;
-    font-size: 20px;
+    font-size: 18px;
     cursor: pointer;
     color: var(--color);
     transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
