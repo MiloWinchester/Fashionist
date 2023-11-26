@@ -279,7 +279,11 @@ async function checkFavourite () {
         console.log(favouriteProducts);
         let isInFavourites = favouriteProducts.some(product => {
             console.log(product, productInfo);
-            return product == productInfo;
+            if (productInfo == product) {
+                return true
+            }else {
+                return false;
+            }
         })
 
         if (isInFavourites) {
@@ -311,4 +315,4 @@ favouriteBtn.addEventListener('click', () => {
     chooseFavourite();
 })
 
-console.log('no4');
+console.log('no5');
