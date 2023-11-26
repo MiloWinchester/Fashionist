@@ -347,4 +347,4 @@ favouriteBtn.addEventListener('click', () => {
     chooseFavourite();
 })
 
-console.log('no2');
+console.log('no1');
