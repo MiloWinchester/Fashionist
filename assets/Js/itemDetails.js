@@ -276,13 +276,9 @@ async function checkFavourite () {
     if (user.favourites) {
         let favouriteProducts = user.favourites;
         let isInFavourites = favouriteProducts.some(product => {
-            console.log(product);
-            console.log(productInfo);
-            if (productInfo == product) {
-                console.log(true);
+            if (productInfo.id === product.id) {
                 return true;
             }else {
-                console.log(false);
                 return false;
             }
         })
