@@ -129,7 +129,7 @@ a {
 
 .product-container {
     width: 22%;
-    height: 30%;
+    height: 60%;
     display: flex;
     flex-direction: column;
     gap: 15px;
