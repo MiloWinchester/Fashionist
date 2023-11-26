@@ -227,7 +227,7 @@ class header extends HTMLElement {
         }
     }
 
-    checkExpireTime (user, userId) {
+    async checkExpireTime (user, userId) {
         const cookies = $.cookie.split(';');
         let expire = null;
 
@@ -243,7 +243,7 @@ class header extends HTMLElement {
             this.addProfile();
         }else {
             user.isLogin = false;
-            this.updateUser(user, userId);
+            await this.updateUser(user, userId);
             this.removeProfile();
         }
 
