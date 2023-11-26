@@ -3,8 +3,7 @@
 
 html, body {
     width: 100%;
-    min-height: 92%;
-    max-height: auto;
+    height: auto;
     font-family: 'Dosis', sans-serif;
 }
 
