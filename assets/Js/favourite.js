@@ -50,6 +50,7 @@ const checkUserLogin = () => {
 const getFavourites = () => {
     if (user.favourites) {
         let favouriteProducts = user.favourites;
+        console.log(favouriteProducts);
         renderFavourites(favouriteProducts); 
     }
 }
@@ -71,7 +72,7 @@ const generateFavouriteCard = (products, fragment) => {
         imgContainer.classList.add('product-img');
 
         const img = $.createElement('img');
-        img.setAttribute('src', product.image[0]);
+        img.setAttribute('src', product.images[0]);
         img.alt = product.collection;
 
         imgContainer.append(img);
