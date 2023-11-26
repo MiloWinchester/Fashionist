@@ -3,7 +3,7 @@
 
 html, body {
     width: 100%;
-    height: auto;
+    height: 100%;
     font-family: 'Dosis', sans-serif;
 }
 
@@ -159,7 +159,7 @@ a {
 }
 
 .title{
-    font-size: 35px;
+    font-size: 25px;
 }
 
 .fav-btn {
