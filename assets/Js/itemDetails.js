@@ -272,14 +272,18 @@ async function checkFavourite () {
 
     let userId = checkUserLogin();
     let user = await getUser(userId);
+    console.log(userId, user);
 
     if (user.favourites) {
-        let favouriteProducts = user.favourites
+        let favouriteProducts = user.favourites;
+        console.log(favouriteProducts);
         let isInFavourites = favouriteProducts.some(product => {
+            console.log(product, productInfo);
             return product == productInfo;
         })
 
         if (isInFavourites) {
+            console.log(isInFavourites);
             favouriteIcon.className = 'bi bi-suit-heart-fill fav-icon';
         }else {
             favouriteIcon.className = 'bi bi-suit-heart fav-icon';
@@ -307,4 +311,4 @@ favouriteBtn.addEventListener('click', () => {
     chooseFavourite();
 })
 
-console.log('no3');
+console.log('no4');
