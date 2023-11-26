@@ -112,13 +112,13 @@ a {
 
 .product-list {
     width: 100%;
-    min-height: 100%;
-    height: auto;
+    height: 100%;
     display: flex;
     align-items: start;
     gap: 20px;
     row-gap: 10px;
     flex-wrap: wrap;
+    margin: auto;
 }
 
 .product-container {
