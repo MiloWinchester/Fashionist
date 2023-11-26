@@ -50,7 +50,7 @@ const checkUserLogin = () => {
 const getFavourites = () => {
     if (user.favourites) {
         let favouriteProducts = user.favourites;
-        generateFavouriteCard(favouriteProducts); 
+        renderFavourites(favouriteProducts); 
     }
 }
 
