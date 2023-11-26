@@ -83,6 +83,12 @@ a {
     width: 100%;
     height: auto;
     border-radius: 20px;
+    animation: fade 0.2s ease-out;
+}
+
+@keyframes fade {
+    from {opacity: 0.75;}
+    to {opacity: 1;}
 }
 
 .side-images {

@@ -310,5 +310,3 @@ sizeBtns.forEach(btn => {
 favouriteBtn.addEventListener('click', () => {
     chooseFavourite();
 })
-
-console.log('no9');
