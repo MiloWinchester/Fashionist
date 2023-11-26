@@ -80,6 +80,7 @@ const generateFavouriteCard = (products, fragment) => {
         detailsContainer.classList.add('product-details');
 
         const title = $.createElement('h1');
+        title.classList.add('title')
         title.innerHTML = product.name;
 
         const brand = $.createElement('p');

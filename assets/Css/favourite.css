@@ -158,6 +158,10 @@ a {
     gap: 10px;
 }
 
+.title{
+    font-size: 35px;
+}
+
 .fav-btn {
     outline: none;
     border: none;
