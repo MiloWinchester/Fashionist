@@ -14,6 +14,9 @@ const container = $.getElementById('container');
 const editBtn = $.querySelector('.edit-fav-btn');
 const doneBtn = $.querySelector('.edit-done-fav-btn')
 const favTitle = $.querySelector('.favourite-title');
+const productList = $.querySelector('.product-list');
+
+const favouriteProductsFragment = $.createDocumentFragment();
 
 let user = {};
 
@@ -25,7 +28,7 @@ async function getUser () {
 
     if (userData) {
         user = userData;
-        console.log(user);
+        getFavourites();
     }
 }
 
@@ -44,19 +47,101 @@ const checkUserLogin = () => {
     }
 }
 
-// const filterFavourites = () => {
-//     let favourites = products.filter(collection => {
-//         let favProducts = collection.filter(product => {
-//             if (product.isFavourite === true) {
-//                 return product
-//             }
-//         })
+const getFavourites = () => {
+    if (user.favourites) {
+        let favouriteProducts = user.favourites;
+        generateFavouriteCard(favouriteProducts); 
+    }
+}
 
-//         if (favProducts) {
-//             return favProducts;
-//         }
-//     })
-// }
+const renderFavourites = products => {
+    productList.innerHTML = '';
+
+    generateFavouriteCard(products, favouriteProductsFragment);
+
+    productList.append(favouriteProductsFragment)
+}
+
+const generateFavouriteCard = (products, fragment) => {
+    products.forEach(product => {
+        const container = $.createElement('div');
+        container.classList.add('product-container');
+
+        const imgContainer = $.createElement('div');
+        imgContainer.classList.add('product-img');
+
+        const img = $.createElement('img');
+        img.setAttribute('src', product.image[0]);
+        img.alt = product.collection;
+
+        imgContainer.append(img);
+
+        const detailsContainer = $.createElement('div');
+        detailsContainer.classList.add('product-details');
+
+        const title = $.createElement('h1');
+        title.innerHTML = product.name;
+
+        const brand = $.createElement('p');
+        brand.innerHTML = product.brand;
+
+        const priceContainer = $.createElement('div');
+        priceContainer.classList.add('product-price');
+
+        const prices = $.createElement('div');
+        prices.classList.add('prices');
+
+        const price = $.createElement('h1');
+        price.classList.add('price');
+        price.innerHTML = `$${product.price}`
+
+        const offerPrice = $.createElement('h1');
+        offerPrice.classList.add('offer-price')
+        offerPrice.innerHTML = `$${product.offerPrice}`;
+
+        prices.append(price, offerPrice);
+
+        const btnsContainer = $.createElement('div');
+        btnsContainer.classList.add('product-btns');
+
+        const detailBtn = $.createElement('button');
+        detailBtn.classList.add('detail-btn');
+
+        const detailBtnLink = $.createElement('a');
+        detailBtnLink.href = 'itemDetails.html';
+        detailBtnLink.innerHTML = 'Details';
+
+        const addBtn = $.createElement('button');
+        addBtn.classList.add('add-btn');
+
+        const addIcon = $.createElement('i');
+        addIcon.classList.add('bi', 'bi-plus-lg');
+
+        detailBtn.append(detailBtnLink);
+        addBtn.append(addIcon);
+        btnsContainer.append(detailBtn, addBtn);
+        priceContainer.append(prices, btnsContainer);
+        detailsContainer.append(title, brand, priceContainer);
+
+        const favBtn = $.createElement('button');
+        favBtn.classList.add('fav-btn');
+
+        const favIcon = $.createElement('i');
+        favIcon.classList.add('bi', 'bi-suit-heart-fill');
+
+        favBtn.append(favIcon);
+
+        container.append(imgContainer, detailsContainer, favBtn);
+
+        if (product.price > product.offerPrice) {
+            price.classList.add('line-through');
+        }else {
+            price.classList.remove('line-through')
+        }
+
+        favouriteProductsFragment.append(container);
+    })
+}
 
 const removeFilter = () => {
     container.style.filter = 'none';
@@ -103,4 +188,4 @@ doneBtn.addEventListener('click', () => {
     removeFavBtns();
 })
 
-console.log('no4');
+console.log('no1');
