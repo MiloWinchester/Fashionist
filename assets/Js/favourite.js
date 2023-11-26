@@ -148,13 +148,13 @@ const generateFavouriteCard = (products, fragment) => {
     })
 }
 
-const changeFavouriteState = (icon, product) => {
+async function changeFavouriteState (icon, product) {
     if (icon.className.includes('fill')) {
         icon.className = 'bi bi-suit-heart';
-        removeProductFromFav(product);
+        await removeProductFromFav(product);
     }else {
         icon.className = 'bi bi-suit-heart-fill';
-        addProductToFav(product);
+        await addProductToFav(product);
     }
 }
 
