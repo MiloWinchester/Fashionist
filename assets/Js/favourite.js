@@ -128,7 +128,7 @@ const generateFavouriteCard = (products, fragment) => {
         favBtn.classList.add('fav-btn');
 
         const favIcon = $.createElement('i');
-        favIcon.classList.add('bi', 'bi-suit-heart-fill');
+        favIcon.className = 'bi bi-suit-heart-fill';
 
         favBtn.append(favIcon);
 
@@ -159,8 +159,10 @@ async function changeFavouriteState (icon, product) {
 }
 
 async function addProductToFav (product) {
+    let userId = checkUserLogin();
     let user = await getUser();
     let updatedUser = addToUserFav(user, product);
+    console.log(user, product);
 
     fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${userId}.json`, {
         method: 'PUT',
@@ -187,8 +189,10 @@ const addToUserFav = (user, product) => {
 }
 
 async function removeProductFromFav (product) {
+    let userId = checkUserLogin();
     let user = await getUser();
     let updatedUser = removeFromUserFav(user, product);
+    console.log(user, product);
 
     fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${userId}.json`, {
         method: 'PUT',
@@ -257,4 +261,4 @@ doneBtn.addEventListener('click', () => {
     removeFavBtns();
 })
 
-console.log('no3');
+console.log('no4');
