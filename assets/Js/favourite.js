@@ -148,20 +148,18 @@ const generateFavouriteCard = (products, fragment) => {
     })
 }
 
-async function changeFavouriteState (icon, product) {
+const changeFavouriteState = (icon, product) => {
     if (icon.className.includes('fill')) {
         icon.className = 'bi bi-suit-heart';
-        await removeProductFromFav(product);
+        removeFromUserFav(product);
     }else {
         icon.className = 'bi bi-suit-heart-fill';
-        await addProductToFav(product);
+        addToUserFav(product);
     }
 }
 
-async function addProductToFav (product) {
+async function updateUser (updatedUser) {
     let userId = checkUserLogin();
-    let updatedUser = addToUserFav(product);
-    console.log(user, product);
 
     fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${userId}.json`, {
         method: 'PUT',
@@ -171,6 +169,8 @@ async function addProductToFav (product) {
         body: JSON.stringify(updatedUser)
     }).then(res => console.log(res))
     .catch(err => console.error(err))
+
+    getFavourites();
 }
 
 const addToUserFav = (product) => {
@@ -184,22 +184,7 @@ const addToUserFav = (product) => {
         updatedUser = user;
     }
     
-    return updatedUser;
-}
-
-async function removeProductFromFav (product) {
-    let userId = checkUserLogin();
-    let updatedUser = removeFromUserFav(product);
-    console.log(user, product);
-
-    fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${userId}.json`, {
-        method: 'PUT',
-        headers: {
-            'Content-type': 'application/json'
-        },
-        body: JSON.stringify(updatedUser)
-    }).then(res => console.log(res))
-    .catch(err => console.error(err))
+    updateUser(updatedUser)
 }
 
 const removeFromUserFav = (product) => {
@@ -208,7 +193,7 @@ const removeFromUserFav = (product) => {
     user.favourites.splice(productIndex, 1);
     updatedUser = user;
 
-    return updatedUser;
+    updateUser(updatedUser)
 }
 
 const removeFilter = () => {
@@ -259,4 +244,4 @@ doneBtn.addEventListener('click', () => {
     removeFavBtns();
 })
 
-console.log('no4');
+console.log('no5');
