@@ -50,7 +50,6 @@ const checkUserLogin = () => {
 const getFavourites = () => {
     if (user.favourites) {
         let favouriteProducts = user.favourites;
-        console.log(favouriteProducts);
         renderFavourites(favouriteProducts); 
     }
 }
@@ -173,8 +172,11 @@ const removeFavBtns = () => {
 }
 
 window.addEventListener('load', () => {
-    getUser()
     removeFilter();
+})
+
+window.addEventListener('DOMContentLoaded', () => {
+    getUser();
 })
 
 editBtn.addEventListener('click', () => {
@@ -189,4 +191,4 @@ doneBtn.addEventListener('click', () => {
     removeFavBtns();
 })
 
-console.log('no1');
+console.log('no2');

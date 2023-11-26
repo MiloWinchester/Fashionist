@@ -116,8 +116,8 @@ a {
     height: auto;
     display: flex;
     align-items: start;
-    justify-content: space-around;
     gap: 20px;
+    row-gap: 10px;
     flex-wrap: wrap;
 }
 
