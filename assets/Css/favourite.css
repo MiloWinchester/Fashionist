@@ -209,7 +209,7 @@ a {
         transform: scale(0.75, 0.75);
     }
 
-    90% {
+    100% {
         opacity: 1;
         transform: scale(1, 1);
     }
