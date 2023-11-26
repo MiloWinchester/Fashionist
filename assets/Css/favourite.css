@@ -199,17 +199,17 @@ a {
         transform: scale(0.75, 0.75);
     }
 
-    30% {
+    25% {
         opacity: 1;
         transform: scale(1, 1);
     }
 
-    60% {
+    50% {
         opacity: 0.5;
         transform: scale(0.75, 0.75);
     }
 
-    100% {
+    75% {
         opacity: 1;
         transform: scale(1, 1);
     }
