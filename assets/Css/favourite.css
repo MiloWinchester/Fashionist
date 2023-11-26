@@ -3,7 +3,7 @@
 
 html, body {
     width: 100%;
-    min-height: 92%;
+    height: 92%;
     max-height: auto;
     font-family: 'Dosis', sans-serif;
 }
@@ -206,11 +206,11 @@ a {
 }
 
 .price {
-    font-size: 40px;
+    font-size: 35px;
 }
 
 .offer-price {
-    font-size: 40px;
+    font-size: 35px;
     display: none;
 }
 
@@ -231,8 +231,8 @@ a {
 }
 
 .detail-btn, .add-btn {
-    width: 70px;
-    height: 40px;
+    width: 60px;
+    height: 35px;
     outline: none;
     border: 1px solid transparent;
     border-radius: 5px;
@@ -254,7 +254,7 @@ a {
 .add-btn {
     background-color: darkorange;
     font-size: 21px;
-    width: 40px;
+    width: 35px;
 }
 
 .detail-btn:hover , .add-btn:hover {
