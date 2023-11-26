@@ -156,6 +156,7 @@ const changeFavouriteState = (icon, product) => {
         icon.className = 'bi bi-suit-heart-fill';
         addToUserFav(product);
     }
+    addFavBtns();
 }
 
 async function updateUser (updatedUser) {
