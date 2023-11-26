@@ -126,11 +126,10 @@ a {
     gap: 20px;
     row-gap: 10px;
     flex-wrap: wrap;
-    margin: auto;
 }
 
 .product-container {
-    width: 30%;
+    width: 25%;
     height: 30%;
     display: flex;
     flex-direction: column;
