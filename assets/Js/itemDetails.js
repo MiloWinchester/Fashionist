@@ -204,8 +204,6 @@ async function setFavourite () {
         body: JSON.stringify(updatedUser)
     }).then(res => console.log(res))
     .catch(err => console.error(err))
-
-    updateProductData();
 }
 
 const checkUserLogin = () => {
@@ -259,8 +257,6 @@ async function removeFavourite () {
         body: JSON.stringify(updatedUser)
     }).then(res => console.log(res))
     .catch(err => console.error(err))
-
-    updateProductData();
 }
 
 const userRemoveUpdate = user => {
@@ -272,59 +268,22 @@ const userRemoveUpdate = user => {
     return updatedUser;
 }
 
-async function updateProductData () {
+async function checkFavourite () {
 
-    let allProducts = await getAllProducts();
-    console.log(allProducts);
+    let userId = checkUserLogin();
+    let user = await getUser(userId);
 
-    for(let collection in allProducts) {
-        let currentProduct = {};
+    if (user.favourites) {
+        let favouriteProducts = user.favourites
+        let isInFavourites = favouriteProducts.some(product => {
+            return product == productInfo;
+        })
 
-        for (let product of allProducts[collection]){
-            if (product == productInfo) {
-                currentProduct = product;
-                console.log(currentProduct);
-            }
-            console.log(product);
-            console.log(productInfo);
+        if (isInFavourites) {
+            favouriteIcon.className = 'bi bi-suit-heart-fill fav-icon';
+        }else {
+            favouriteIcon.className = 'bi bi-suit-heart fav-icon';
         }
-
-        // console.log(currentProduct);
-        // if (currentProduct) {
-        //     console.log(currentProduct);
-        //     if (currentProduct.isFavourite) {
-        //         currentProduct.isFavourite = false;
-        //     }else {
-        //         currentProduct.isFavourite = true;
-        //     } 
-        //     console.log(allProducts[collection]);
-        // }
-    }
-
-    // fetch('https://fashionist-shop-default-rtdb.firebaseio.com/products/-NjsKK-faDqTDJ6Ybw2Y.json', {
-    //     method: "PUT",
-    //     headers: {
-    //         'Content-type': 'application/json'
-    //     },
-    //     body: JSON.stringify(allProducts)
-    // }).then(res => console.log(res))
-    // .catch(err => console.error(err))
-}
-
-async function getAllProducts () {
-    let products = {};
-
-    await getProducts().then(productsData => {
-        products = productsData
-    })
-    .catch(err => console.error(err));
-
-    return products;
-}
-
-const checkFavourite = () => {
-    if (productInfo.isFavourite) {
-        favouriteIcon.className = 'bi bi-suit-heart-fill fav-icon';
     }
 }
 
@@ -348,4 +307,4 @@ favouriteBtn.addEventListener('click', () => {
     chooseFavourite();
 })
 
-console.log('no2');
+console.log('no3');
