@@ -174,8 +174,7 @@ class header extends HTMLElement {
         let userId = this.getUserId();
         
         if (userId) {
-            let response = await fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${userId}.json`)
-            let user = await response.json();
+            let user = await this.getUserInfo(userId);
 
             if (user.isLogin) {
                 this.checkLoginCookie()
@@ -212,6 +211,15 @@ class header extends HTMLElement {
         }
     }
 
+    async getUserInfo (userId) {
+        let response = await fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${userId}.json`)
+        let user = await response.json();
+
+        if (user) {
+            return user;
+        }
+    }
+
     checkLoginCookie () {
         const cookies = $.cookie.split(';');
         let isLogin = false;
@@ -239,7 +247,7 @@ class header extends HTMLElement {
 
         let now = new Date();
 
-        if (expire > now.getTime()) {
+        if (expire && expire > now.getTime()) {
             this.addProfile();
         }else {
             user.isLogin = false;

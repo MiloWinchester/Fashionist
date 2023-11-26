@@ -151,23 +151,27 @@ const hideModal = () => {
 }
 
 const setLoginCookie = () => {
-    let now = new Date;
+    let now = new Date();
     let expire = now.getTime() + 24 * 60 * 60 * 1000;
     now.setTime(expire);
 
-    $.cookie = `isLogin=${true};path=/;expires=${now}`;
+    $.cookie = `isLogin=${true};path=/;expires=${now.toUTCString()}`;
     $.cookie = `expireTime=${expire};path=/`;
 }
 
 const setExpireCookie = () => {
-    let now = new Date;
+    let now = new Date();
     let expire = now.getTime() + 24 * 60 * 60 * 1000;
 
     $.cookie = `expireTime=${expire};path=/`;
 }
 
 const setUserIdCookie = userId => {
-    $.cookie = `id=${userId};path=/`;
+    let now = new Date();
+    let expire = now.getTime() + (60 * 60 * 24 * 345 * 10 * 1000);
+    now.setTime(expire);
+
+    $.cookie = `id=${userId};path=/;expires=${now.toUTCString()}`;
 }
 
 
