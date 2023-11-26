@@ -194,7 +194,7 @@ const chooseFavourite = () => {
 async function setFavourite () {
     let userId = checkUserLogin();
     let user = await getUser(userId);
-    let updatedUser = updateUser(user);
+    let updatedUser = addToUserFav(user);
 
     fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${userId}.json`, {
         method: 'PUT',
@@ -230,7 +230,7 @@ async function getUser (userId) {
     }
 }
 
-const updateUser = user => {
+const addToUserFav = user => {
     let updatedUser = null;
     
     if (!user.favourites) {
@@ -247,7 +247,7 @@ const updateUser = user => {
 async function removeFavourite () {
     let userId = checkUserLogin();
     let user = await getUser(userId);
-    let updatedUser = userRemoveUpdate(user);
+    let updatedUser = removeFromUserFav(user);
 
     fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${userId}.json`, {
         method: 'PUT',
@@ -259,7 +259,7 @@ async function removeFavourite () {
     .catch(err => console.error(err))
 }
 
-const userRemoveUpdate = user => {
+const removeFromUserFav = user => {
     let updatedUser = null;
     let productIndex = user.favourites.indexOf(productInfo);
     user.favourites.splice(productIndex, 1);

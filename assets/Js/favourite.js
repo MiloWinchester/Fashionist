@@ -140,8 +140,73 @@ const generateFavouriteCard = (products, fragment) => {
             price.classList.remove('line-through')
         }
 
+        favBtn.addEventListener('click', () => {
+            changeFavouriteState(favIcon, product)
+        })
+
         fragment.append(container);
     })
+}
+
+const changeFavouriteState = (icon, product) => {
+    if (icon.className.includes('fill')) {
+        icon.className = 'bi bi-suit-heart';
+        removeProductFromFav(product);
+    }else {
+        icon.className = 'bi bi-suit-heart-fill';
+        addProductToFav(product);
+    }
+}
+
+async function addProductToFav (product) {
+    let user = await getUser();
+    let updatedUser = addToUserFav(user, product);
+
+    fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${userId}.json`, {
+        method: 'PUT',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify(updatedUser)
+    }).then(res => console.log(res))
+    .catch(err => console.error(err))
+}
+
+const addToUserFav = (user, product) => {
+    let updatedUser = null;
+    
+    if (!user.favourites) {
+        user.favourites = [product];
+        updatedUser = user;
+    }else {
+        user.favourites.push(productInfo);
+        updatedUser = user;
+    }
+    
+    return updatedUser;
+}
+
+async function removeProductFromFav (product) {
+    let user = await getUser();
+    let updatedUser = removeFromUserFav(user, product);
+
+    fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${userId}.json`, {
+        method: 'PUT',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify(updatedUser)
+    }).then(res => console.log(res))
+    .catch(err => console.error(err))
+}
+
+const removeFromUserFav = (user, product) => {
+    let updatedUser = null;
+    let productIndex = user.favourites.indexOf(product);
+    user.favourites.splice(productIndex, 1);
+    updatedUser = user;
+
+    return updatedUser;
 }
 
 const removeFilter = () => {
@@ -192,4 +257,4 @@ doneBtn.addEventListener('click', () => {
     removeFavBtns();
 })
 
-console.log('no2');
+console.log('no3');
