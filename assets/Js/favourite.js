@@ -140,7 +140,7 @@ const generateFavouriteCard = (products, fragment) => {
             price.classList.remove('line-through')
         }
 
-        favouriteProductsFragment.append(container);
+        fragment.append(container);
     })
 }
 
