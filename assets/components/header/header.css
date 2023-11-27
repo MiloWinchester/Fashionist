@@ -93,21 +93,21 @@ html, body {
     color: darkorange;
 }
 
-#category.open > button a {
+#category.open > button a, #login.open > button a{
     color: darkorange;
 }
 
-#category i{
+#category i,  #login i{
     font-size: 18px;
     margin-top: 13px;
     transition: transform 0.3s, margin-top 0.3s, font-size 0.3s;
 }
 
-#category.open i{
+#category.open i, #login.open i{
     transform: rotate(180deg);
 }
 
-#header.moved #category i {
+#header.moved #category i, #header.moved #login i {
     margin-top: 9px;
     font-size: 13px;
 }
@@ -172,6 +172,10 @@ html, body {
     display: none;
     opacity: 0;
     animation: close 0.5s;
+}
+
+.profile-btn {
+    display: none;
 }
 
 .hideSignup {
