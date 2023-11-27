@@ -16,6 +16,7 @@ const doneBtn = $.querySelector('.edit-done-fav-btn')
 const favTitle = $.querySelector('.favourite-title');
 const productList = $.querySelector('.product-list');
 const emptyContainer = $.querySelector('.empty-list');
+const loginMsg = $.querySelector('.login-msg');
 
 const favouriteProductsFragment = $.createDocumentFragment();
 
@@ -44,7 +45,10 @@ const checkUserLogin = () => {
     })
 
     if (userId) {
+        hideLoginMsg();
         return userId;
+    }else {
+        showLoginMsg();
     }
 }
 
@@ -64,6 +68,14 @@ const showEmpty = () => {
 
 const hideEmpty = () => {
     emptyContainer.classList.remove('empty');
+}
+
+const showLoginMsg = () => {
+    loginMsg.classList.add('logged-out')
+}
+
+const hideLoginMsg = () => {
+    loginMsg.classList.remove('logged-out')
 }
 
 const renderFavourites = products => {
