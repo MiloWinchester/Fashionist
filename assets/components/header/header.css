@@ -115,7 +115,6 @@ html, body {
 .category-box {
     width: auto;
     height: 37vh;
-    margin-top: 15px;
     position: absolute;
     right: 280px;
     background-color: rgb(233 231 231);
