@@ -211,7 +211,7 @@ const addToUserFav = (product) => {
         user.favourites = [product];
         updatedUser = user;
     }else {
-        user.favourites.push(productInfo);
+        user.favourites.push(product);
         updatedUser = user;
     }
     
