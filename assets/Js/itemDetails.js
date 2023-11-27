@@ -183,21 +183,23 @@ const chooseColor = color => {
 }
 
 const chooseFavourite = () => {
-    if (favouriteIcon.className.includes('fill')) {
-        favouriteIcon.className = 'bi bi-suit-heart fav-icon';
-        removeFavourite();
-    }else {
-        favouriteIcon.className = 'bi bi-suit-heart-fill fav-icon';
-        setFavourite();
+    let userId = checkUserLogin();
+    if (userId) {
+        if (favouriteIcon.className.includes('fill')) {
+            favouriteIcon.className = 'bi bi-suit-heart fav-icon';
+            removeFavourite(userId);
+        }else {
+            favouriteIcon.className = 'bi bi-suit-heart-fill fav-icon';
+            setFavourite(userId);
+        }
     }
 }
 
-async function setFavourite () {
-    let userId = checkUserLogin();
+async function setFavourite (userId) {
     let user = await getUser(userId);
     let updatedUser = addToUserFav(user);
 
-    fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${userId}.json`, {
+    await fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${userId}.json`, {
         method: 'PUT',
         headers: {
             'Content-type': 'application/json'
@@ -222,6 +224,7 @@ const checkUserLogin = () => {
         return userId;
     }else {
         showLoginModal();
+        return false;
     }
 }
 
@@ -248,12 +251,11 @@ const addToUserFav = user => {
     return updatedUser;
 }
 
-async function removeFavourite () {
-    let userId = checkUserLogin();
+async function removeFavourite (userId) {
     let user = await getUser(userId);
     let updatedUser = removeFromUserFav(user);
 
-    fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${userId}.json`, {
+    await fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${userId}.json`, {
         method: 'PUT',
         headers: {
             'Content-type': 'application/json'
@@ -273,31 +275,39 @@ const removeFromUserFav = user => {
 }
 
 async function checkFavourite () {
-
     let userId = checkUserLogin();
-    let user = await getUser(userId);
+    
+    if (userId) {
+        let user = await getUser(userId);
 
-    if (user.favourites) {
-        let favouriteProducts = user.favourites;
-        let isInFavourites = favouriteProducts.some(product => {
-            if (productInfo.collection === product.collection && productInfo.id === product.id) {
-                return true;
+        if (user.favourites) {
+            let favouriteProducts = user.favourites;
+            let isInFavourites = favouriteProducts.some(product => {
+                if (productInfo.collection === product.collection && productInfo.id === product.id) {
+                    return true;
+                }else {
+                    return false;
+                }
+            })
+
+            if (isInFavourites) {
+                favouriteIcon.className = 'bi bi-suit-heart-fill fav-icon';
             }else {
-                return false;
+                favouriteIcon.className = 'bi bi-suit-heart fav-icon';
             }
-        })
-
-        if (isInFavourites) {
-            favouriteIcon.className = 'bi bi-suit-heart-fill fav-icon';
-        }else {
-            favouriteIcon.className = 'bi bi-suit-heart fav-icon';
         }
     }
 }
 
-const showLoginModal = () => {}
+const showLoginModal = () => {
+    loginModal.classList.remove('hide-login-modal');
+    loginModal.classList.add('show-login-modal')
+}
 
-const hideLoginModal = () => {}
+const hideLoginModal = () => {
+    loginModal.classList.remove('show-login-modal')
+    loginModal.classList.add('hide-login-modal');
+}
 
 window.addEventListener('load', () => {
     removeFilter();
