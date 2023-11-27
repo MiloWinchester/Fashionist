@@ -53,13 +53,14 @@ const checkUserLogin = () => {
 }
 
 const getFavourites = () => {
-    if (user.favourites) {
+    
+    if (!user.favourites || user.favourites.length === 0){
+        showEmpty();
+        console.log(user);
+    }else if (user.favourites) {
         let favouriteProducts = user.favourites;
         renderFavourites(favouriteProducts); 
         hideEmpty();
-        console.log(user);
-    }else if (!user.favourites || user.favourites.length === 0){
-        showEmpty();
         console.log(user);
     }
 }
