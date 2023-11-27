@@ -5,6 +5,7 @@ html, body {
     width: 100%;
     height: 92%;
     font-family: 'Dosis', sans-serif;
+    overflow-x: hidden;
 }
 
 * {
@@ -335,12 +336,12 @@ a {
 
 .show-login-modal {
     display: flex;
-    animation: showModal 0.5s;
+    animation: showModal 0.75s;
 }
 
 .hide-login-modal {
     display: flex;
-    animation: hideModal 0.5s;
+    animation: hideModal 0.75s;
 }
 
 @keyframes showModal {
