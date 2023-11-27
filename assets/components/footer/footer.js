@@ -68,7 +68,7 @@ template.innerHTML = `
                         <p>Useful links</p>
                         <ul>
                             <li>
-                                <a href="">• Profile</a>
+                                <a href="product.html">• Products</a>
                             </li>
                             <li>
                                 <a href="signup.html">• Signup</a>
@@ -77,10 +77,10 @@ template.innerHTML = `
                                 <a href="login.html">• Login</a>
                             </li>
                             <li>
-                                <a href="">• Cart</a>
+                                <a href="basket.html">• Bag</a>
                             </li>
                             <li>
-                                <a href="product.html">• Products</a>
+                                <a href="favourite.html">• Favourites</a>
                             </li>
                         </ul>
                     </div>
