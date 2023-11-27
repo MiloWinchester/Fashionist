@@ -26,9 +26,34 @@ template.innerHTML = `
                 </button>
             </li>
             <li id="login">
-                <button>
-                    <a href="signup.html" id="signup-btn">Sign in</a>
+                <button class="signup-btn">
+                    <a href="signup.html">Sign in</a>
                 </button>
+                <button class="profile-btn">
+                    <a>
+                        <p>Profile</p>
+                        <i class="bi bi-caret-down-fill"></i>
+                    </a>
+                </button>
+                <div class="profile-box">
+                    <div class="profile-list">
+                        <ul class="profile-dropdown">
+                            <li>Profile</li>
+                            <hr>
+                            <li>
+                                <a href="favourite.html">Favourites</a>
+                            </li>
+                            <hr>
+                            <li>
+                                <a href="basket.html">Bag</a>  
+                            </li>
+                            <hr>
+                            <li id="logout-btn">
+                                Logout
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </li>
             <li id="category">
                 <button>
@@ -40,60 +65,60 @@ template.innerHTML = `
                 <div class="category-box">
                     <div class="category-list">
                         <ul class="categories">
-                        <li>
-                            <a class="link" data-id="trend-container" data-url="index.html">Trending</a>
-                        </li>
-                        <hr>
-                        <li>
-                            <a data-id="arrival-container" data-url="index.html" class="link">New Arrival</a>
-                        </li>
-                        <hr>
-                        <li>
-                            <a data-id="offer-container" data-url="index.html" class="link">Offers</a>
-                        </li>
-                        <hr>
-                        <li>Brands</li>
-                        <hr>
-                        <li>Top Styles</li>
-                    </ul>
-                    <ul class="categories border-left">
-                        <li>
-                            <a class="link" data-id='bestsells-container' data-url="product.html">Best Sells</a>
-                        </li>
-                        <hr>
-                        <li>
-                            <a class="link" data-id="featured-container" data-url="product.html">Featured</a>
-                        </li>
-                        <hr>
-                        <li>Models</li>
-                        <hr>
-                        <li>
-                            <a data-id="accessory-container" data-url="product.html" class="link">Accessories</a>
-                        </li>
-                        <hr>
-                        <li>
-                            <a data-id="accessory-container" data-url="product.html" class="link">Under Wear</a>
-                        </li>
-                    </ul>
-                    <ul class="categories border-left">
-                        <li>
-                            <a data-id="shoes-container" data-url="product.html" class="link">Shoes & Sneakers</a>
-                        </li>
-                        <hr>
-                        <li>
-                            <a data-id="summer-container" data-url="product.html" class="link">T-Shirts & Shirts</a>
-                        </li>
-                        <hr>
-                        <li>
-                            <a data-id="jeans-container" data-url="product.html" class="link">Jeans & Pants</a>
-                        </li>
-                        <hr>
-                        <li>
-                            <a data-id="winter-container" data-url="product.html" class="link">Hoodies & Jackets</a>
-                        </li>
-                        <hr>
-                        <li>Hats & Bags</li>
-                    </ul>
+                            <li>
+                                <a class="link" data-id="trend-container" data-url="index.html">Trending</a>
+                            </li>
+                            <hr>
+                            <li>
+                                <a data-id="arrival-container" data-url="index.html" class="link">New Arrival</a>
+                            </li>
+                            <hr>
+                            <li>
+                                <a data-id="offer-container" data-url="index.html" class="link">Offers</a>
+                            </li>
+                            <hr>
+                            <li>Brands</li>
+                            <hr>
+                            <li>Top Styles</li>
+                        </ul>
+                        <ul class="categories border-left">
+                            <li>
+                                <a class="link" data-id='bestsells-container' data-url="product.html">Best Sells</a>
+                            </li>
+                            <hr>
+                            <li>
+                                <a class="link" data-id="featured-container" data-url="product.html">Featured</a>
+                            </li>
+                            <hr>
+                            <li>Models</li>
+                            <hr>
+                            <li>
+                                <a data-id="accessory-container" data-url="product.html" class="link">Accessories</a>
+                            </li>
+                            <hr>
+                            <li>
+                                <a data-id="accessory-container" data-url="product.html" class="link">Under Wear</a>
+                            </li>
+                        </ul>
+                        <ul class="categories border-left">
+                            <li>
+                                <a data-id="shoes-container" data-url="product.html" class="link">Shoes & Sneakers</a>
+                            </li>
+                            <hr>
+                            <li>
+                                <a data-id="summer-container" data-url="product.html" class="link">T-Shirts & Shirts</a>
+                            </li>
+                            <hr>
+                            <li>
+                                <a data-id="jeans-container" data-url="product.html" class="link">Jeans & Pants</a>
+                            </li>
+                            <hr>
+                            <li>
+                                <a data-id="winter-container" data-url="product.html" class="link">Hoodies & Jackets</a>
+                            </li>
+                            <hr>
+                            <li>Hats & Bags</li>
+                        </ul>
                     </div>
                 </div>
             </li>
@@ -264,15 +289,26 @@ class header extends HTMLElement {
     }
 
     addProfile () {
-        let signupBtn = this.shadowRoot.getElementById('signup-btn');
-        signupBtn.setAttribute('href', 'index.html');
-        signupBtn.innerHTML = 'Profile';
+        let signupBtn = this.shadowRoot.querySelector('.signup-btn');
+        const loginBtn = this.shadowRoot.getElementById('login');
+
+        signupBtn.classList.add('hideSignup');
+
+        loginBtn.addEventListener('mouseenter', () => {
+            loginBtn.classList.add('open');
+            loginBtn.classList.remove('close')
+        });
+
+        loginBtn.addEventListener('mouseleave', () => {
+            loginBtn.classList.remove('open');
+            loginBtn.classList.add('close')
+        })
     }
 
     removeProfile () {
-        let signupBtn = this.shadowRoot.getElementById('signup-btn');
-        signupBtn.setAttribute('href', 'signup.html');
-        signupBtn.innerHTML = 'Sign in';
+        const loginBtn = this.shadowRoot.getElementById('login');
+        let signupBtn = this.shadowRoot.querySelector('.signup-btn');
+        signupBtn.classList.remove('hideSignup');
     }
 }
 

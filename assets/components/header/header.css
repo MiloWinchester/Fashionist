@@ -112,7 +112,7 @@ html, body {
     font-size: 13px;
 }
 
-.category-box {
+.category-box, .profile-box {
     width: auto;
     height: auto;
     position: absolute;
@@ -126,7 +126,7 @@ html, body {
     opacity: 0;
 }
 
-.category-list {
+.category-list, .profile-list {
     width: 100%;
     height: 100%;
     display: flex;
@@ -139,38 +139,47 @@ html, body {
     border-radius: 10px;
 }
 
-.categories {
+.categories, .profile-dropdown {
     width: fit-content;
     list-style-type: none;
     padding: 10px;
     font-size: 25px;
 }
 
-.categories > li {
+.categories > li, .profile-dropdown > li {
     padding: 7px;
     cursor: pointer;
     transition: color 0.2s;
 }
 
-.categories a {
+.categories a, .profile-dropdown a {
     color: #333 !important;
     transition: color 0.2s;
 }
 
-.categories li:hover, .categories a:hover {
+.categories li:hover, .categories a:hover,
+.profile-dropdown li:hover, .profile-dropdown a:hover {
     color: rgb(206, 100, 0) !important;
 }
 
-#category.open .category-box {
+#category.open .category-box, #login.open .profile-box {
     display: flex;
     opacity: 1;
     animation: show 0.5s;
 }
 
-#category.close .category-box {
+#category.close .category-box, #login.close .profile-box {
     display: none;
     opacity: 0;
     animation: close 0.5s;
+}
+
+.hideSignup {
+    display: none;
+}
+
+.signup-btn.hideSignup ~ .profile-btn {
+    display: inline;
 }
 
 @keyframes show {
