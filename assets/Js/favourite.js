@@ -56,9 +56,11 @@ const getFavourites = () => {
     if (user.favourites) {
         let favouriteProducts = user.favourites;
         renderFavourites(favouriteProducts); 
-        hideEmpty()
+        hideEmpty();
+        console.log(user);
     }else {
         showEmpty();
+        console.log(user);
     }
 }
 
