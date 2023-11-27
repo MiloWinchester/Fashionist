@@ -38,7 +38,8 @@ template.innerHTML = `
                     </a>
                 </button>
                 <div class="category-box">
-                    <ul class="categories">
+                    <div class="category-list">
+                        <ul class="categories">
                         <li>
                             <a class="link" data-id="trend-container" data-url="index.html">Trending</a>
                         </li>
@@ -93,6 +94,7 @@ template.innerHTML = `
                         <hr>
                         <li>Hats & Bags</li>
                     </ul>
+                    </div>
                 </div>
             </li>
             <li id="product">
