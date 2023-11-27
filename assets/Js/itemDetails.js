@@ -302,7 +302,7 @@ const showLoginModal = () => {
 
     setTimeout(() => {
         hideLoginModal();
-    }, 1500);
+    }, 2000);
 }
 
 const hideLoginModal = () => {
@@ -311,7 +311,7 @@ const hideLoginModal = () => {
 
     setTimeout(() => {
         loginModal.classList.remove('hide-login-modal');
-    }, 1500);
+    }, 1000);
 }
 
 window.addEventListener('load', () => {

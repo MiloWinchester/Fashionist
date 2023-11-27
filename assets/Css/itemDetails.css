@@ -335,12 +335,12 @@ a {
 
 .show-login-modal {
     display: flex;
-    animation: showModal 1.5s;
+    animation: showModal 0.5s;
 }
 
 .hide-login-modal {
     display: flex;
-    animation: hideModal 1.5s;
+    animation: hideModal 0.5s;
 }
 
 @keyframes showModal {
