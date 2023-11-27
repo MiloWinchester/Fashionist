@@ -177,7 +177,6 @@ class header extends HTMLElement {
             let user = await this.getUserInfo(userId);
 
             if (user.isLogin) {
-                this.checkLoginCookie()
                 this.checkExpireTime(user, userId);
             }else {
                 this.removeProfile();
@@ -232,6 +231,9 @@ class header extends HTMLElement {
 
         if (isLogin) {
             this.addProfile();
+            return true;
+        }else {
+            return false;
         }
     }
 
@@ -250,9 +252,12 @@ class header extends HTMLElement {
         if (expire && expire > now.getTime()) {
             this.addProfile();
         }else {
-            user.isLogin = false;
-            await this.updateUser(user, userId);
-            this.removeProfile();
+            let loginCookie = this.checkLoginCookie();
+            if (!loginCookie) {
+                user.isLogin = false;
+                await this.updateUser(user, userId);
+                this.removeProfile();
+            }
         }
 
     }
