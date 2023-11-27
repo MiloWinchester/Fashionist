@@ -319,7 +319,7 @@ a {
 }
 
 .login-modal {
-    width: 22%;
+    width: 18%;
     height: 9%;
     align-items: center;
     justify-content: center;
@@ -328,7 +328,7 @@ a {
     border-radius: 10px;
     font-size: 20px;
     position: absolute;
-    top: 15%;
+    top: 19%;
     left: 1%;
     display: none;
 }
