@@ -8,7 +8,6 @@ template.innerHTML = `
                 <div id="footer-top">
                     <div id="footer-logo">
                         <h1>Fashionist</h1>
-                        <small>.org</small>
                     </div>
                     <div id="social-links">
                         <button id="tel-btn">

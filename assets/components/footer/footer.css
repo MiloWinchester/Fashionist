@@ -39,10 +39,6 @@ a {
     font-size: 23px;
 }
 
-#footer-logo small {
-    color: darkorange;
-}
-
 #social-links {
     display: flex;
     align-items: center;
