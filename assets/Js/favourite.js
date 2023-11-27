@@ -174,8 +174,16 @@ const generateFavouriteCard = (products, fragment) => {
             changeFavouriteState(favIcon, product)
         })
 
+        detailBtn.addEventListener('click', () => {
+            setProductToStorage(product);
+        })
+
         fragment.append(container);
     })
+}
+
+const setProductToStorage = product => {
+    localStorage.setItem('product', JSON.stringify(product));
 }
 
 const changeFavouriteState = (icon, product) => {
