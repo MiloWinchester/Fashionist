@@ -220,7 +220,6 @@ const checkUserLogin = () => {
     })
 
     if (userId) {
-        hideLoginModal();
         return userId;
     }else {
         showLoginModal();
@@ -300,8 +299,11 @@ async function checkFavourite () {
 }
 
 const showLoginModal = () => {
-    loginModal.classList.remove('hide-login-modal');
-    loginModal.classList.add('show-login-modal')
+    loginModal.classList.add('show-login-modal');
+
+    setTimeout(() => {
+        hideLoginModal();
+    }, 1500);
 }
 
 const hideLoginModal = () => {
