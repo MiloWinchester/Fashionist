@@ -186,7 +186,7 @@ const changeFavouriteState = (icon, product) => {
 async function updateUser (updatedUser) {
     let userId = checkUserLogin();
 
-    fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${userId}.json`, {
+    await fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${userId}.json`, {
         method: 'PUT',
         headers: {
             'Content-type': 'application/json'
