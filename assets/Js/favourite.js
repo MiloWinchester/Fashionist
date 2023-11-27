@@ -15,6 +15,7 @@ const editBtn = $.querySelector('.edit-fav-btn');
 const doneBtn = $.querySelector('.edit-done-fav-btn')
 const favTitle = $.querySelector('.favourite-title');
 const productList = $.querySelector('.product-list');
+const emptyContainer = $.querySelector('.empty-list');
 
 const favouriteProductsFragment = $.createDocumentFragment();
 
@@ -51,7 +52,18 @@ const getFavourites = () => {
     if (user.favourites) {
         let favouriteProducts = user.favourites;
         renderFavourites(favouriteProducts); 
+        hideEmpty()
+    }else {
+        showEmpty();
     }
+}
+
+const showEmpty = () => {
+    emptyContainer.classList.add('empty');
+}
+
+const hideEmpty = () => {
+    emptyContainer.classList.remove('empty');
 }
 
 const renderFavourites = products => {
