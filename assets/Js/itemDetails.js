@@ -25,6 +25,7 @@ const sideImageContainer = $.querySelector('.side-images');
 const itemImageContainer = $.querySelector('.item-images');
 const colorContainer = $.querySelector('.colors');
 const freeSize = $.querySelector('.free-size');
+const loginModal = $.querySelector('.login-modal')
 
 let productInfo = {};
 
@@ -217,7 +218,10 @@ const checkUserLogin = () => {
     })
 
     if (userId) {
+        hideLoginModal();
         return userId;
+    }else {
+        showLoginModal();
     }
 }
 
@@ -290,6 +294,10 @@ async function checkFavourite () {
         }
     }
 }
+
+const showLoginModal = () => {}
+
+const hideLoginModal = () => {}
 
 window.addEventListener('load', () => {
     removeFilter();

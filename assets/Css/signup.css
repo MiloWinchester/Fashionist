@@ -293,8 +293,12 @@ a {
 }
 
 @keyframes showModal {
-    from {display: none; left: -230px;}
-    to {display: flex; left: 10px;}
+    from {
+        display: none; left: -230px;
+    }
+    to {
+        display: flex; left: 10px;
+    }
 }
 
 @keyframes hideModal {
