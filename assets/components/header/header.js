@@ -131,11 +131,11 @@ class header extends HTMLElement {
             }
         });
 
-        categoryBtn.addEventListener('mouseover', () => {
+        categoryBtn.addEventListener('mouseenter', () => {
             categoryBtn.classList.add('open');
             categoryBtn.classList.remove('close')
         });
-        categoryBtn.addEventListener('mouseout', () => {
+        categoryBtn.addEventListener('mouseleave', () => {
             categoryBtn.classList.remove('open');
             categoryBtn.classList.add('close');
         });
