@@ -126,6 +126,10 @@ html, body {
     opacity: 0;
 }
 
+.profile-box {
+    right: 180px;
+}
+
 .category-list, .profile-list {
     width: 100%;
     height: 100%;
