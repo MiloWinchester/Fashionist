@@ -120,7 +120,6 @@ class header extends HTMLElement {
     connectedCallback () {
         const header = this.shadowRoot.getElementById('header');
         const categoryBtn = this.shadowRoot.getElementById('category');
-        const categoryBox = this.shadowRoot.querySelector('.category-box');
         const links = this.shadowRoot.querySelectorAll('.link');
 
         window.addEventListener('scroll', () => {
@@ -136,7 +135,7 @@ class header extends HTMLElement {
             categoryBtn.classList.add('open');
             categoryBtn.classList.remove('close')
         });
-        categoryBox.addEventListener('mouseout', () => {
+        categoryBtn.addEventListener('mouseout', () => {
             categoryBtn.classList.remove('open');
             categoryBtn.classList.add('close');
         });
