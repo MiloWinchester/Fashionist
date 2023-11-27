@@ -192,6 +192,8 @@ const chooseFavourite = () => {
             favouriteIcon.className = 'bi bi-suit-heart-fill fav-icon';
             setFavourite(userId);
         }
+    }else {
+        showLoginModal();
     }
 }
 
@@ -221,9 +223,6 @@ const checkUserLogin = () => {
 
     if (userId) {
         return userId;
-    }else {
-        showLoginModal();
-        return false;
     }
 }
 
