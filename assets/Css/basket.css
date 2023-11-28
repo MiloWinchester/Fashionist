@@ -311,7 +311,7 @@ option:disabled {
     display: inline;
 }
 
-#login-msg, #empty-msg {
+.login-msg, .empty-msg {
     width: 100%;
     height: 100%;
     align-items: center;
