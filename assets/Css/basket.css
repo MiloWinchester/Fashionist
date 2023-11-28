@@ -225,6 +225,7 @@ hr {
     display: flex;
     align-items: center;
     gap: 5px;
+    font-size: 20px;
 }
 
 .size, .quantity {
@@ -234,6 +235,7 @@ hr {
     color: var(--color);
     border: none;
     cursor: pointer;
+    font-size: 20px;
 }
 
 option {
@@ -241,6 +243,7 @@ option {
     color: var(--color);
     outline: none;
     cursor: pointer;
+    font-size: 15px;
 }
 
 .product-price {
