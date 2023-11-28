@@ -68,8 +68,12 @@ const generateProductCard = (items, cardFragment) => {
 
         let addBtn = $.createElement('button');
         addBtn.classList.add('add-btn');
-        addBtn.innerHTML = '<i class="bi bi-plus-lg"></i>';
         addBtn.title = 'Add to bag';
+
+        let addIcon = $.createElement('i');
+        addIcon.className = 'bi bi-plus-lg';
+
+        addBtn.append(addIcon);
 
         btnContainer.append(detailBtn, addBtn);
         itemShop.append(btnContainer);
@@ -97,7 +101,11 @@ const generateProductCard = (items, cardFragment) => {
         // item events
         detailBtn.addEventListener('click', () => {
             goToDetails();
-            setDataToStorage(item);
+            setDataToStorage(addIcon, item);
+        })
+
+        addBtn.addEventListener('click', () => {
+            changeBagStatus(item);
         })
     });
 }
@@ -123,5 +131,20 @@ const goToDetails = () => {
 const setDataToStorage = product => {
     localStorage.setItem('product', JSON.stringify(product));
 }
+
+const changeBagStatus = (icon, product) => {
+    if (icon.className.includes('plus')) {
+        icon.className = 'bi bi-dash-lg'
+        setBag(product);
+    }else {
+        icon.className = 'bi bi-plus-lg';
+        removeBag(product);
+    }
+}
+
+async function setBag (product) {}
+
+async function removeBag (product) {}
+
 
 export {generateProductCard};
