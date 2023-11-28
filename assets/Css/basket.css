@@ -50,7 +50,7 @@ a {
     max-height: 200%;
     display: flex;
     flex-direction: row-reverse;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 50px;
     background-color: var(--theme);
     color: var(--color);
@@ -204,8 +204,8 @@ hr {
 }
 
 .color {
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     border: 1px solid gray;
     border-radius: 50%;
     cursor: pointer;
@@ -214,7 +214,7 @@ hr {
 .product-foot {
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
 }
 
