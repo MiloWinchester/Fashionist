@@ -16,7 +16,6 @@ html, body {
 :root {
     --theme: #333;
     --color: rgb(233 231 231);
-    --slide-btn-size: 20px;
 }
 
 ::-webkit-scrollbar{
