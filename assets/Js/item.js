@@ -211,4 +211,8 @@ async function updateUser (updatedUser) {
     .catch(err => console.error(err))
 }
 
+const showLoginMsg = () => {}
+
+const hideLoginMsg = () => {}
+
 export {generateProductCard};
