@@ -101,11 +101,11 @@ const generateProductCard = (items, cardFragment) => {
         // item events
         detailBtn.addEventListener('click', () => {
             goToDetails();
-            setDataToStorage(addIcon, item);
+            setDataToStorage(item);
         })
 
         addBtn.addEventListener('click', () => {
-            changeBagStatus(item);
+            changeBagStatus(addIcon, item);
         })
     });
 }
