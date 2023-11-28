@@ -60,7 +60,7 @@ a {
 
 #checkout-container {
     width: 30%;
-    height: 61vh;
+    height: 69vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -100,6 +100,18 @@ hr {
 .bold {
     font-size: 30px;
     font-weight: bold;
+}
+
+.value {
+    display: none;
+}
+
+.remove-minus {
+    display: none;
+}
+
+.minus.remove-minus ~ .value{
+    display: inline;
 }
 
 #checkout-btn {
