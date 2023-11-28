@@ -142,9 +142,73 @@ const changeBagStatus = (icon, product) => {
     }
 }
 
-async function setBag (product) {}
+const checkUserLogin = () => {
+    let cookies = $.cookie.split(';');
+    let userId = null;
 
-async function removeBag (product) {}
+    cookies.filter(cookie => {
+        if (cookie.includes('id')) {
+            userId = cookie.substring(cookie.indexOf('=') + 1)
+        }
+    })
 
+    if (userId) {
+        hideLoginMsg();
+        return userId;
+    }else {
+        showLoginMsg();
+    }
+}
+
+async function getUser (userId) {
+    let response = await fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${userId}.json`)
+    let user = await response.json();
+
+    if (user) {
+        return user;
+    }
+}
+
+async function setBag (product) {
+    let userId = checkUserLogin();
+    let user = await getUser(userId);
+
+    let updatedUser = null;
+    
+    if (!user.bag) {
+        user.bag = [product];
+        updatedUser = user;
+    }else {
+        user.bag.push(product);
+        updatedUser = user;
+    }
+    
+    updateUser(updatedUser)
+}
+
+async function removeBag (product) {
+    let userId = checkUserLogin();
+    let user = await getUser(userId);
+    let updatedUser = null;
+
+    let productIndex = user.bag.indexOf(product);
+    user.bag.splice(productIndex, 1);
+    updatedUser = user;
+
+    updateUser(updatedUser)
+}
+
+async function updateUser (updatedUser) {
+    let userId = checkUserLogin();
+
+    await fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${userId}.json`, {
+        method: 'PUT',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify(updatedUser)
+    }).then(res => console.log(res))
+    .catch(err => console.error(err))
+}
 
 export {generateProductCard};
