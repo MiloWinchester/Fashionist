@@ -58,7 +58,7 @@ a {
 }
 
 #checkout-container {
-    width: 35%;
+    width: 30%;
     height: 61vh;
     display: flex;
     flex-direction: column;
