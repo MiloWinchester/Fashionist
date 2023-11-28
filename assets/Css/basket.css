@@ -125,7 +125,6 @@ hr {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
 }
 
 .product-container {
@@ -194,6 +193,10 @@ hr {
     color: red;
 }
 
+.brand {
+    font-size: 20px;
+}
+
 .colors {
     display: flex;
     align-items: center;
@@ -231,11 +234,12 @@ hr {
 .size, .quantity {
     outline: none;
     background-color: var(--theme);
-    width: 7%;
+    width: 40%;
     color: var(--color);
     border: none;
     cursor: pointer;
     font-size: 20px;
+    font-family: 'Dosis', sans-serif;
 }
 
 option {
