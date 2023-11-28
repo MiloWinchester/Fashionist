@@ -131,8 +131,7 @@ hr {
 }
 
 #product-list::-webkit-scrollbar {
-    width: 10px;
-    direction: rtl;
+    width: 5px;
 }
 
 .product-container {
