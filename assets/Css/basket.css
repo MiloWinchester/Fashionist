@@ -235,7 +235,7 @@ hr {
 .size, .quantity {
     outline: none;
     background-color: var(--theme);
-    width: 40%;
+    width: 50%;
     color: var(--color);
     border: none;
     cursor: pointer;
@@ -251,6 +251,11 @@ option {
     cursor: pointer;
     font-size: 15px;
     transition: color 0.2s, background-color 0.2s;
+}
+
+option:disabled {
+    opacity: 0.75;
+    text-decoration: line-through;
 }
 
 .product-price {
