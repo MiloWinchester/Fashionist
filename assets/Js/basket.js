@@ -16,8 +16,8 @@ const delivery = $.getElementById('delivery');
 const discount = $.getElementById('discount');
 const totalPrice = $.getElementById('total-price');
 const minusIcons = $.querySelectorAll('.minus');
-const loginMsg = $.getElementById('login-msg');
-const emptyMsg = $.getElementById('empty-msg');
+const loginMsg = $.querySelector('.login-msg');
+const emptyMsg = $.querySelector('.empty-msg');
 
 const productFragment = $.createDocumentFragment();
 
@@ -54,11 +54,26 @@ const checkUserLogin = () => {
 
 const showLoginMsg = () => {
     loginMsg.classList.add('show-login-msg');
+    showMinusIcons()
 }
 
 const hideLoginMsg = () => {
     loginMsg.classList.remove('show-login-msg');
+    hideMinusIcons()
 }
+
+const showMinusIcons = () => {
+    minusIcons.forEach(icon => {
+        icon.classList.remove('remove-minus')
+    })
+}
+
+const hideMinusIcons = () => {
+    minusIcons.forEach(icon => {
+        icon.classList.add('remove-minus')
+    })
+}
+
 
 const removeFilter = () => {
     container.style.filter = 'none';
