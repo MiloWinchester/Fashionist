@@ -296,7 +296,7 @@ class header extends HTMLElement {
         let userId = this.getUserId();
 
         if (userId) {
-            let user = this.getUserInfo(userId);
+            let user = await this.getUserInfo(userId);
             user.isLogin = false;
             await this.updateUser(user, userId);
 
