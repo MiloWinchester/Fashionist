@@ -5,6 +5,7 @@ html, body {
     width: 100%;
     height: 270%;
     font-family: 'Dosis', sans-serif;
+    background-color: var(--theme);
 }
 
 * {

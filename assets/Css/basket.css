@@ -127,6 +127,12 @@ hr {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-y: scroll;
+}
+
+#product-list::-webkit-scrollbar {
+    width: 10px;
+    direction: rtl;
 }
 
 .product-container {
