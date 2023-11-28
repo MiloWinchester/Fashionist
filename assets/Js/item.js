@@ -106,7 +106,9 @@ const generateProductCard = (items, cardFragment) => {
 
         addBtn.addEventListener('click', () => {
             changeBagStatus(addIcon, item);
-        })
+        });
+
+        checkBag(item, addIcon)
     });
 }
 
@@ -210,6 +212,31 @@ async function updateUser (updatedUser) {
     }).then(res => console.log(res))
     .catch(err => console.error(err))
 }
+
+async function checkBag (product, addIcon) {
+    let userId = checkUserLogin();
+
+    if (userId) {
+        let user = await getUser(userId);
+
+        if (user.bag) {
+            let bagProducts = user.bag;
+            let isInBag = bagProducts.some(bagProduct => {
+                if (bagProduct.collection === product.collection && bagProduct.id === product.id) {
+                    return true;
+                }else {
+                    return false
+                }
+            });
+
+            if (isInBag) {
+                addIcon.className = 'bi bi-dash-lg'
+            }else {
+                addIcon.className = 'bi bi-plus-lg'
+            }
+        }
+    }
+} 
 
 const showLoginMsg = () => {}
 
