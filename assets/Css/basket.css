@@ -76,6 +76,7 @@ a {
 
 hr {
     opacity: 0.75;
+    width: 100%;
 }
 
 .checkout-info {
@@ -186,7 +187,7 @@ hr {
 }
 
 .fav-btn:hover {
-    color: tomato;
+    color: #ff8974;
 }
 
 .remove-btn:hover {
@@ -240,6 +241,7 @@ hr {
     cursor: pointer;
     font-size: 20px;
     font-family: 'Dosis', sans-serif;
+    transition: color 0.2s, background-color 0.2s;
 }
 
 option {
@@ -248,6 +250,7 @@ option {
     outline: none;
     cursor: pointer;
     font-size: 15px;
+    transition: color 0.2s, background-color 0.2s;
 }
 
 .product-price {
