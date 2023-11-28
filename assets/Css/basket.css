@@ -58,16 +58,24 @@ a {
 }
 
 #checkout-container {
-    width: 25%;
+    width: 35%;
     height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: start;
-    gap: 20px;
+    gap: 30px;
     padding: 20px;
     border: 1px solid gray;
     border-radius: 20px;
+}
+
+.checkout-title {
+    font-size: 20px;
+}
+
+hr {
+    opacity: 0.75;
 }
 
 .checkout-info {
@@ -76,7 +84,8 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 10px;
+    gap: 30px;
+    font-size: 25px;
 }
 
 .info {
@@ -88,7 +97,7 @@ a {
 
 #checkout-btn {
     width: 100%;
-    height: 10%;
+    height: 7vh;
     outline: none;
     border: 1px solid gray;
     background-color: orange;
