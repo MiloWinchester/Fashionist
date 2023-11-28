@@ -31,6 +31,7 @@ async function getUser () {
 
     if (userData) {
         user = userData;
+        getUserBag();
     }
 }
 
@@ -74,6 +75,34 @@ const hideMinusIcons = () => {
     })
 }
 
+const checkEmpty = () => {
+    if (!user.bag || user.bag.length === 0){
+        showEmpty();
+        return false;
+    }else {
+        hideEmpty();
+        return true;
+    }
+}
+
+const showEmpty = () => {
+    emptyMsg.classList.add('show-empty-msg');
+    showMinusIcons();
+}
+
+const hideEmpty = () => {
+    emptyMsg.classList.remove('show-empty-msg');
+    hideMinusIcons();
+}
+
+const getUserBag = () => {
+    let hasBag = checkEmpty();
+
+    if (hasBag) {
+        let userBag = user.bag;
+        renderBagProducts(userBag);
+    }
+}
 
 const removeFilter = () => {
     container.style.filter = 'none';
