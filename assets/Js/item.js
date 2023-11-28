@@ -155,10 +155,7 @@ const checkUserLogin = () => {
     })
 
     if (userId) {
-        hideLoginMsg();
         return userId;
-    }else {
-        showLoginMsg();
     }
 }
 
@@ -173,31 +170,39 @@ async function getUser (userId) {
 
 async function setBag (product) {
     let userId = checkUserLogin();
-    let user = await getUser(userId);
+    if (userId) {
+        let user = await getUser(userId);
 
-    let updatedUser = null;
-    
-    if (!user.bag) {
-        user.bag = [product];
-        updatedUser = user;
+        let updatedUser = null;
+        
+        if (!user.bag) {
+            user.bag = [product];
+            updatedUser = user;
+        }else {
+            user.bag.push(product);
+            updatedUser = user;
+        }
+        
+        updateUser(updatedUser)
     }else {
-        user.bag.push(product);
-        updatedUser = user;
+        goToLogin();
     }
-    
-    updateUser(updatedUser)
 }
 
 async function removeBag (product) {
     let userId = checkUserLogin();
-    let user = await getUser(userId);
-    let updatedUser = null;
+    if (userId) {
+        let user = await getUser(userId);
+        let updatedUser = null;
 
-    let productIndex = user.bag.indexOf(product);
-    user.bag.splice(productIndex, 1);
-    updatedUser = user;
+        let productIndex = user.bag.indexOf(product);
+        user.bag.splice(productIndex, 1);
+        updatedUser = user;
 
-    updateUser(updatedUser)
+        updateUser(updatedUser)
+    }else {
+        goToLogin();
+    }
 }
 
 async function updateUser (updatedUser) {
@@ -238,8 +243,8 @@ async function checkBag (product, addIcon) {
     }
 } 
 
-const showLoginMsg = () => {}
-
-const hideLoginMsg = () => {}
+const goToLogin = () => {
+    location.href = 'https://milowinchester.github.io/Fashionist/login.html'
+}
 
 export {generateProductCard};
