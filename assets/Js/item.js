@@ -134,13 +134,13 @@ const setDataToStorage = product => {
     localStorage.setItem('product', JSON.stringify(product));
 }
 
-const changeBagStatus = (icon, product) => {
+async function changeBagStatus (icon, product) {
     if (icon.className.includes('plus')) {
+        await setBag(product);
         icon.className = 'bi bi-dash-lg'
-        setBag(product);
     }else {
+        await removeBag(product);
         icon.className = 'bi bi-plus-lg';
-        removeBag(product);
     }
 }
 
