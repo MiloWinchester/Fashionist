@@ -180,8 +180,13 @@ hr {
 .product-head{
     width: 100%;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+}
+
+.product-title {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .title {
