@@ -146,6 +146,7 @@ class header extends HTMLElement {
         const header = this.shadowRoot.getElementById('header');
         const categoryBtn = this.shadowRoot.getElementById('category');
         const links = this.shadowRoot.querySelectorAll('.link');
+        const logoutBtn = this.shadowRoot.getElementById('logout-btn')
 
         window.addEventListener('scroll', () => {
             if ($.documentElement.scrollTop >= 30) {
@@ -174,6 +175,10 @@ class header extends HTMLElement {
         window.addEventListener('load', () => {
             this.userLoginInfo();
         });
+
+        logoutBtn.addEventListener('click', () => {
+            this.logout();
+        })
     }
 
     checkUrl (link) {
@@ -285,7 +290,40 @@ class header extends HTMLElement {
                 this.removeProfile();
             }
         }
+    }
 
+    async logout () {
+        let userId = this.getUserId();
+
+        if (userId) {
+            let user = this.getUserInfo(userId);
+            user.isLogin = false;
+            await this.updateUser(user, userId);
+
+            this.removeCookies();
+            location.reload();
+        }
+    }
+
+    removeCookies () {
+        let cookies = $.cookie.split(';');
+        let value = null;
+        let now = new Date();
+        let past = now.getTime() - (24 * 60 * 60 * 1000);
+        now.setTime(past);
+
+        cookies.filter(cookie => {
+            if (cookie.includes('id')) {
+                value = cookie.substring(cookie.indexOf('=') + 1);
+                $.cookie = `id=${value};path=/;expires=${now}`;
+            }else if (cookie.includes('expireTime')) {
+                value = cookie.substring(cookie.indexOf('=') + 1);
+                $.cookie = `expireTime=${value};path=/;expires=${now}`;
+            }else if (cookie.includes('isLogin')) {
+                value = cookie.substring(cookie.indexOf('=') + 1);
+                $.cookie = `isLogin=${value};path=/;expires=${now}`;
+            }
+        })
     }
 
     addProfile () {
