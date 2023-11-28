@@ -49,8 +49,8 @@ a {
     height: 85%;
     max-height: 200%;
     display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+    flex-direction: row-reverse;
+    justify-content: space-between;
     padding: 50px;
     background-color: var(--theme);
     color: var(--color);
@@ -59,7 +59,7 @@ a {
 
 #checkout-container {
     width: 35%;
-    height: auto;
+    height: 61vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -130,7 +130,7 @@ hr {
 
 .product-container {
     width: 100%;
-    height: 10vh;
+    height: 34vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -139,7 +139,7 @@ hr {
 }
 
 .img-container {
-    width: 30%;
+    width: 25%;
     height: 100%;
 }
 
@@ -167,7 +167,7 @@ hr {
 }
 
 .title {
-
+    font-size: 35px;
 }
 
 .btns {
@@ -180,7 +180,7 @@ hr {
     outline: none;
     background-color: transparent;
     border: none;
-    font-size: 20px;
+    font-size: 25px;
     color: var(--color);
     cursor: pointer;
     transition: color 0.2s;
@@ -194,10 +194,6 @@ hr {
     color: red;
 }
 
-.brand {
-
-}
-
 .colors {
     display: flex;
     align-items: center;
@@ -205,8 +201,8 @@ hr {
 }
 
 .color {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     border: 1px solid gray;
     border-radius: 50%;
     cursor: pointer;
@@ -219,8 +215,32 @@ hr {
     justify-content: space-between;
 }
 
-.quantity {
+.size-quantity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
+.size-quantity > div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.size, .quantity {
+    outline: none;
+    background-color: var(--theme);
+    width: 7%;
+    color: var(--color);
+    border: none;
+    cursor: pointer;
+}
+
+option {
+    background-color: var(--theme);
+    color: var(--color);
+    outline: none;
+    cursor: pointer;
 }
 
 .product-price {
@@ -229,13 +249,19 @@ hr {
     gap: 10px;
 }
 
+.price {
+    font-size: 35px;
+}
+
 .offer-price {
+    font-size: 35px;
     display: none;
 }
 
 .line-through {
     text-decoration: line-through;
     opacity: 0.75;
+    font-size: 25px;
 }
 
 .price.line-through .offer-price {
