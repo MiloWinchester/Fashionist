@@ -110,10 +110,11 @@ hr {
     font-size: 25px;
     font-family: 'Dosis', sans-serif;
     cursor: pointer;
-    transition: color 0.2s, background-color 0.2s;
+    transition: color 0.2s, background-color 0.2s, border-color 0.2s;
 }
 
 #checkout-btn:hover {
     background-color: transparent;
-    color: var(--color);
+    color: darkorange;
+    border-color: orange;
 }
