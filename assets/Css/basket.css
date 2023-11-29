@@ -186,6 +186,7 @@ hr {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
 }
 
 .product-title {
@@ -206,6 +207,7 @@ hr {
     display: flex;
     align-items: center;
     gap: 10px;
+    padding-top: 5px;
 }
 
 .fav-btn, .remove-btn {
@@ -284,6 +286,19 @@ option {
 option:disabled {
     opacity: 0.75;
     text-decoration: line-through;
+}
+
+.freesize {
+    display: none;
+    font-size: 20px;
+}
+
+.show-freesize {
+    display: inline;
+}
+
+.freesize.show-freesize ~ p ~ .size {
+    display: none;
 }
 
 .product-price {

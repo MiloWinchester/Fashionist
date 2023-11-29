@@ -184,30 +184,40 @@ const generateBagProducts = products => {
         sizeQuantity.classList.add('size-quantity')
 
         const sizeContainer = $.createElement('div');
-        const size = $.createElement('p');
-        size.textContent = 'Size';
-        const sizeSelect = $.createElement('select');
-        sizeSelect.name = 'size';
-        sizeSelect.classList.add('size');
 
-        const optionS = $.createElement('option');
-        optionS.textContent = 'S'
-        optionS.value = 'S'
-        const optionM = $.createElement('option');
-        optionM.textContent = 'M'
-        optionM.value = 'M'
-        const optionL = $.createElement('option');
-        optionL.textContent = 'L'
-        optionL.value = 'L'
-        const optionXL = $.createElement('option');
-        optionXL.textContent = 'XL'
-        optionXL.value = 'XL'
-        const option2XL = $.createElement('option');
-        option2XL.textContent = '2XL'
-        option2XL.value = '2XL'
+        
+        if (product.size === 'FreeSize') {
+            const freeSize = $.createElement('p');
+            freeSize.textContent = product.size;
+            freeSize.classList.add('freesize', 'show-freesize');
+            sizeContainer.append(freeSize)
+        }else {
+            const size = $.createElement('p');
+            size.textContent = 'Size';
+            const sizeSelect = $.createElement('select');
+            sizeSelect.name = 'size';
+            sizeSelect.classList.add('size');
+    
+            const optionS = $.createElement('option');
+            optionS.textContent = 'S'
+            optionS.value = 'S'
+            const optionM = $.createElement('option');
+            optionM.textContent = 'M'
+            optionM.value = 'M'
+            const optionL = $.createElement('option');
+            optionL.textContent = 'L'
+            optionL.value = 'L'
+            const optionXL = $.createElement('option');
+            optionXL.textContent = 'XL'
+            optionXL.value = 'XL'
+            const option2XL = $.createElement('option');
+            option2XL.textContent = '2XL'
+            option2XL.value = '2XL';
 
-        sizeSelect.append(optionS, optionM, optionL, optionXL, option2XL);
-        sizeContainer.append(size, sizeSelect);
+            sizeSelect.append(optionS, optionM, optionL, optionXL, option2XL);
+            sizeContainer.append(size, sizeSelect);
+        }
+        
         sizeQuantity.append(sizeContainer);
 
         const sizeOptions = $.querySelectorAll('.size option');
@@ -261,6 +271,25 @@ const generateBagProducts = products => {
         productFragment.append(productContainer, hr);
 
     })
+}
+
+const calculateSubtotal = () => {
+    const prices = $.querySelectorAll('.price');
+    
+    if (prices) {
+        let totalProductPrice = 0;
+    
+        prices.forEach(price => {
+            let priceInNumber = Number(price.textContent.substring(price.textContent.indexOf('$') + 1));
+            totalProductPrice += priceInNumber;
+        });
+
+        subTotal.textContent = `$${totalProductPrice}`;
+    }else {
+        minusIcons[0].classList.remove('remove-minus')
+    }
+
+
 }
 
 const removeFilter = () => {
