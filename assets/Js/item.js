@@ -67,7 +67,7 @@ const generateProductCard = (items, cardFragment) => {
         detailBtn.append(pageLink);
 
         let favBtn = $.createElement('button');
-        favBtn.classList.add('add-btn');
+        favBtn.classList.add('fav-btn');
         favBtn.title = 'Add to Favourites';
 
         let favIcon = $.createElement('i');
