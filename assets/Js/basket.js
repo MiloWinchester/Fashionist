@@ -102,6 +102,10 @@ const getUserBag = () => {
     if (hasBag) {
         let userBag = user.bag;
         renderBagProducts(userBag);
+        calculateSubtotal();
+        calculateDiscount();
+        calculateDelivery();
+        calculateTotalPrice();
     }
 }
 
@@ -111,7 +115,6 @@ const renderBagProducts = products => {
     generateBagProducts(products, productFragment);
 
     productList.append(productFragment);
-    calculateSubtotal();
 }
 
 const generateBagProducts = products => {
@@ -289,8 +292,52 @@ const calculateSubtotal = () => {
     }else {
         minusIcons[0].classList.remove('remove-minus')
     }
+}
 
+const calculateDiscount = () => {
+    const offerPrices = $.querySelectorAll('offer-price');
+    const prices = $.querySelectorAll('.price');
 
+    if (offerPrices) {
+        let totalOffer = 0;
+        let totalProductPrice = 0;
+
+        prices.forEach(price => {
+            let priceInNumber = Number(price.textContent.substring(price.textContent.indexOf('$') + 1));
+            totalProductPrice += priceInNumber;
+        });
+
+        offerPrices.forEach(price => {
+            let priceInNumber = Number(price.textContent.substring(price.textContent.indexOf('$') + 1));
+            totalOffer += priceInNumber;
+        });
+
+        let totalDiscount = totalProductPrice - totalOffer;
+        discount.textContent = `$${totalDiscount}`;
+        
+    }else {
+        minusIcons[1].classList.remove('remove-minus')
+    }
+}
+
+const calculateDelivery = () => {
+    const prices = $.querySelectorAll('.price');
+    let totalProductPrice = 0;
+
+    prices.forEach(price => {
+        let priceInNumber = Number(price.textContent.substring(price.textContent.indexOf('$') + 1));
+        totalProductPrice += priceInNumber;
+    });
+
+    if (totalProductPrice <= 250) {
+        delivery.textContent = '$50';
+    }else {
+        delivery.textContent = 'Free';
+    }
+}
+
+const calculateTotalPrice = () => {
+    
 }
 
 const removeFilter = () => {
