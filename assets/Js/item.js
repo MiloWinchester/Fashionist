@@ -66,16 +66,16 @@ const generateProductCard = (items, cardFragment) => {
 
         detailBtn.append(pageLink);
 
-        let favBtn = $.createElement('button');
-        favBtn.classList.add('fav-btn');
-        favBtn.title = 'Add to Favourites';
+        let addBtn = $.createElement('button');
+        addBtn.classList.add('add-btn');
+        addBtn.title = 'Add to bag';
 
-        let favIcon = $.createElement('i');
-        favIcon.className = 'bi bi-suit-heart';
+        let addIcon = $.createElement('i');
+        addIcon.className = 'bi bi-plus-lg';
 
-        favBtn.append(favIcon);
+        addBtn.append(addIcon);
 
-        btnContainer.append(detailBtn, favBtn);
+        btnContainer.append(detailBtn, addBtn);
         itemShop.append(btnContainer);
 
         if (item.price != item.offerPrice) {
@@ -104,11 +104,11 @@ const generateProductCard = (items, cardFragment) => {
             setDataToStorage(item);
         })
 
-        favBtn.addEventListener('click', () => {
-            changeFavStatus(favBtn, favIcon, item);
+        addBtn.addEventListener('click', () => {
+            changeBagStatus(addBtn, addIcon, item);
         });
 
-        checkFav(item, favIcon)
+        checkBag(item, addIcon)
     });
 }
 
@@ -134,17 +134,17 @@ const setDataToStorage = product => {
     localStorage.setItem('product', JSON.stringify(product));
 }
 
-async function changeFavStatus (btn, icon, product) {
+async function changeBagStatus (btn, icon, product) {
     let userId = checkUserLogin();
     if (userId) {
-        if (icon.className.includes('fill')) {
-            await removeFav(product, userId);
-            icon.className = 'bi bi-suit-heart';
-            btn.title = 'Add to favourite';
+        if (icon.className.includes('dash')) {
+            await removeBag(product, userId);
+            icon.className = 'bi bi-plus-lg';
+            btn.title = 'Add to bag';
         }else {
-            await setFav(product, userId);
-            icon.className = 'bi bi-suit-heart-fill';
-            btn.title = 'Remove from favourite';
+            await setBag(product, userId);
+            icon.className = 'bi bi-dash-lg';
+            btn.title = 'Remove from bag';
         }
     }else {
         goToLogin();
@@ -175,28 +175,28 @@ async function getUser (userId) {
     }
 }
 
-async function setFav (product, userId) {
+async function setBag (product, userId) {
     let user = await getUser(userId);
 
     let updatedUser = null;
     
-    if (!user.favourites) {
-        user.favourites = [product];
+    if (!user.bag) {
+        user.bag = [product];
         updatedUser = user;
     }else {
-        user.favourites.push(product);
+        user.bag.push(product);
         updatedUser = user;
     }
         
     updateUser(updatedUser, userId)
 }
 
-async function removeFav (product, userId) {
+async function removeBag (product, userId) {
     let user = await getUser(userId);
     let updatedUser = null;
 
-    let productIndex = user.favourites.indexOf(product);
-    user.favourites.splice(productIndex, 1);
+    let productIndex = user.bag.indexOf(product);
+    user.bag.splice(productIndex, 1);
     updatedUser = user;
 
     updateUser(updatedUser, userId)
@@ -214,26 +214,26 @@ async function updateUser (updatedUser, userId) {
     .catch(err => console.error(err))
 }
 
-async function checkFav (product, favIcon) {
+async function checkBag (product, addIcon) {
     let userId = checkUserLogin();
 
     if (userId) {
         let user = await getUser(userId);
 
-        if (user.favourites) {
-            let favProducts = user.favourites;
-            let isInFavourites = favProducts.some(favProduct => {
-                if (favProduct.collection === product.collection && favProduct.id === product.id) {
+        if (user.bag) {
+            let bagProducts = user.bag;
+            let isInBag = bagProducts.some(bagProduct => {
+                if (bagProduct.collection === product.collection && bagProduct.id === product.id) {
                     return true;
                 }else {
                     return false
                 }
             });
 
-            if (isInFavourites) {
-                favIcon.className = 'bi bi-suit-heart-fill'
+            if (isInBag) {
+                addIcon.className = 'bi bi-dash-lg'
             }else {
-                favIcon.className = 'bi bi-suit-heart'
+                addIcon.className = 'bi bi-plus-lg'
             }
         }
     }

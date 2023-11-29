@@ -126,7 +126,11 @@ const generateBagProducts = products => {
         imgContainer.classList.add('img-container');
 
         const img = $.createElement('img');
-        img.setAttribute('src', product.image);
+        if (product.chosenImage) {
+            img.setAttribute('src', product.chosenImage);
+        }else {
+            img.setAttribute('src', product.image);
+        }
         img.alt = product.collection;
         imgContainer.append(img);
 
@@ -174,11 +178,20 @@ const generateBagProducts = products => {
         const colors = $.createElement('div');
         colors.classList.add('colors');
 
-        const color = $.createElement('div');
-        color.classList.add('color');
-        color.style.backgroundColor = product.color;
+        if (product.chosenColor) {
+            const color = $.createElement('div');
+            color.classList.add('color');
+            color.style.backgroundColor = product.chosenColor;
+            colors.append(color);
+        }else {
+            product.colors.forEach(productColor => {
+                const color = $.createElement('div');
+                color.classList.add('color');
+                color.style.backgroundColor = productColor;
+                colors.append(color);
+            })
+        }
 
-        colors.append(color);
         productInfo.append(colors);
 
         const productFoot = $.createElement('div');
@@ -190,9 +203,9 @@ const generateBagProducts = products => {
         const sizeContainer = $.createElement('div');
 
         
-        if (product.size === 'FreeSize') {
+        if (product.chosenSize === 'FreeSize') {
             const freeSize = $.createElement('p');
-            freeSize.textContent = product.size;
+            freeSize.textContent = product.chosenSize;
             freeSize.classList.add('freesize', 'show-freesize');
             sizeContainer.append(freeSize)
         }else {
@@ -223,7 +236,7 @@ const generateBagProducts = products => {
 
             const sizeOptions = $.querySelectorAll('.size option');
             sizeOptions.forEach(option => {
-                if (option.value === product.size) {
+                if (option.value == product.size) {
                     sizeSelect.value = option.value;
                 }
             })

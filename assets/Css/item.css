@@ -110,7 +110,7 @@
     gap: 5px;
 }
 
-.detail-btn, .fav-btn {
+.detail-btn, .add-btn {
     width: 50px;
     height: 31px;
     outline: none;
@@ -131,14 +131,14 @@
     color: rgb(233 231 231);
 }
 
-.fav-btn {
-    background-color: tomato;
+.add-btn {
+    background-color: darkorange;
     font-size: 19px;
     width: 30px;
     transition: color 0.2s;
 }
 
-.detail-btn:hover , .fav-btn:hover {
+.detail-btn:hover , .add-btn:hover {
     background-color: transparent;
 }
 
@@ -148,8 +148,7 @@
     box-shadow: 0px 0px 5px 0px #4682b4;
 }
 
-.fav-btn:hover {
-    border-color: tomato;
-    box-shadow: 0px 0px 5px 0px tomato;
-    color: tomato;
+.add-btn:hover {
+    border-color: darkorange;
+    box-shadow: 0px 0px 5px 0px darkorange;
 }

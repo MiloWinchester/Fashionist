@@ -150,7 +150,7 @@ const calculatOffer = productPrice => {
 
 const rejectSize = () => {
     sizeBtns.forEach(btn => {
-        btn.classList.remove('chosen-size', 'border-red');
+        btn.classList.remove('chosen-size');
     })
 }
 
@@ -161,7 +161,7 @@ const chooseSize = size => {
 const rejectImg = () => {
     const images = $.querySelectorAll('.img');
     images.forEach(img => {
-        img.classList.remove('chosen-img', 'border-red')
+        img.classList.remove('chosen-img')
     })
 }
 
@@ -175,7 +175,7 @@ const chooseImg = img => {
 const rejectColor = () => {
     const colors = $.querySelectorAll('.color');
     colors.forEach(color => {
-        color.classList.remove('chosen-color', 'border-red');
+        color.classList.remove('chosen-color');
     })
 }
 
@@ -321,42 +321,34 @@ const setProductOptions = () => {
     const chosenImg = $.querySelector('.chosen-img');
     const chosenColor = $.querySelector('.chosen-color');
     const chosenSize = $.querySelector('.chosen-size');
+    const freeSize = $.querySelector('.show-freesize');
 
-    if (!chosenImg) {
-        const images = $.querySelectorAll('.item-img');
-        images.forEach(img => {
-            img.classList.add('border-red')
-        })
-
-    }else if (!chosenColor) {
-
-        const colors = $.querySelectorAll('.color');
-        colors.forEach(color => {
-            color.classList.add('border-red')
-        })
-
-    }else if (!chosenSize) {
-
-        const sizes = $.querySelectorAll('.size-btn');
-        sizes.forEach(size => {
-            size.classList.add('border-red')
-        })
-
-    }else {
-        let product = {
-            id: productInfo.id,
-            name: productInfo.name,
-            brand: productInfo.brand,
-            collection: productInfo.collection,
-            price: productInfo.price,
-            offerPrice: productInfo.offerPrice,
-            image: chosenImg.getAttribute('src'),
-            color: chosenColor.style.backgroundColor,
-            chosenSize: chosenSize.textContent
-        }
-
-        return product;
+    let product = {
+        id: productInfo.id,
+        name: productInfo.name,
+        brand: productInfo.brand,
+        collection: productInfo.collection,
+        price: productInfo.price,
+        offerPrice: productInfo.offerPrice,
+        images : productInfo.images,
+        colors : productInfo.colors,
     }
+
+    if (chosenImg) {
+        product.chosenImage = chosenImg.getAttribute('src');
+    }
+
+    if (chosenColor) {
+        product.chosenColor = chosenColor.style.backgroundColor;
+    }
+
+    if (chosenSize) {
+        product.chosenSize = chosenSize.textContent;
+    }else if (freeSize) {
+        product.chosenSize = 'FreeSize';
+    }
+
+    return product;
 }
 
 async function addToBag (userId, product) {
