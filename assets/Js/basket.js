@@ -337,7 +337,20 @@ const calculateDelivery = () => {
 }
 
 const calculateTotalPrice = () => {
-    
+    let totalProductPrice = Number(subTotal.textContent.substring(subTotal.textContent.indexOf('$') + 1));
+    let totalDiscount = Number(discount.textContent.substring(discount.textContent.indexOf('$') + 1));
+    let totalDelivery = delivery.textContent;
+
+    let totalPrices = 0;
+
+    totalPrices = totalProductPrice - totalDiscount;
+    if (totalDelivery !== 'Free') {
+        totalDelivery = Number(delivery.textContent.substring(delivery.textContent.indexOf('$') + 1));
+        totalPrices += totalDelivery;
+    }
+
+    totalPrice.textContent = `$${totalPrices}`;
+
 }
 
 const removeFilter = () => {
