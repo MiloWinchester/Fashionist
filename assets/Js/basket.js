@@ -111,6 +111,7 @@ const renderBagProducts = products => {
     generateBagProducts(products, productFragment);
 
     productList.append(productFragment);
+    calculateSubtotal();
 }
 
 const generateBagProducts = products => {
