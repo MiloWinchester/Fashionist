@@ -213,8 +213,7 @@ const generateBagProducts = products => {
         const sizeOptions = $.querySelectorAll('.size option');
         sizeOptions.forEach(option => {
             if (option.value === product.size) {
-                option.setAttribute('selected', true);
-                option.selected = true;
+                sizeSelect.value = option.value;
             }
         })
 
