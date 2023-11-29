@@ -129,7 +129,7 @@ const generateBagProducts = products => {
         if (product.chosenImage) {
             img.setAttribute('src', product.chosenImage);
         }else {
-            img.setAttribute('src', product.image);
+            img.setAttribute('src', product.images[0]);
         }
         img.alt = product.collection;
         imgContainer.append(img);
