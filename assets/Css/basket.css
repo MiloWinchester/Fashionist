@@ -263,7 +263,7 @@ hr {
 .size, .quantity {
     outline: none;
     background-color: var(--theme);
-    width: 50%;
+    width: 60%;
     color: var(--color);
     border: none;
     cursor: pointer;

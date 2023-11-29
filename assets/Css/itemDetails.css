@@ -302,7 +302,7 @@ a {
 }
 
 .chosen-size {
-    background-color: #41414176;
+    background-color: #8a8a8a;
 }
 
 .chosen-img {
@@ -364,5 +364,5 @@ a {
 }
 
 .border-red {
-    border: 1px solid tomato;
+    border: 1px solid red;
 }
