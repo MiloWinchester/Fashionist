@@ -135,9 +135,10 @@
     background-color: tomato;
     font-size: 19px;
     width: 30px;
+    transition: color 0.2s;
 }
 
-.detail-btn:hover , .add-btn:hover {
+.detail-btn:hover , .fav-btn:hover {
     background-color: transparent;
 }
 
@@ -150,4 +151,5 @@
 .fav-btn:hover {
     border-color: tomato;
     box-shadow: 0px 0px 5px 0px tomato;
+    color: tomato;
 }

@@ -305,7 +305,7 @@ const changeBagStatus = () => {
             addToBag(userId)
             addBagBtn.textContent = 'Remove from bag';
         }else {
-            removeFromBag();
+            removeFromBag(userId);
             addBagBtn.textContent = 'Add to bag';
         }
     }else {
