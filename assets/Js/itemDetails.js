@@ -150,7 +150,7 @@ const calculatOffer = productPrice => {
 
 const rejectSize = () => {
     sizeBtns.forEach(btn => {
-        btn.classList.remove('chosen-size');
+        btn.classList.remove('chosen-size', 'border-red');
     })
 }
 
@@ -161,7 +161,7 @@ const chooseSize = size => {
 const rejectImg = () => {
     const images = $.querySelectorAll('.img');
     images.forEach(img => {
-        img.classList.remove('chosen-img')
+        img.classList.remove('chosen-img', 'border-red')
     })
 }
 
@@ -175,7 +175,7 @@ const chooseImg = img => {
 const rejectColor = () => {
     const colors = $.querySelectorAll('.color');
     colors.forEach(color => {
-        color.classList.remove('chosen-color');
+        color.classList.remove('chosen-color', 'border-red');
     })
 }
 
@@ -300,39 +300,85 @@ async function checkFavourite () {
 
 const changeBagStatus = () => {
     let userId = checkUserLogin();
+    
     if (userId) {
-        if (addBagBtn.textContent.includes('Add')) {
-            addToBag(userId)
-            addBagBtn.textContent = 'Remove from bag';
-        }else {
-            removeFromBag(userId);
-            addBagBtn.textContent = 'Add to bag';
+        let product = setProductOptions();
+        if (product) {
+            if (addBagBtn.textContent.includes('Add')) {
+                addToBag(userId, product)
+                addBagBtn.textContent = 'Remove from bag';
+            }else {
+                removeFromBag(userId, product);
+                addBagBtn.textContent = 'Add to bag';
+            }
         }
     }else {
         showLoginModal();
     }
 }
 
-async function addToBag (userId) {
+const setProductOptions = () => {
+    const chosenImg = $.querySelector('.chosen-img');
+    const chosenColor = $.querySelector('.chosen-color');
+    const chosenSize = $.querySelector('.chosen-size');
+
+    if (!chosenImg) {
+        const images = $.querySelectorAll('.item-img');
+        images.forEach(img => {
+            img.classList.add('border-red')
+        })
+
+    }else if (!chosenColor) {
+
+        const colors = $.querySelectorAll('.colors');
+        colors.forEach(color => {
+            color.classList.add('border-red')
+        })
+
+    }else if (!chosenSize) {
+
+        const sizes = $.querySelectorAll('.size-btn');
+        sizes.forEach(size => {
+            size.classList.add('border-red')
+        })
+
+    }else {
+        let product = {
+            id: productInfo.id,
+            name: productInfo.name,
+            brand: productInfo.brand,
+            collection: productInfo.collection,
+            price: productInfo.price,
+            offerPrice: productInfo.offerPrice,
+            image: chosenImg.getAttribute('src'),
+            color: chosenColor.style.backgroundColor,
+            chosenSize: chosenSize.textContent
+        }
+
+        return product;
+    }
+}
+
+async function addToBag (userId, product) {
     let user = await getUser(userId);
     let updatedUser = null;
     
     if (!user.bag) {
-        user.bag = [productInfo];
+        user.bag = [product];
         updatedUser = user;
     }else {
-        user.bag.push(productInfo);
+        user.bag.push(product);
         updatedUser = user;
     }
         
     updateUser(updatedUser, userId)
 }
 
-async function removeFromBag (userId) {
+async function removeFromBag (userId, product) {
     let user = await getUser(userId);
     let updatedUser = null;
 
-    let productIndex = user.bag.indexOf(productInfo);
+    let productIndex = user.bag.indexOf(product);
     user.bag.splice(productIndex, 1);
     updatedUser = user;
 

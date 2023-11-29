@@ -362,3 +362,7 @@ a {
         display: none;
     }
 }
+
+.border-red {
+    border: 1px solid tomato;
+}
