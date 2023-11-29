@@ -137,14 +137,14 @@ const setDataToStorage = product => {
 async function changeFavStatus (btn, icon, product) {
     let userId = checkUserLogin();
     if (userId) {
-        if (icon.className.includes('plus')) {
-            await setFav(product, userId);
-            icon.className = 'bi bi-suit-heart-fill';
-            btn.title = 'Remove from favourite';
-        }else {
+        if (icon.className.includes('fill')) {
             await removeFav(product, userId);
             icon.className = 'bi bi-suit-heart';
             btn.title = 'Add to favourite';
+        }else {
+            await setFav(product, userId);
+            icon.className = 'bi bi-suit-heart-fill';
+            btn.title = 'Remove from favourite';
         }
     }else {
         goToLogin();
