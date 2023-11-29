@@ -330,7 +330,7 @@ const setProductOptions = () => {
 
     }else if (!chosenColor) {
 
-        const colors = $.querySelectorAll('.colors');
+        const colors = $.querySelectorAll('.color');
         colors.forEach(color => {
             color.classList.add('border-red')
         })
