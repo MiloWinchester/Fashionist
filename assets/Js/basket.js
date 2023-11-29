@@ -220,16 +220,16 @@ const generateBagProducts = products => {
 
             sizeSelect.append(optionS, optionM, optionL, optionXL, option2XL);
             sizeContainer.append(size, sizeSelect);
+
+            const sizeOptions = $.querySelectorAll('.size option');
+            sizeOptions.forEach(option => {
+                if (option.value === product.size) {
+                    sizeSelect.value = option.value;
+                }
+            })
         }
         
         sizeQuantity.append(sizeContainer);
-
-        const sizeOptions = $.querySelectorAll('.size option');
-        sizeOptions.forEach(option => {
-            if (option.value === product.size) {
-                sizeSelect.value = option.value;
-            }
-        })
 
         const quantityContainer = $.createElement('div');
         const quiantity = $.createElement('p');

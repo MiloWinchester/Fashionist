@@ -322,7 +322,7 @@ option:disabled {
     font-size: 25px;
 }
 
-.price.line-through .offer-price {
+.price.line-through ~ .offer-price {
     display: inline;
 }
 
