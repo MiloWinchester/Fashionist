@@ -295,7 +295,7 @@ const calculateSubtotal = () => {
 }
 
 const calculateDiscount = () => {
-    const offerPrices = $.querySelectorAll('offer-price');
+    const offerPrices = $.querySelectorAll('.offer-price');
     const prices = $.querySelectorAll('.price');
 
     if (offerPrices) {
