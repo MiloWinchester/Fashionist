@@ -73,9 +73,9 @@ const generateProductCard = (items, cardFragment) => {
         let favIcon = $.createElement('i');
         favIcon.className = 'bi bi-suit-heart';
 
-        favBtn.append(addIcon);
+        favBtn.append(favIcon);
 
-        btnContainer.append(detailBtn, addBtn);
+        btnContainer.append(detailBtn, favBtn);
         itemShop.append(btnContainer);
 
         if (item.price != item.offerPrice) {
