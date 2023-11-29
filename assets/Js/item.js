@@ -66,14 +66,14 @@ const generateProductCard = (items, cardFragment) => {
 
         detailBtn.append(pageLink);
 
-        let addBtn = $.createElement('button');
-        addBtn.classList.add('add-btn');
-        addBtn.title = 'Add to bag';
+        let favBtn = $.createElement('button');
+        favBtn.classList.add('add-btn');
+        favBtn.title = 'Add to Favourites';
 
-        let addIcon = $.createElement('i');
-        addIcon.className = 'bi bi-plus-lg';
+        let favIcon = $.createElement('i');
+        favIcon.className = 'bi bi-suit-heart';
 
-        addBtn.append(addIcon);
+        favBtn.append(addIcon);
 
         btnContainer.append(detailBtn, addBtn);
         itemShop.append(btnContainer);
@@ -104,11 +104,11 @@ const generateProductCard = (items, cardFragment) => {
             setDataToStorage(item);
         })
 
-        addBtn.addEventListener('click', () => {
-            changeBagStatus(addIcon, item);
+        favBtn.addEventListener('click', () => {
+            changeFavStatus(favBtn, favIcon, item);
         });
 
-        checkBag(item, addIcon)
+        checkFav(item, favIcon)
     });
 }
 
@@ -134,13 +134,20 @@ const setDataToStorage = product => {
     localStorage.setItem('product', JSON.stringify(product));
 }
 
-async function changeBagStatus (icon, product) {
-    if (icon.className.includes('plus')) {
-        await setBag(product);
-        icon.className = 'bi bi-dash-lg'
+async function changeFavStatus (btn, icon, product) {
+    let userId = checkUserLogin();
+    if (userId) {
+        if (icon.className.includes('plus')) {
+            await setFav(product, userId);
+            icon.className = 'bi bi-suit-heart-fill';
+            btn.title = 'Remove from favourite';
+        }else {
+            await removeFav(product, userId);
+            icon.className = 'bi bi-suit-heart';
+            btn.title = 'Add to favourite';
+        }
     }else {
-        await removeBag(product);
-        icon.className = 'bi bi-plus-lg';
+        goToLogin();
     }
 }
 
@@ -168,45 +175,34 @@ async function getUser (userId) {
     }
 }
 
-async function setBag (product) {
-    let userId = checkUserLogin();
-    if (userId) {
-        let user = await getUser(userId);
+async function setFav (product, userId) {
+    let user = await getUser(userId);
 
-        let updatedUser = null;
-        
-        if (!user.bag) {
-            user.bag = [product];
-            updatedUser = user;
-        }else {
-            user.bag.push(product);
-            updatedUser = user;
-        }
-        
-        updateUser(updatedUser)
-    }else {
-        goToLogin();
-    }
-}
-
-async function removeBag (product) {
-    let userId = checkUserLogin();
-    if (userId) {
-        let user = await getUser(userId);
-        let updatedUser = null;
-
-        let productIndex = user.bag.indexOf(product);
-        user.bag.splice(productIndex, 1);
+    let updatedUser = null;
+    
+    if (!user.favourites) {
+        user.favourites = [product];
         updatedUser = user;
-
-        updateUser(updatedUser)
     }else {
-        goToLogin();
+        user.favourites.push(product);
+        updatedUser = user;
     }
+        
+    updateUser(updatedUser, userId)
 }
 
-async function updateUser (updatedUser) {
-    let userId = checkUserLogin();
+async function removeFav (product, userId) {
+    let user = await getUser(userId);
+    let updatedUser = null;
+
+    let productIndex = user.favourites.indexOf(product);
+    user.favourites.splice(productIndex, 1);
+    updatedUser = user;
+
+    updateUser(updatedUser, userId)
+}
+
+async function updateUser (updatedUser, userId) {
 
     await fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${userId}.json`, {
         method: 'PUT',
@@ -218,26 +214,26 @@ async function updateUser (updatedUser) {
     .catch(err => console.error(err))
 }
 
-async function checkBag (product, addIcon) {
+async function checkFav (product, favIcon) {
     let userId = checkUserLogin();
 
     if (userId) {
         let user = await getUser(userId);
 
-        if (user.bag) {
-            let bagProducts = user.bag;
-            let isInBag = bagProducts.some(bagProduct => {
-                if (bagProduct.collection === product.collection && bagProduct.id === product.id) {
+        if (user.favourites) {
+            let favProducts = user.favourites;
+            let isInFavourites = favProducts.some(favProduct => {
+                if (favProduct.collection === product.collection && favProduct.id === product.id) {
                     return true;
                 }else {
                     return false
                 }
             });
 
-            if (isInBag) {
-                addIcon.className = 'bi bi-dash-lg'
+            if (isInFavourites) {
+                favIcon.className = 'bi bi-suit-heart-fill'
             }else {
-                addIcon.className = 'bi bi-plus-lg'
+                favIcon.className = 'bi bi-suit-heart'
             }
         }
     }

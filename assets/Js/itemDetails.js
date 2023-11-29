@@ -25,6 +25,7 @@ const sideImageContainer = $.querySelector('.side-images');
 const itemImageContainer = $.querySelector('.item-images');
 const colorContainer = $.querySelector('.colors');
 const freeSize = $.querySelector('.free-size');
+const addBagBtn = $.querySelector('.basket-btn')
 const loginModal = $.querySelector('.login-modal')
 
 let productInfo = {};
@@ -297,6 +298,83 @@ async function checkFavourite () {
     }
 }
 
+const changeBagStatus = () => {
+    let userId = checkUserLogin();
+    if (userId) {
+        if (addBagBtn.textContent.includes('Add')) {
+            addToBag(userId)
+            addBagBtn.textContent = 'Remove from bag';
+        }else {
+            removeFromBag();
+            addBagBtn.textContent = 'Add to bag';
+        }
+    }else {
+        showLoginModal();
+    }
+}
+
+async function addToBag (userId) {
+    let user = await getUser(userId);
+    let updatedUser = null;
+    
+    if (!user.bag) {
+        user.bag = [productInfo];
+        updatedUser = user;
+    }else {
+        user.bag.push(productInfo);
+        updatedUser = user;
+    }
+        
+    updateUser(updatedUser, userId)
+}
+
+async function removeFromBag (userId) {
+    let user = await getUser(userId);
+    let updatedUser = null;
+
+    let productIndex = user.bag.indexOf(productInfo);
+    user.bag.splice(productIndex, 1);
+    updatedUser = user;
+
+    updateUser(updatedUser, userId)
+}
+
+async function updateUser (updatedUser, userId) {
+    await fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${userId}.json`, {
+        method: 'PUT',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify(updatedUser)
+    }).then(res => console.log(res))
+    .catch(err => console.error(err))
+} 
+
+async function checkBag () {
+    let userId = checkUserLogin();
+
+    if (userId) {
+        let user = await getUser(userId);
+
+        if (user.bag) {
+            let bagProducts = user.bag;
+            let isInBag = bagProducts.some(bagProduct => {
+                if (bagProduct.collection === productInfo.collection && bagProduct.id === productInfo.id) {
+                    return true;
+                }else {
+                    return false
+                }
+            });
+
+            if (isInBag) {
+                addBagBtn.textContent = 'Remove from bag'
+            }else {
+                addBagBtn.textContent = 'Add to bag'
+            }
+        }
+    }
+} 
+
 const showLoginModal = () => {
     loginModal.classList.add('show-login-modal');
 
@@ -321,6 +399,7 @@ window.addEventListener('load', () => {
 window.addEventListener('DOMContentLoaded', () => {
     getProduct();
     checkFavourite();
+    checkBag();
 })
 
 sizeBtns.forEach(btn => {
@@ -332,4 +411,8 @@ sizeBtns.forEach(btn => {
 
 favouriteBtn.addEventListener('click', () => {
     chooseFavourite();
+})
+
+addBagBtn.addEventListener('click', () => {
+    changeBagStatus();
 })

@@ -110,7 +110,7 @@
     gap: 5px;
 }
 
-.detail-btn, .add-btn {
+.detail-btn, .fav-btn {
     width: 50px;
     height: 31px;
     outline: none;
@@ -131,8 +131,8 @@
     color: rgb(233 231 231);
 }
 
-.add-btn {
-    background-color: darkorange;
+.fav-btn {
+    background-color: tomato;
     font-size: 19px;
     width: 30px;
 }
@@ -147,7 +147,7 @@
     box-shadow: 0px 0px 5px 0px #4682b4;
 }
 
-.add-btn:hover {
-    border-color: darkorange;
-    box-shadow: 0px 0px 5px 0px darkorange;
+.fav-btn:hover {
+    border-color: tomato;
+    box-shadow: 0px 0px 5px 0px tomato;
 }
