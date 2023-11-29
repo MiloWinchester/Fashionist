@@ -210,6 +210,13 @@ const generateBagProducts = products => {
         sizeContainer.append(size, sizeSelect);
         sizeQuantity.append(sizeContainer);
 
+        const sizeOptions = $.querySelectorAll('.size option');
+        sizeOptions.forEach(option => {
+            if (option.value === product.size) {
+                option.setAttribute('selected', true);
+            }
+        })
+
         const quantityContainer = $.createElement('div');
         const quiantity = $.createElement('p');
         quiantity.textContent = 'Quiantity'
@@ -233,8 +240,8 @@ const generateBagProducts = products => {
 
         const price = $.createElement('h1');
         price.classList.add('price');
-        price.textContent =`$${product.price};
-`
+        price.textContent =`$${product.price}`;
+
         const offerPrice = $.createElement('h1');
         offerPrice.classList.add('offer-price');
         offerPrice.textContent = `$${product.offerPrice}`;
