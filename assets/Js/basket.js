@@ -223,8 +223,6 @@ const generateBagProducts = products => {
 
             if (product.chosenSize) {
                 sizeSelect.value = product.chosenSize;
-                console.log(product.chosenSize);
-                console.log(sizeSelect.value);
             }
 
             sizeContainer.append(size, sizeSelect);
@@ -275,7 +273,83 @@ const generateBagProducts = products => {
 
         productFragment.append(productContainer, hr);
 
+        favBtn.addEventListener('click', () => {
+            changeFavStatus(favBtn, favIcon, product);
+        })
+
+        checkFavourite(favIcon, product);
+
     })
+}
+
+const changeFavStatus = (btn, icon, product) => {
+    let userId = checkUserLogin();
+    if (userId) {
+        if (icon.className.includes('fill')) {
+            icon.className = 'bi bi-suit-heart';
+            removeFromUserFav(userId, product);
+        }else {
+            icon.className = 'bi bi-suit-heart-fill';
+            addToUserFav(userId, product);
+        }
+    }
+}
+
+async function updateUser (updatedUser, userId) {
+    await fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${userId}.json`, {
+        method: 'PUT',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify(updatedUser)
+    }).then(res => console.log(res))
+    .catch(err => console.error(err));
+}
+
+async function addToUserFav (userId, product) {
+    let user = await getUser();
+    let updatedUser = null;
+    
+    if (!user.favourites) {
+        user.favourites = [product];
+        updatedUser = user;
+    }else {
+        user.favourites.push(product);
+        updatedUser = user;
+    }
+    
+    updateUser(updatedUser, userId)
+}
+
+async function removeFromUserFav (userId, product)  {
+    let user = await getUser();
+    let updatedUser = null;
+    let productIndex = user.favourites.indexOf(product);
+    user.favourites.splice(productIndex, 1);
+    updatedUser = user;
+
+    updateUser(updatedUser, userId)
+}
+
+async function checkFavourite (favIcon, product) {
+    let user = await getUser();
+
+    if (user.favourites) {
+        let favouriteProducts = user.favourites;
+        let isInFavourites = favouriteProducts.some(fav => {
+            if (fav.name === product.name && fav.id === product.id) {
+                return true;
+            }else {
+                return false;
+            }
+        })
+
+        if (isInFavourites) {
+            favIcon.className = 'bi bi-suit-heart-fill';
+        }else {
+            favIcon.className = 'bi bi-suit-heart';
+        }
+    }
 }
 
 const calculateSubtotal = () => {

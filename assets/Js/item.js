@@ -223,7 +223,7 @@ async function checkBag (product, addIcon) {
         if (user.bag) {
             let bagProducts = user.bag;
             let isInBag = bagProducts.some(bagProduct => {
-                if (bagProduct.collection === product.collection && bagProduct.id === product.id) {
+                if (bagProduct.name === product.name && bagProduct.id === product.id) {
                     return true;
                 }else {
                     return false

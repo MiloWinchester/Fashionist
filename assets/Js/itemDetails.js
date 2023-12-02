@@ -278,7 +278,7 @@ async function checkFavourite () {
         if (user.favourites) {
             let favouriteProducts = user.favourites;
             let isInFavourites = favouriteProducts.some(product => {
-                if (productInfo.collection === product.collection && productInfo.id === product.id) {
+                if (productInfo.name === product.name && productInfo.id === product.id) {
                     return true;
                 }else {
                     return false;
@@ -412,7 +412,7 @@ async function checkBag () {
         if (user.bag) {
             let bagProducts = user.bag;
             let isInBag = bagProducts.some(bagProduct => {
-                if (bagProduct.collection === productInfo.collection && bagProduct.id === productInfo.id) {
+                if (bagProduct.name === productInfo.name && bagProduct.id === productInfo.id) {
                     return true;
                 }else {
                     return false
