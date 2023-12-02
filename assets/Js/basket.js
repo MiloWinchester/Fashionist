@@ -290,10 +290,10 @@ const changeFavStatus = (icon, product) => {
     let userId = checkUserLogin();
     if (userId) {
         if (icon.className.includes('fill')) {
-            icon.className = 'bi bi-suit-heart isFav';
+            icon.className = 'bi bi-suit-heart';
             removeFromUserFav(userId, product);
         }else {
-            icon.className = 'bi bi-suit-heart-fill';
+            icon.className = 'bi bi-suit-heart-fill isFav';
             addToUserFav(userId, product);
         }
     }
