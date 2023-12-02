@@ -333,7 +333,13 @@ const setProductOptions = () => {
             color.classList.add('border-red');
         })
 
-    }else if (chosenSize || freeSize) {
+    }else if (!chosenSize && !freeSize) {
+        const sizes = $.querySelectorAll('.size-btn');
+            
+        sizes.forEach(size => {
+            size.classList.add('border-red');
+        })
+    }else {
         let product = {
             id: productInfo.id,
             name: productInfo.name,
@@ -346,23 +352,12 @@ const setProductOptions = () => {
             sizes : productInfo.sizes,
             chosenImage : chosenImg.getAttribute('src'),
             chosenColor : chosenColor.style.backgroundColor,
-            chosenSize : null
+            chosenSize : chosenSize.textContent
         }
 
         if (freeSize) {
             product.chosenSize = 'FreeSize';
-            return product;
-        }else if (chosenSize) {
-            product.chosenSize = chosenSize.textContent;
-            return product;
-        }else {
-            const sizes = $.querySelectorAll('.size-btn');
-            
-            sizes.forEach(size => {
-                size.classList.add('border-red');
-            })
         }
-
     }
 }
 
