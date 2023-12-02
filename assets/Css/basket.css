@@ -338,3 +338,7 @@ option:disabled {
 .show-empty-msg, .show-login-msg {
     display: flex;
 }
+
+.isFav {
+    color: #ff8974;
+}

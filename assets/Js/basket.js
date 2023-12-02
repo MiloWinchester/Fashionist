@@ -279,6 +279,10 @@ const generateBagProducts = products => {
 
         checkFavourite(favIcon, product);
 
+        removeBtn.addEventListener('click', () => {
+            removeFromBag(product)
+        })
+
     })
 }
 
@@ -341,10 +345,22 @@ async function checkFavourite (favIcon, product) {
 
         if (isInFavourites) {
             favIcon.className = 'bi bi-suit-heart-fill';
+            favIcon.classList.add('isFav')
         }else {
             favIcon.className = 'bi bi-suit-heart';
+            favIcon.classList.remove('isFav')
         }
     }
+}
+
+async function removeFromBag (product)  {
+    let userId = checkUserLogin();
+    let updatedUser = null;
+    let productIndex = user.bag.indexOf(product);
+    user.bag.splice(productIndex, 1);
+    updatedUser = user;
+
+    updateUser(updatedUser, userId)
 }
 
 const calculateSubtotal = () => {
