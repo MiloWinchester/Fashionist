@@ -218,17 +218,20 @@ const generateBagProducts = products => {
             product.sizes.forEach(size => {
                 const sizeOption = $.createElement('option');
                 sizeOption.textContent = size;
+                if (size === product.chosenSize) {
+                    sizeSelect.value = size;
+                }
                 sizeSelect.append(sizeOption);
             })
-            
+
             sizeContainer.append(size, sizeSelect);
 
-            const sizeOptions = $.querySelectorAll('.size option');
-            sizeOptions.forEach(option => {
-                if (option.value == product.size) {
-                    sizeSelect.value = option.value;
-                }
-            })
+            // const sizeOptions = $.querySelectorAll('.size option');
+            // sizeOptions.forEach(option => {
+            //     if (option.value == product.size) {
+            //         sizeSelect.value = option.value;
+            //     }
+            // })
         }
         
         sizeQuantity.append(sizeContainer);

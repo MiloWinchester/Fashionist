@@ -320,14 +320,14 @@ const setProductOptions = () => {
     const freeSize = $.querySelector('.show-freesize');
 
     if (!chosenImg) {
-        const imgs = $.querySelectorAll('item-img');
+        const imgs = $.querySelectorAll('.item-img');
         
         imgs.forEach(img => {
             img.classList.add('border-red');
         })
     }else if (!chosenColor) {
 
-        const colors = $.querySelectorAll('color');
+        const colors = $.querySelectorAll('.color');
         
         colors.forEach(color => {
             color.classList.add('border-red');
@@ -355,7 +355,7 @@ const setProductOptions = () => {
             product.chosenSize = chosenSize.textContent;
             return product;
         }else {
-            const sizes = $.querySelectorAll('size-btn');
+            const sizes = $.querySelectorAll('.size-btn');
             
             sizes.forEach(size => {
                 size.classList.add('border-red');
