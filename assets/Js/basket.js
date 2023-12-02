@@ -218,6 +218,7 @@ const generateBagProducts = products => {
             product.sizes.forEach(size => {
                 const sizeOption = $.createElement('option');
                 sizeOption.textContent = size;
+                console.log(product.chosenSize);
                 if (size === product.chosenSize) {
                     sizeSelect.value = size;
                 }
