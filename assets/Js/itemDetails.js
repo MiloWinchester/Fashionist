@@ -358,6 +358,8 @@ const setProductOptions = () => {
         if (freeSize) {
             product.chosenSize = 'FreeSize';
         }
+
+        return product;
     }
 }
 
