@@ -116,21 +116,17 @@ const renderProductColors = () => {
 
 const renderProductSizes = () => {
     if (productInfo.collection === 'Accessory' || productInfo.collection === 'Underwear') {
-        freeSize.innerHTML = 'Freesize';
+        freeSize.innerHTML = productInfo.sizes;
         freeSize.classList.add('show-freesize')
-    }else if (productInfo.collection === 'Shoes'){
-        const shoeSizes = [38, 40, 42, 44, 46];
-        let index = 0;
-        sizeBtns.forEach(size => {
-            size.textContent = shoeSizes[index];
-            index++;
-            size.classList.add('shoes-size')
-        })
     }else {
+        let sizeIndex = 0;
         sizeBtns.forEach(size => {
-            size.classList.remove('shoes-size')
+            size.textContent = productInfo.sizes[sizeIndex];
+            if (productInfo.collection === 'Shoes') {
+                size.classList.add('shoes-size');
+            };
+            sizeIndex++;
         })
-        freeSize.classList.remove('show-freesize');
     }
 }
 
