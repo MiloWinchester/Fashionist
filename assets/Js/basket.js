@@ -225,13 +225,6 @@ const generateBagProducts = products => {
             })
 
             sizeContainer.append(size, sizeSelect);
-
-            // const sizeOptions = $.querySelectorAll('.size option');
-            // sizeOptions.forEach(option => {
-            //     if (option.value == product.size) {
-            //         sizeSelect.value = option.value;
-            //     }
-            // })
         }
         
         sizeQuantity.append(sizeContainer);
@@ -334,7 +327,7 @@ const calculateDelivery = () => {
         totalProductPrice += priceInNumber;
     });
 
-    if (totalProductPrice <= 250) {
+    if (totalProductPrice <= 350) {
         delivery.textContent = '$50';
     }else {
         delivery.textContent = 'Free';
