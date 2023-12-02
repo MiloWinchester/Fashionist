@@ -215,23 +215,12 @@ const generateBagProducts = products => {
             sizeSelect.name = 'size';
             sizeSelect.classList.add('size');
     
-            const optionS = $.createElement('option');
-            optionS.textContent = 'S'
-            optionS.value = 'S'
-            const optionM = $.createElement('option');
-            optionM.textContent = 'M'
-            optionM.value = 'M'
-            const optionL = $.createElement('option');
-            optionL.textContent = 'L'
-            optionL.value = 'L'
-            const optionXL = $.createElement('option');
-            optionXL.textContent = 'XL'
-            optionXL.value = 'XL'
-            const option2XL = $.createElement('option');
-            option2XL.textContent = '2XL'
-            option2XL.value = '2XL';
-
-            sizeSelect.append(optionS, optionM, optionL, optionXL, option2XL);
+            product.sizes.forEach(size => {
+                const sizeOption = $.createElement('option');
+                sizeOption.textContent = size;
+                sizeSelect.append(sizeOption);
+            })
+            
             sizeContainer.append(size, sizeSelect);
 
             const sizeOptions = $.querySelectorAll('.size option');
