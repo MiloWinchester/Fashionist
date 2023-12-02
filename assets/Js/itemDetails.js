@@ -146,7 +146,7 @@ const calculatOffer = productPrice => {
 
 const rejectSize = () => {
     sizeBtns.forEach(btn => {
-        btn.classList.remove('chosen-size');
+        btn.classList.remove('chosen-size', 'border-red');
     })
 }
 
@@ -157,7 +157,7 @@ const chooseSize = size => {
 const rejectImg = () => {
     const images = $.querySelectorAll('.img');
     images.forEach(img => {
-        img.classList.remove('chosen-img')
+        img.classList.remove('chosen-img', 'border-red')
     })
 }
 
@@ -171,7 +171,7 @@ const chooseImg = img => {
 const rejectColor = () => {
     const colors = $.querySelectorAll('.color');
     colors.forEach(color => {
-        color.classList.remove('chosen-color');
+        color.classList.remove('chosen-color', 'border-red');
     })
 }
 
@@ -319,32 +319,50 @@ const setProductOptions = () => {
     const chosenSize = $.querySelector('.chosen-size');
     const freeSize = $.querySelector('.show-freesize');
 
-    let product = {
-        id: productInfo.id,
-        name: productInfo.name,
-        brand: productInfo.brand,
-        collection: productInfo.collection,
-        price: productInfo.price,
-        offerPrice: productInfo.offerPrice,
-        images : productInfo.images,
-        colors : productInfo.colors,
-    }
+    if (!chosenImg) {
+        const imgs = $.querySelectorAll('item-img');
+        
+        imgs.forEach(img => {
+            img.classList.add('border-red');
+        })
+    }else if (!chosenColor) {
 
-    if (chosenImg) {
-        product.chosenImage = chosenImg.getAttribute('src');
-    }
+        const colors = $.querySelectorAll('color');
+        
+        colors.forEach(color => {
+            color.classList.add('border-red');
+        })
 
-    if (chosenColor) {
-        product.chosenColor = chosenColor.style.backgroundColor;
-    }
+    }else if (chosenSize || freeSize) {
+        let product = {
+            id: productInfo.id,
+            name: productInfo.name,
+            brand: productInfo.brand,
+            collection: productInfo.collection,
+            price: productInfo.price,
+            offerPrice: productInfo.offerPrice,
+            images : productInfo.images,
+            colors : productInfo.colors,
+            sizes : productInfo.sizes,
+            chosenImage : chosenImg.getAttribute('src'),
+            chosenColor : chosenColor.style.backgroundColor,
+        }
 
-    if (chosenSize) {
-        product.chosenSize = chosenSize.textContent;
-    }else if (freeSize) {
-        product.chosenSize = 'FreeSize';
-    }
+        if (freeSize) {
+            product.chosenSize = 'FreeSize';
+            return product;
+        }else if (chosenSize) {
+            product.chosenSize = chosenSize.textContent;
+            return product;
+        }else {
+            const sizes = $.querySelectorAll('size-btn');
+            
+            sizes.forEach(size => {
+                size.classList.add('border-red');
+            })
+        }
 
-    return product;
+    }
 }
 
 async function addToBag (userId, product) {
