@@ -274,7 +274,7 @@ const generateBagProducts = products => {
         productFragment.append(productContainer, hr);
 
         favBtn.addEventListener('click', () => {
-            changeFavStatus(favBtn, favIcon, product);
+            changeFavStatus(favIcon, product);
         })
 
         checkFavourite(favIcon, product);
@@ -282,7 +282,7 @@ const generateBagProducts = products => {
     })
 }
 
-const changeFavStatus = (btn, icon, product) => {
+const changeFavStatus = (icon, product) => {
     let userId = checkUserLogin();
     if (userId) {
         if (icon.className.includes('fill')) {
@@ -307,9 +307,7 @@ async function updateUser (updatedUser, userId) {
 }
 
 async function addToUserFav (userId, product) {
-    let user = await getUser();
     let updatedUser = null;
-    
     if (!user.favourites) {
         user.favourites = [product];
         updatedUser = user;
@@ -322,7 +320,6 @@ async function addToUserFav (userId, product) {
 }
 
 async function removeFromUserFav (userId, product)  {
-    let user = await getUser();
     let updatedUser = null;
     let productIndex = user.favourites.indexOf(product);
     user.favourites.splice(productIndex, 1);
@@ -332,24 +329,22 @@ async function removeFromUserFav (userId, product)  {
 }
 
 async function checkFavourite (favIcon, product) {
-    // let user = await getUser();
+    if (user.favourites) {
+        let favouriteProducts = user.favourites;
+        let isInFavourites = favouriteProducts.some(fav => {
+            if (fav.name === product.name && fav.id === product.id) {
+                return true;
+            }else {
+                return false;
+            }
+        })
 
-    // if (user.favourites) {
-    //     let favouriteProducts = user.favourites;
-    //     let isInFavourites = favouriteProducts.some(fav => {
-    //         if (fav.name === product.name && fav.id === product.id) {
-    //             return true;
-    //         }else {
-    //             return false;
-    //         }
-    //     })
-
-    //     if (isInFavourites) {
-    //         favIcon.className = 'bi bi-suit-heart-fill';
-    //     }else {
-    //         favIcon.className = 'bi bi-suit-heart';
-    //     }
-    // }
+        if (isInFavourites) {
+            favIcon.className = 'bi bi-suit-heart-fill';
+        }else {
+            favIcon.className = 'bi bi-suit-heart';
+        }
+    }
 }
 
 const calculateSubtotal = () => {
