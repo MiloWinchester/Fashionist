@@ -326,12 +326,14 @@ async function addToUserFav (product) {
 
 async function removeFromUserFav (product)  {
     let updatedUser = null;
-    console.log('product: ',product,'user:', user);
-    let productIndex = user.favourites.indexOf(product);
+    let productIndex = null;
+    user.favourites.forEach((fav, index) => {
+        if (fav.name === product.name && fav.collection === product.collection) {
+            productIndex = index;
+        }
+    });
     user.favourites.splice(productIndex, 1);
-    console.log(productIndex);
     updatedUser = user;
-    console.log('user:', user,'updated user:', updatedUser);
 
     await updateUser(updatedUser)
 }

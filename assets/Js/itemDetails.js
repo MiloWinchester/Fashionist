@@ -262,7 +262,15 @@ async function removeFavourite (userId) {
 
 const removeFromUserFav = user => {
     let updatedUser = null;
-    let productIndex = user.favourites.indexOf(productInfo);
+    // let productIndex = user.favourites.indexOf(productInfo);
+    // user.favourites.splice(productIndex, 1);
+    // updatedUser = user;
+    let productIndex = null;
+    user.favourites.forEach((fav, index) => {
+        if (fav.name === productInfo.name && fav.collection === productInfo.collection) {
+            productIndex = index;
+        }
+    });
     user.favourites.splice(productIndex, 1);
     updatedUser = user;
 
@@ -304,7 +312,7 @@ const changeBagStatus = () => {
                 addToBag(userId, product)
                 addBagBtn.textContent = 'Remove from bag';
             }else {
-                removeFromBag(userId, product);
+                removeFromBag(userId, productInfo);
                 addBagBtn.textContent = 'Add to bag';
             }
         }
