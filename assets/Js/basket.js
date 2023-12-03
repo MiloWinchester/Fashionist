@@ -556,7 +556,10 @@ const showSuccessPurchase = () => {
     Swal.fire({
         title: "Purchase Success!",
         text: "It's a pleasure to be your desired fashion club!",
-        icon: "success"
+        icon: "success",
+        allowEnterKey: true,
+        showConfirmButton: true,
+        confirmButtonText: "Shop more 🤩"
     });
 }
 
