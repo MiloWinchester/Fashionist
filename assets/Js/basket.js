@@ -303,12 +303,13 @@ const generateBagProducts = products => {
 
 const rejectColor = productId => {
     const products = $.querySelectorAll('.product-container');
-    let targetProduct = products.filter(product => {
+    let targetProduct = null; 
+    products.forEach(product => {
         if (product.dataset.id == productId) {
-            return product;
+            targetProduct = product.className;
         }
     })
-    const colors = $.querySelectorAll(`.${targetProduct.className} .color`);
+    const colors = $.querySelectorAll(`.${targetProduct} .color`);
     colors.forEach(color => {
         color.classList.remove('chosen-color');
     })
