@@ -270,7 +270,7 @@ const generateBagProducts = products => {
 
         const price = $.createElement('h1');
         price.classList.add('price');
-        price.dataset.quantity = 1;
+        price.dataset.quantity = product.quantity;
         price.textContent =`$${product.price}`;
 
         const offerPrice = $.createElement('h1');
@@ -309,9 +309,6 @@ const generateBagProducts = products => {
         quantitySelect.addEventListener('change', () => {
             checkQuantity(quantitySelect, price, product);
         });
-
-        calculator()
-
     })
 }
 
