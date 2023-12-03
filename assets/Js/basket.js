@@ -125,7 +125,7 @@ const generateBagProducts = products => {
     products.forEach(product => {
         const productContainer = $.createElement('div');
         productContainer.classList.add('product-container');
-        productContainer.dataset.id = product.id;
+        productContainer.id = `no.${product.id}`;
 
         const imgContainer = $.createElement('div');
         imgContainer.classList.add('img-container');
@@ -196,7 +196,7 @@ const generateBagProducts = products => {
                 colors.append(color);
                 
                 color.addEventListener('click', () => {
-                    rejectColor(product.id);
+                    rejectColor(productContainer.id);
                     chooseColor(color);
                 })
             })
@@ -302,14 +302,7 @@ const generateBagProducts = products => {
 }
 
 const rejectColor = productId => {
-    const products = $.querySelectorAll('.product-container');
-    let targetProduct = null; 
-    products.forEach(product => {
-        if (product.dataset.id == productId) {
-            targetProduct = product.className;
-        }
-    })
-    const colors = $.querySelectorAll(`.${targetProduct} .color`);
+    const colors = $.querySelectorAll(`.${productId} .color`);
     colors.forEach(color => {
         color.classList.remove('chosen-color');
     })
