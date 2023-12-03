@@ -386,7 +386,7 @@ async function removeFromBag (product)  {
 const checkQuantity = (selectElem, productPrice) => {
     const quantityValue = selectElem.value;
 
-    productPrice.dataset.count = quantityValue;
+    productPrice.dataset.quantity = quantityValue;
     calculator();
 }
 
