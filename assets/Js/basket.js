@@ -236,6 +236,10 @@ const generateBagProducts = products => {
             }
 
             sizeContainer.append(size, sizeSelect);
+
+            sizeSelect.addEventListener('change', () => {
+                updateSize(sizeSelect.value, product)
+            })
         }
         
         sizeQuantity.append(sizeContainer);
@@ -402,6 +406,20 @@ async function removeFromBag (product)  {
     getUserBag();
 }
 
+async function updateSize (size, product) {
+    let updatedUser = null;
+
+    user.bag.forEach(bagProduct => {
+        if (bagProduct.name === product.name && bagProduct.collection === product.collection) {
+            bagProduct.chosenSize = size;
+        }
+    });
+    
+    updatedUser = user;
+
+    await updateUser(updatedUser);
+}
+
 const checkQuantity = (selectElem, productPrice, product) => {
     const quantityValue = selectElem.value;
 
@@ -412,7 +430,13 @@ const checkQuantity = (selectElem, productPrice, product) => {
 
 async function updateQuantity (quantity, product) {
     let updatedUser = null;
-    user.quantity = quantity;
+
+    user.bag.forEach(bagProduct => {
+        if (bagProduct.name === product.name && bagProduct.collection === product.collection) {
+            bagProduct.quantity = quantity;
+        }
+    });
+    
     updatedUser = user;
 
     await updateUser(updatedUser);
