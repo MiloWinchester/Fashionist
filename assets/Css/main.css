@@ -222,7 +222,6 @@ a {
     height: auto;
     border: 1px solid transparent;
     border-radius: 20px;
-    cursor: pointer;
 }
 
 .trend-button-prev , .trend-button-next, 

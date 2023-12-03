@@ -291,6 +291,11 @@ const generateBagProducts = products => {
 
         productFragment.append(productContainer, hr);
 
+        img.addEventListener('click', () => {
+            goToDetails();
+            setProductToStorage(product);
+        })
+
         favBtn.addEventListener('click', () => {
             changeFavStatus(favIcon, product);
         })
@@ -394,6 +399,14 @@ async function removeFromBag (product)  {
 
     await updateUser(updatedUser);
     getUserBag();
+}
+
+const goToDetails = () => {
+    location.href = 'https://milowinchester.github.io/Fashionist/itemDetails.html';
+}
+
+const setProductToStorage = product => {
+    localStorage.setItem('product', JSON.stringify(product));
 }
 
 const rejectColor = productId => {

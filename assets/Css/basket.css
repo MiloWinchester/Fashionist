@@ -175,6 +175,7 @@ hr {
     height: auto;
     border: 1px solid transparent;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .product-info {
