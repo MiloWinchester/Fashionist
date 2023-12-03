@@ -214,12 +214,9 @@ async function updateUser (updatedUser) {
         body: JSON.stringify(updatedUser)
     }).then(res => console.log(res))
     .catch(err => console.error(err))
-
-    getFavourites();
-    addFavBtns()
 }
 
-const addToUserFav = (product) => {
+async function addToUserFav (product) {
     let updatedUser = null;
     
     if (!user.favourites) {
@@ -230,16 +227,20 @@ const addToUserFav = (product) => {
         updatedUser = user;
     }
     
-    updateUser(updatedUser)
+    await updateUser(updatedUser);
+    getFavourites();
+    addFavBtns()
 }
 
-const removeFromUserFav = (product) => {
+async function removeFromUserFav (product)  {
     let updatedUser = null;
     let productIndex = user.favourites.indexOf(product);
     user.favourites.splice(productIndex, 1);
     updatedUser = user;
 
-    updateUser(updatedUser)
+    await updateUser(updatedUser);
+    getFavourites();
+    addFavBtns()
 }
 
 async function changeBagStatus (btn, icon, product) {
