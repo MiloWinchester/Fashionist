@@ -198,6 +198,7 @@ const generateBagProducts = products => {
                 color.addEventListener('click', () => {
                     rejectColor(productContainer.id);
                     chooseColor(color);
+                    updateColor(color.style.backgroundColor, product)
                 })
             })
         }
@@ -307,17 +308,6 @@ const generateBagProducts = products => {
     })
 }
 
-const rejectColor = productId => {
-    const colors = $.querySelectorAll(`#${productId} .color`);
-    colors.forEach(color => {
-        color.classList.remove('chosen-color');
-    })
-}
-
-const chooseColor = color => {
-    color.classList.add('chosen-color');
-}
-
 const changeFavStatus = (icon, product) => {
     let userId = checkUserLogin();
     if (userId) {
@@ -404,6 +394,31 @@ async function removeFromBag (product)  {
 
     await updateUser(updatedUser);
     getUserBag();
+}
+
+const rejectColor = productId => {
+    const colors = $.querySelectorAll(`#${productId} .color`);
+    colors.forEach(color => {
+        color.classList.remove('chosen-color');
+    })
+}
+
+const chooseColor = color => {
+    color.classList.add('chosen-color');
+}
+
+async function updateColor (color, product) {
+    let updatedUser = null;
+
+    user.bag.forEach(bagProduct => {
+        if (bagProduct.name === product.name && bagProduct.collection === product.collection) {
+            bagProduct.chosenColor = color;
+        }
+    });
+    
+    updatedUser = user;
+
+    await updateUser(updatedUser);
 }
 
 async function updateSize (size, product) {
