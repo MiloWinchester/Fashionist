@@ -137,6 +137,7 @@ const generateFavouriteCard = (products, fragment) => {
 
         const detailBtn = $.createElement('button');
         detailBtn.classList.add('detail-btn');
+        detailBtn.title = 'See Details';
 
         const detailBtnLink = $.createElement('a');
         detailBtnLink.href = 'itemDetails.html';
@@ -144,6 +145,7 @@ const generateFavouriteCard = (products, fragment) => {
 
         const addBtn = $.createElement('button');
         addBtn.classList.add('add-btn');
+        addBtn.title = 'Add to bag'
 
         const addIcon = $.createElement('i');
         addIcon.classList.add('bi', 'bi-plus-lg');
@@ -178,7 +180,12 @@ const generateFavouriteCard = (products, fragment) => {
             setProductToStorage(product);
         })
 
+        addBtn.addEventListener('click', () => {
+            changeBagStatus(addBtn, addIcon, product);
+        })
+
         fragment.append(container);
+        checkBag(product, addIcon)
     })
 }
 
@@ -230,6 +237,51 @@ const removeFromUserFav = (product) => {
     let updatedUser = null;
     let productIndex = user.favourites.indexOf(product);
     user.favourites.splice(productIndex, 1);
+    updatedUser = user;
+
+    updateUser(updatedUser)
+}
+
+async function changeBagStatus (btn, icon, product) {
+    let userId = checkUserLogin();
+    if (userId) {
+        if (icon.className.includes('dash')) {
+            await removeBag(product);
+            icon.className = 'bi bi-plus-lg';
+            btn.title = 'Add to bag';
+        }else {
+            await setBag(product);
+            icon.className = 'bi bi-dash-lg';
+            btn.title = 'Remove from bag';
+        }
+    }
+}
+
+async function setBag (product) {
+    let updatedUser = null;
+    
+    if (!user.bag) {
+        product.quantity = 1;
+        user.bag = [product];
+        updatedUser = user;
+    }else {
+        product.quantity = 1;
+        user.bag.push(product);
+        updatedUser = user;
+    }
+        
+    updateUser(updatedUser)
+}
+
+async function removeBag (product) {
+    let updatedUser = null;
+    let productIndex = null;
+    user.bag.forEach((bagProduct, index) => {
+        if (bagProduct.name === product.name && bagProduct.collection === product.collection) {
+            productIndex = index;
+        }
+    });
+    user.bag.splice(productIndex, 1);
     updatedUser = user;
 
     updateUser(updatedUser)
