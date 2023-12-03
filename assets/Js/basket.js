@@ -280,7 +280,7 @@ const generateBagProducts = products => {
         checkFavourite(favIcon, product);
 
         removeBtn.addEventListener('click', () => {
-            removeFromBag(product)
+            removeFromBag(product);
         })
 
     })
@@ -320,7 +320,7 @@ async function addToUserFav (userId, product) {
         updatedUser = user;
     }
     
-    updateUser(updatedUser, userId)
+    await updateUser(updatedUser, userId)
 }
 
 async function removeFromUserFav (userId, product)  {
@@ -329,7 +329,7 @@ async function removeFromUserFav (userId, product)  {
     user.favourites.splice(productIndex, 1);
     updatedUser = user;
 
-    updateUser(updatedUser, userId)
+    await updateUser(updatedUser, userId)
 }
 
 async function checkFavourite (favIcon, product) {
@@ -360,7 +360,8 @@ async function removeFromBag (product)  {
     user.bag.splice(productIndex, 1);
     updatedUser = user;
 
-    updateUser(updatedUser, userId)
+    await updateUser(updatedUser, userId);
+    await getUser();
 }
 
 const calculateSubtotal = () => {
