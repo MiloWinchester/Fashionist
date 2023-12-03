@@ -181,9 +181,11 @@ async function setBag (product, userId) {
     let updatedUser = null;
     
     if (!user.bag) {
+        product.quantity = 1;
         user.bag = [product];
         updatedUser = user;
     }else {
+        product.quantity = 1;
         user.bag.push(product);
         updatedUser = user;
     }

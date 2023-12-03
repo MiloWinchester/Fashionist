@@ -125,7 +125,7 @@ const generateBagProducts = products => {
     products.forEach(product => {
         const productContainer = $.createElement('div');
         productContainer.classList.add('product-container');
-        productContainer.id = `no.${product.id}`;
+        productContainer.id = `no-${product.id}`;
 
         const imgContainer = $.createElement('div');
         imgContainer.classList.add('img-container');
@@ -254,6 +254,8 @@ const generateBagProducts = products => {
             quantitySelect.append(quantityOption);
         }
 
+        quantitySelect.value = product.quantity;
+
         quantityContainer.append(quiantity, quantitySelect);
         sizeQuantity.append(quantityContainer);
         productFoot.append(sizeQuantity);
@@ -295,14 +297,14 @@ const generateBagProducts = products => {
         });
 
         quantitySelect.addEventListener('change', () => {
-            checkQuantity(quantitySelect, price);
+            checkQuantity(quantitySelect, price, product);
         })
 
     })
 }
 
 const rejectColor = productId => {
-    const colors = $.querySelectorAll(`.${productId} .color`);
+    const colors = $.querySelectorAll(`#${productId} .color`);
     colors.forEach(color => {
         color.classList.remove('chosen-color');
     })
@@ -400,11 +402,20 @@ async function removeFromBag (product)  {
     getUserBag();
 }
 
-const checkQuantity = (selectElem, productPrice) => {
+const checkQuantity = (selectElem, productPrice, product) => {
     const quantityValue = selectElem.value;
 
     productPrice.dataset.quantity = quantityValue;
     calculator();
+    updateQuantity(quantityValue, product)
+}
+
+async function updateQuantity (quantity, product) {
+    let updatedUser = null;
+    user.quantity = quantity;
+    updatedUser = user;
+
+    await updateUser(updatedUser);
 }
 
 const calculateSubtotal = () => {

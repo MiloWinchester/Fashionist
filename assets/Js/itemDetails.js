@@ -358,6 +358,7 @@ const setProductOptions = () => {
             chosenImage : chosenImg.getAttribute('src'),
             chosenColor : chosenColor.style.backgroundColor,
             chosenSize : chosenSize.textContent,
+            quantity: 1
         }
 
         if (freeSize) {
