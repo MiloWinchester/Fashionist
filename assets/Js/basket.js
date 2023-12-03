@@ -481,6 +481,7 @@ const calculateSubtotal = () => {
         prices.forEach(price => {
             let priceInNumber = Number(price.textContent.substring(price.textContent.indexOf('$') + 1));
             let quantity = price.dataset.quantity;
+            console.log(quantity);
             
             totalProductPrice += (priceInNumber * quantity);
         });
