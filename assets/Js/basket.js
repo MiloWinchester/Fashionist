@@ -102,11 +102,15 @@ const getUserBag = () => {
     if (hasBag) {
         let userBag = user.bag;
         renderBagProducts(userBag);
-        calculateSubtotal();
-        calculateDiscount();
-        calculateDelivery();
-        calculateTotalPrice();
+        calculator();
     }
+}
+
+const calculator = () => {
+    calculateSubtotal();
+    calculateDiscount();
+    calculateDelivery();
+    calculateTotalPrice();
 }
 
 const renderBagProducts = products => {
@@ -383,6 +387,7 @@ const checkQuantity = (selectElem, productPrice) => {
     const quantityValue = selectElem.value;
 
     productPrice.dataset.count = quantityValue;
+    calculator();
 }
 
 const calculateSubtotal = () => {
