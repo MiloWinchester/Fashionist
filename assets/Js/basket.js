@@ -232,7 +232,7 @@ const generateBagProducts = products => {
 
         const quantityContainer = $.createElement('div');
         const quiantity = $.createElement('p');
-        quiantity.textContent = 'Quiantity'
+        quiantity.textContent = 'Quantity'
         const quantitySelect = $.createElement('select');
         quantitySelect.name = 'quantity';
         quantitySelect.classList.add('quantity');
@@ -253,6 +253,7 @@ const generateBagProducts = products => {
 
         const price = $.createElement('h1');
         price.classList.add('price');
+        price.dataset.quantity = 1;
         price.textContent =`$${product.price}`;
 
         const offerPrice = $.createElement('h1');
@@ -281,6 +282,10 @@ const generateBagProducts = products => {
 
         removeBtn.addEventListener('click', () => {
             removeFromBag(product);
+        });
+
+        quantitySelect.addEventListener('change', () => {
+            checkQuantity(quantitySelect, price);
         })
 
     })
@@ -374,6 +379,12 @@ async function removeFromBag (product)  {
     getUserBag();
 }
 
+const checkQuantity = (selectElem, productPrice) => {
+    const quantityValue = selectElem.value;
+
+    productPrice.dataset.count = quantityValue;
+}
+
 const calculateSubtotal = () => {
     const prices = $.querySelectorAll('.price');
     
@@ -382,7 +393,9 @@ const calculateSubtotal = () => {
     
         prices.forEach(price => {
             let priceInNumber = Number(price.textContent.substring(price.textContent.indexOf('$') + 1));
-            totalProductPrice += priceInNumber;
+            let quantity = price.dataset.quantity;
+            
+            totalProductPrice += (priceInNumber * quantity);
         });
 
         subTotal.textContent = `$${totalProductPrice}`;
