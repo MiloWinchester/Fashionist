@@ -325,9 +325,12 @@ async function addToUserFav (userId, product) {
 
 async function removeFromUserFav (userId, product)  {
     let updatedUser = null;
+    console.log(product, user);
     let productIndex = user.favourites.indexOf(product);
     user.favourites.splice(productIndex, 1);
+    console.log(user);
     updatedUser = user;
+    console.log(updatedUser);
 
     await updateUser(updatedUser, userId)
 }
