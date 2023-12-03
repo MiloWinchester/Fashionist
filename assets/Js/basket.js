@@ -19,6 +19,7 @@ const minusIcons = $.querySelectorAll('.minus');
 const productList = $.getElementById('product-list')
 const loginMsg = $.querySelector('.login-msg');
 const emptyMsg = $.querySelector('.empty-msg');
+const shopBtn = $.getElementById('checkout-btn')
 
 const productFragment = $.createDocumentFragment();
 
@@ -478,7 +479,6 @@ const calculateSubtotal = () => {
         prices.forEach(price => {
             let priceInNumber = Number(price.textContent.substring(price.textContent.indexOf('$') + 1));
             let quantity = price.dataset.quantity;
-            console.log(quantity);
             
             totalProductPrice += (priceInNumber * quantity);
         });
@@ -552,7 +552,19 @@ const removeFilter = () => {
     container.style.filter = 'none';
 }
 
+const showSuccessPurchase = () => {
+    Swal.fire({
+        title: "Purchase Success!",
+        text: "It's a pleasure to be your desired fashion club!",
+        icon: "success"
+    });
+}
+
 window.addEventListener('load', async function () {
     await getUser();
     removeFilter();
+})
+
+shopBtn.addEventListener('click', () => {
+    showSuccessPurchase()
 })
