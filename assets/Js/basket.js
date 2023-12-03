@@ -291,15 +291,16 @@ const changeFavStatus = (icon, product) => {
     if (userId) {
         if (icon.className.includes('fill')) {
             icon.className = 'bi bi-suit-heart';
-            removeFromUserFav(userId, product);
+            removeFromUserFav(product);
         }else {
             icon.className = 'bi bi-suit-heart-fill isFav';
-            addToUserFav(userId, product);
+            addToUserFav(product);
         }
     }
 }
 
-async function updateUser (updatedUser, userId) {
+async function updateUser (updatedUser) {
+    let userId = checkUserLogin();
     await fetch(`https://fashionist-shop-default-rtdb.firebaseio.com/users/${userId}.json`, {
         method: 'PUT',
         headers: {
@@ -310,7 +311,7 @@ async function updateUser (updatedUser, userId) {
     .catch(err => console.error(err));
 }
 
-async function addToUserFav (userId, product) {
+async function addToUserFav (product) {
     let updatedUser = null;
     if (!user.favourites) {
         user.favourites = [product];
@@ -320,19 +321,19 @@ async function addToUserFav (userId, product) {
         updatedUser = user;
     }
     
-    await updateUser(updatedUser, userId)
+    await updateUser(updatedUser)
 }
 
-async function removeFromUserFav (userId, product)  {
+async function removeFromUserFav (product)  {
     let updatedUser = null;
-    console.log(product, user);
+    console.log('product: ',product,'user:', user);
     let productIndex = user.favourites.indexOf(product);
     user.favourites.splice(productIndex, 1);
     console.log(productIndex);
     updatedUser = user;
-    console.log(user, updatedUser);
+    console.log('user:', user,'updated user:', updatedUser);
 
-    await updateUser(updatedUser, userId)
+    await updateUser(updatedUser)
 }
 
 async function checkFavourite (favIcon, product) {
@@ -357,14 +358,13 @@ async function checkFavourite (favIcon, product) {
 }
 
 async function removeFromBag (product)  {
-    let userId = checkUserLogin();
     let updatedUser = null;
     let productIndex = user.bag.indexOf(product);
     user.bag.splice(productIndex, 1);
     updatedUser = user;
 
-    await updateUser(updatedUser, userId);
-    await getUser();
+    await updateUser(updatedUser);
+    getUserBag();
 }
 
 const calculateSubtotal = () => {
