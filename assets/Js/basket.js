@@ -308,7 +308,9 @@ const generateBagProducts = products => {
 
         quantitySelect.addEventListener('change', () => {
             checkQuantity(quantitySelect, price, product);
-        })
+        });
+
+        calculator()
 
     })
 }
