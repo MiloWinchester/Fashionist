@@ -552,7 +552,7 @@ const removeFilter = () => {
     container.style.filter = 'none';
 }
 
-window.addEventListener('load', () => {
-    getUser();
+window.addEventListener('load', async function () {
+    await getUser();
     removeFilter();
 })
