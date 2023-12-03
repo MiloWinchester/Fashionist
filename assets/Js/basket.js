@@ -361,7 +361,12 @@ async function checkFavourite (favIcon, product) {
 
 async function removeFromBag (product)  {
     let updatedUser = null;
-    let productIndex = user.bag.indexOf(product);
+    let productIndex = null;
+    user.bag.forEach((bagProduct, index) => {
+        if (bagProduct.name === product.name && bagProduct.collection === product.collection) {
+            productIndex = index;
+        }
+    });
     user.bag.splice(productIndex, 1);
     updatedUser = user;
 

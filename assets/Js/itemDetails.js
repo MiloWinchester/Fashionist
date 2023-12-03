@@ -262,9 +262,6 @@ async function removeFavourite (userId) {
 
 const removeFromUserFav = user => {
     let updatedUser = null;
-    // let productIndex = user.favourites.indexOf(productInfo);
-    // user.favourites.splice(productIndex, 1);
-    // updatedUser = user;
     let productIndex = null;
     user.favourites.forEach((fav, index) => {
         if (fav.name === productInfo.name && fav.collection === productInfo.collection) {
@@ -389,8 +386,13 @@ async function addToBag (userId, product) {
 async function removeFromBag (userId, product) {
     let user = await getUser(userId);
     let updatedUser = null;
+    let productIndex = null;
 
-    let productIndex = user.bag.indexOf(product);
+    user.bag.forEach((bagProduct, index) => {
+        if (bagProduct.name === product.name && bagProduct.collection === product.collection) {
+            productIndex = index;
+        }
+    });
     user.bag.splice(productIndex, 1);
     updatedUser = user;
 

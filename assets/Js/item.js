@@ -194,8 +194,12 @@ async function setBag (product, userId) {
 async function removeBag (product, userId) {
     let user = await getUser(userId);
     let updatedUser = null;
-
-    let productIndex = user.bag.indexOf(product);
+    let productIndex = null;
+    user.bag.forEach((bagProduct, index) => {
+        if (bagProduct.name === product.name && bagProduct.collection === product.collection) {
+            productIndex = index;
+        }
+    });
     user.bag.splice(productIndex, 1);
     updatedUser = user;
 
