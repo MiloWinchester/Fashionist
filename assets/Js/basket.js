@@ -558,8 +558,7 @@ const showSuccessPurchase = () => {
         text: "It's a pleasure to be your desired fashion club!",
         icon: "success",
         allowEnterKey: true,
-        showConfirmButton: true,
-        confirmButtonText: "Shop more 🤩"
+        denyButtonText: "Okay 😎",
     });
 }
 

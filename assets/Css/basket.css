@@ -362,3 +362,12 @@ option:disabled {
 .chosen-color {
     opacity: 1;
 }
+
+div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
+    font-family: 'Dosis', sans-serif;
+    background-color: darkorange;
+}
+
+div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm:focus {
+    box-shadow: 0 0 0 3px #ffa500bd;
+}
