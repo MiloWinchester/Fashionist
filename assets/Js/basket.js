@@ -184,7 +184,7 @@ const generateBagProducts = products => {
 
         if (product.chosenColor) {
             const color = $.createElement('div');
-            color.classList.add('color', 'chosenColor');
+            color.classList.add('color', 'chosen-color');
             color.style.backgroundColor = product.chosenColor;
             colors.append(color);
         }else {

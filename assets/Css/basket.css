@@ -60,7 +60,7 @@ a {
 
 #checkout-container {
     width: 30%;
-    height: 69vh;
+    height: 73vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -135,6 +135,7 @@ hr {
 
 #shop-note {
     color: orangered;
+    font-size: 13px;
 }
 
 #product-list {
@@ -247,6 +248,10 @@ hr {
     opacity: 0.5;
 }
 
+.color:hover {
+    opacity: 1;
+}
+
 .product-foot {
     width: 100%;
     display: flex;
@@ -352,6 +357,6 @@ option:disabled {
     border: 1px solid red;
 }
 
-.chosenColor {
+.chosen-color {
     opacity: 1;
 }
