@@ -328,9 +328,9 @@ async function removeFromUserFav (userId, product)  {
     console.log(product, user);
     let productIndex = user.favourites.indexOf(product);
     user.favourites.splice(productIndex, 1);
-    console.log(user);
+    console.log(productIndex);
     updatedUser = user;
-    console.log(updatedUser);
+    console.log(user, updatedUser);
 
     await updateUser(updatedUser, userId)
 }
@@ -339,7 +339,7 @@ async function checkFavourite (favIcon, product) {
     if (user.favourites) {
         let favouriteProducts = user.favourites;
         let isInFavourites = favouriteProducts.some(fav => {
-            if (fav.name === product.name && fav.id === product.id) {
+            if (fav.name === product.name && fav.collection === product.collection) {
                 return true;
             }else {
                 return false;
