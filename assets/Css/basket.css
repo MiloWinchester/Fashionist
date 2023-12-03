@@ -133,6 +133,10 @@ hr {
     border-color: orange;
 }
 
+#shop-note {
+    color: orangered;
+}
+
 #product-list {
     width: 50%;
     height: 100%;
@@ -221,7 +225,7 @@ hr {
 }
 
 .fav-btn:hover {
-    color: #ff8974;
+    color: tomato;
 }
 
 .remove-btn:hover {
@@ -240,6 +244,7 @@ hr {
     border: 1px solid gray;
     border-radius: 50%;
     cursor: pointer;
+    opacity: 0.5;
 }
 
 .product-foot {
@@ -340,5 +345,13 @@ option:disabled {
 }
 
 .isFav {
-    color: #ff8974;
+    color: tomato;
+}
+
+.border-red {
+    border: 1px solid red;
+}
+
+.chosenColor {
+    opacity: 1;
 }

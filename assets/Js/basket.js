@@ -184,7 +184,7 @@ const generateBagProducts = products => {
 
         if (product.chosenColor) {
             const color = $.createElement('div');
-            color.classList.add('color');
+            color.classList.add('color', 'chosenColor');
             color.style.backgroundColor = product.chosenColor;
             colors.append(color);
         }else {
@@ -193,6 +193,11 @@ const generateBagProducts = products => {
                 color.classList.add('color');
                 color.style.backgroundColor = productColor;
                 colors.append(color);
+                
+                color.addEventListener('click', () => {
+                    rejectColor();
+                    chooseColor(color);
+                })
             })
         }
 
@@ -293,6 +298,17 @@ const generateBagProducts = products => {
         })
 
     })
+}
+
+const rejectColor = () => {
+    const colors = $.querySelectorAll('.color');
+    colors.forEach(color => {
+        color.classList.remove('chosen-color');
+    })
+}
+
+const chooseColor = color => {
+    color.classList.add('chosen-color');
 }
 
 const changeFavStatus = (icon, product) => {
