@@ -114,7 +114,7 @@ hr {
     display: inline;
 }
 
-#checkout-btn {
+.checkout-btn {
     width: 100%;
     height: 7vh;
     outline: none;
@@ -127,7 +127,7 @@ hr {
     transition: color 0.2s, background-color 0.2s, border-color 0.2s;
 }
 
-#checkout-btn:hover {
+.checkout-btn:hover {
     background-color: transparent;
     color: darkorange;
     border-color: orange;

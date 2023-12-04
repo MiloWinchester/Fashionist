@@ -19,7 +19,7 @@ const minusIcons = $.querySelectorAll('.minus');
 const productList = $.getElementById('product-list')
 const loginMsg = $.querySelector('.login-msg');
 const emptyMsg = $.querySelector('.empty-msg');
-const shopBtn = $.getElementById('checkout-btn')
+const shopBtn = $.querySelector('.checkout-btn')
 
 const productFragment = $.createDocumentFragment();
 
