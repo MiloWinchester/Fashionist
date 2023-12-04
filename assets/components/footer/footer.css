@@ -198,3 +198,82 @@ a {
 #footer-bottom div > p {
     text-align: right;
 }
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (max-device-width: 480px) {
+
+    /* Footer adjustments */
+    #footer {
+        padding: 30px 20px; /* Reduced padding */
+    }
+
+    #footer-top {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #footer-logo {
+        font-size: 18px; /* Adjust font size */
+        gap: 3px;
+    }
+
+    #social-links > button {
+        width: 30px; /* Smaller buttons */
+        height: 30px;
+        font-size: 15px;
+    }
+
+    #footer-info {
+        flex-direction: column; /* Stack footer content */
+        align-items: center;
+        gap: 20px; /* Add gap between stacked items */
+    }
+
+    .footer-content > p, #offer > p, #offer-input, #offer-btn {
+        font-size: 20px; /* Adjust font size */
+    }
+
+    .footer-content ul a {
+        font-size: 16px; /* Adjust link size */
+    }
+
+    #offer-btn {
+        width: 60%; /* Larger button for easier tapping */
+    }
+
+    /* Footer bottom */
+    #footer-bottom {
+        flex-direction: column; /* Stack footer bottom content */
+        gap: 10px; /* Add gap between stacked items */
+    }
+
+    #footer-bottom div > p {
+        text-align: center; /* Center-align text */
+    }
+
+}
+
+/* Tablets ----------- */
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) {
+
+    #footer-top {
+        flex-direction: column; /* Stack the footer top content */
+        align-items: center;
+        gap: 20px; /* Add gap between stacked items */
+    }
+
+    #footer-info {
+        flex-direction: column; /* Stack footer information content */
+        align-items: center;
+    }
+
+    #offer-btn {
+        width: 50%; /* Adjust width */
+    }
+
+    #footer-bottom {
+        flex-direction: column; /* Stack footer bottom content */
+        gap: 10px; /* Add gap between stacked items */
+        align-items: center;
+    }
+}
