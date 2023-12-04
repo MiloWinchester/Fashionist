@@ -16,9 +16,7 @@ const delivery = $.getElementById('delivery');
 const discount = $.getElementById('discount');
 const totalPrice = $.getElementById('total-price');
 const minusIcons = $.querySelectorAll('.minus');
-const productList = $.getElementById('product-list')
-const loginMsg = $.querySelector('.login-msg');
-const emptyMsg = $.querySelector('.empty-msg');
+const productList = $.getElementById('product-list');
 const shopBtn = $.getElementById('checkout-btn')
 
 const productFragment = $.createDocumentFragment();
@@ -56,12 +54,12 @@ const checkUserLogin = () => {
 }
 
 const showLoginMsg = () => {
-    loginMsg.classList.add('show-login-msg');
+    productList.classList.add('notLogin');
     showMinusIcons()
 }
 
 const hideLoginMsg = () => {
-    loginMsg.classList.remove('show-login-msg');
+    productList.classList.remove('notLogin');
     hideMinusIcons()
 }
 
@@ -88,12 +86,12 @@ const checkEmpty = () => {
 }
 
 const showEmpty = () => {
-    emptyMsg.classList.add('show-empty-msg');
+    productList.classList.add('empty');
     showMinusIcons();
 }
 
 const hideEmpty = () => {
-    emptyMsg.classList.remove('show-empty-msg');
+    productList.classList.remove('empty');
     hideMinusIcons();
 }
 

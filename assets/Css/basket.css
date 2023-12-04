@@ -339,7 +339,7 @@ option:disabled {
 }
 
 .login-msg, .empty-msg {
-    width: 100%;
+    width: 50%;
     height: 100%;
     align-items: center;
     justify-content: center;
@@ -347,7 +347,11 @@ option:disabled {
     display: none;
 }
 
-.show-empty-msg, .show-login-msg {
+#product-list.notLogin ~ .login-msg {
+    display: flex;
+}
+
+#product-list.empty ~ .empty-msg {
     display: flex;
 }
 
