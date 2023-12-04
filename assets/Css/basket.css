@@ -387,3 +387,61 @@ option:disabled {
 .cancel-btn:focus {
     box-shadow: 0px 0px 0px 3px #008b8b5c !important;
 }
+
+/* For tablets and small desktops */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    #bag-container {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center; /* Center align items for better visuals */
+        padding: 20px; /* Reduce padding */
+    }
+
+    #checkout-container {
+        width: 90%; /* Take more width for better visibility */
+        margin-bottom: 20px; /* Add some space between the checkout and product list */
+    }
+
+    #product-list {
+        width: 90%; /* Adjust width to give more space for products */
+    }
+
+    .product-container {
+        flex-direction: column; /* Stack product details vertically */
+        height: auto; /* Adjust height to fit content */
+    }
+
+    .img-container, .product-info {
+        width: 100%; /* Full width for better usability */
+    }
+
+    .product-title .title, .product-title .brand, .product-info .price, .checkout-title {
+        font-size: reduced by 20%; /* Reduce font size for readability */
+    }
+}
+
+/* For mobile phones */
+@media only screen and (max-width: 600px) {
+    #bag-container {
+        padding: 10px; /* Even less padding for very small screens */
+    }
+
+    #checkout-container {
+        width: 100%; /* Full width on mobile for better visibility */
+    }
+
+    #product-list {
+        width: 100%; /* Full width to maximize space for product listing */
+    }
+
+    .product-container {
+        padding: 10px; /* Less padding inside product containers */
+    }
+
+    .product-title .title, .product-title .brand, .product-info .price, .checkout-title {
+        font-size: reduced by 25%; /* Further reduce font size for mobile devices */
+    }
+
+    .btns .fav-btn, .btns .remove-btn, .size, .quantity {
+        font-size: reduced by 10%; /* Slightly reduce button and form control sizes */
+    }
+}

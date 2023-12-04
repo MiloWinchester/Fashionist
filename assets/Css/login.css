@@ -316,3 +316,76 @@ a {
         display: none;
     }
 }
+
+/* Tablets (portrait and landscape) */
+@media only screen and (min-device-width: 600px) and (max-device-width: 1024px) {
+    #login-form {
+        width: 40%; /* Makes the form wider on tablets since they have more space than phones but less than desktops */
+        padding: 20px;
+    }
+
+    .input-box {
+        gap: 8px;
+    }
+
+    .input {
+        font-size: 14px;
+    }
+
+    #checkbox-container, #social-login, #text-container {
+        flex-direction: row; /* Aligns elements in a row for tablets */
+        gap: 8px;
+        justify-content: start; /* Align content to the start */
+    }
+    
+    #img-container > img {
+        max-width: 80%; /* Reduces image size to fit tablet screens */
+    }
+    
+    #signup-link {
+        text-align: center; /* Centers the sign-up link */
+    }
+}
+
+/* Mobile Phones */
+@media only screen and (max-device-width: 599px) {
+    #container {
+        flex-direction: column; /* Stacks the elements on mobile */
+        padding: 20px;
+    }
+
+    #login-form {
+        width: 90%; /* Full width minus some padding */
+        margin-top: 20px; /* Adds space above the login form */
+    }
+
+    #text-container, #img-container {
+        width: auto; /* Auto width to fit mobile screens */
+    }
+
+    .input, .button {
+        font-size: 14px; /* Reduces font size for mobile readability */
+    }
+
+    #checkbox-container, #social-login {
+        flex-direction: column; /* Stacks checkbox and social login vertically on mobile */
+        align-items: center; /* Centers the stacked elements */
+    }
+    
+    #social-links {
+        padding: 0; /* Removes padding around social links */
+    }
+    
+    #social-links > button {
+        width: 30px; /* Sizes social buttons for an easier touch target */
+        height: 30px;
+        font-size: 16px;
+    }
+    
+    .modal-box {
+        width: 100%; /* Full width modal for mobile */
+        top: 20px; /* Adjusts position */
+        align-items: center;
+        justify-content: center;
+    }
+}

@@ -314,3 +314,96 @@ a {
         display: none;
     }
 }
+
+/* For large devices like desktop screens, there might be no need to change anything as your base styles cater to this*/
+
+/* For tablets and small desktops */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    #container {
+        /* Change into column direction if needed and adjust padding accordingly */
+        padding: 20px;
+    }
+
+    #signup-form {
+        width: 50%; /* Expand the form width for tablet devices */
+        padding: 20px;
+        border-radius: 30px 10px; /* Adjust the border-radius for a better appeal on tablets */
+    }
+
+    #name-container, #pass-container {
+        flex-direction: column; /* Stack input fields vertically */
+        gap: 20px;
+    }
+
+    .input-box {
+        gap: 15px; /* Increment the gap between inputs slightly */
+    }
+
+    .input {
+        font-size: 14px; /* Adjust the font size if needed */
+    }
+
+    #text-container {
+        width: 80%; /* Adjust the text container width for tablet dimensions */
+    }
+
+    #img-container > img {
+        max-width: 100%; /* Ensure the image is fully responsive */
+    }
+
+    .modal-box {
+        width: 200px; /* Slight adjustment for the modal width */
+    }
+}
+
+/* For mobile phones */
+@media only screen and (max-width: 600px) {
+    body {
+        overflow: auto; /* Allow scrolling on small devices */
+    }
+
+    #container {
+        flex-direction: column; /* Stack elements vertically */
+        padding: 20px;
+    }
+
+    #signup-form {
+        width: 90%; /* Full width for the form on mobile devices with some margin */
+        margin: 40px auto; /* Center the form with automatic margins and add vertical space */
+        padding: 20px;
+        border-radius: 20px 5px;
+    }
+
+    #name-container, #pass-container {
+        flex-direction: column; /* Stack input fields vertically on mobile */
+        gap: 15px;
+    }
+
+    .input-box {
+        gap: 10px;
+    }
+
+    .input {
+        font-size: 14px; /* Adjust font size for better readability on mobile */
+    }
+
+    .button {
+        font-size: 16px; /* Slightly larger buttons for touch-friendly interactions */
+    }
+
+    #social-signup {
+        flex-direction: column; /* Stack social signup options */
+        gap: 10px;
+    }
+
+    #text-container, #img-container {
+        display: none; /* Hide additional images/text that is not crucial on mobile */
+    }
+
+    .modal-box {
+        width: 80%; /* Use most of the screen's width for modals */
+        left: 50%;
+        top: 10%;
+        transform: translateX(-50%); /* Ensure the modal is centered horizontally */
+    }
+}

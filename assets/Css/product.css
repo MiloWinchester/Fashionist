@@ -154,3 +154,84 @@ a {
 .summer-button-next, .winter-button-next {
     padding-left: 22px;
 }
+
+/* For tablets and small desktops */
+@media only screen and (min-width: 601px) and (max-width: 1200px) {
+    .slide-section, #accessory-container .slide-section {
+        width: 70%; /* Adjust the slide section width */
+    }
+
+    .section-title {
+        font-size: 24px; /* Decrease the title font size for smaller devices */
+    }
+
+    .slide > img {
+        max-width: 90%; /* Allow some padding around images */
+        height: auto;
+    }
+
+    /* Adjust the size of the navigation buttons */
+    .featured-button-prev, .featured-button-next,
+    .bestsells-button-next, .bestsells-button-prev,
+    .shoes-button-prev, .shoes-button-next,
+    .jeans-button-prev, .jeans-button-next, 
+    .accessory-button-prev, .accessory-button-next,
+    .underWear-button-prev, .underWear-button-next,
+    .summer-button-prev, .summer-button-next,
+    .winter-button-prev, .winter-button-next {
+        padding: 15px; /* Slightly smaller buttons */
+    }
+}
+
+/* For mobile phones */
+@media only screen and (max-width: 600px) {
+    /* Responsive container adjustments */
+    #featured-container, #bestsells-container,
+    #shoes-container, #jeans-container,
+    #accessory-container, #summer-container, #winter-container {
+        padding: 20px; /* Reduce padding */
+        height: auto; /* Let the container size fit content */
+        padding-top: 20px;
+    }
+    
+    #accessory-container {
+        justify-content: center; /* Center items in the container */
+    }
+    
+    .slide-section, #accessory-container .slide-section {
+        width: 90%; /* Full width for the slides */
+    }
+    
+    .section-title {
+        font-size: 20px; /* Even smaller titles on mobile */
+    }
+
+    .slide > img {
+        width: 100%; /* Full width images, can remove border-radius if desired for mobile */
+    }
+    
+    /* Hide slide navigation buttons on mobile for cleaner look */
+    .featured-button-prev, .featured-button-next,
+    .bestsells-button-next, .bestsells-button-prev,
+    .shoes-button-prev, .shoes-button-next,
+    .jeans-button-prev, .jeans-button-next, 
+    .accessory-button-prev, .accessory-button-next,
+    .underWear-button-prev, .underWear-button-next,
+    .summer-button-prev, .summer-button-next,
+    .winter-button-prev, .winter-button-next {
+        display: none;
+    }
+}
+
+/* Additional Universal Responsive Adjustments */
+@media only screen and (max-width: 1200px) {
+    .underwear-section {
+        align-items: center; /* Center align the underwear section titles */
+    }
+    
+    /* Set a max height on swiper containers for a better look and feel on smaller screens */
+    .featured-swiper, .bestsells-swiper, .shoes-swiper, .jeans-swiper, 
+    .accessory-swiper, .underWear-swiper, .summer-swiper, .winter-swiper {
+        max-height: 200px;
+    }
+}

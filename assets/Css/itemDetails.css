@@ -368,3 +368,68 @@ a {
 .border-red {
     border: 1px solid red;
 }
+
+/* Base styling is often geared towards desktop, so we'll add styles for smaller devices next */
+
+/* For tablets */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    #item-img-container, #item-info {
+        width: 50%; /* Adjusting the widths for the images and information to make them take up equal space */
+    }
+
+    .current-img {
+        width: 100%; /* Full width for the main image */
+    }
+
+    .side-images {
+        width: 30%; /* More width for the thumbnails */
+    }
+
+    .item-img, .title, .brand, .price, .line-through {
+        font-size: smaller; /* Adjust font sizes accordingly */
+    }
+    
+    .basket-btn, .favourite-btn {
+        font-size: smaller; /* Adjust buttons' font sizes */
+        padding: smaller; /* Adjust the padding to make them smaller */
+    }
+}
+
+/* For mobile phones */
+@media only screen and (max-width: 767px) {
+    #item-details {
+        flex-direction: column; /* We switch to a vertical layout on mobile */
+    }
+
+    #item-img-container, #item-info {
+        width: 100%; /* Each section takes the full width of the container */
+    }
+
+    .side-images {
+        display: none; /* Thumbnails might be hidden on mobile devices due to space limitations */
+    }
+
+    .title, .brand, .price, .line-through {
+        font-size: smaller; /* Adjust font sizes for mobile viewing */
+    }
+
+    .basket-btn, .favourite-btn {
+        width: auto; /* Sets the buttons to automatically adjust based on content */
+        font-size: smaller; /* Adjust buttons' font size for smaller screens */
+        padding: smaller; /* Reduce padding */
+    }
+    
+    .item-title, .price-info, .item-btns {
+        padding: 10px 5px; /* Adjust the padding within the info container */
+    }
+
+    .login-modal {
+        width: 70%; /* Make the modal bigger on smaller screens for visibility */
+        top: 20%; /* Positioning for visibility */
+        left: 50%;
+        transform: translateX(-50%); /* Center the modal */
+        font-size: larger; /* Larger font for easier reading on small screens */
+    }
+}
+
+/* Ensure to test on real devices or use responsive design testing tools to fine-tune the sizes, paddings, and placements! */
