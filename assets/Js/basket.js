@@ -561,16 +561,11 @@ const showSuccessPurchase = () => {
         icon: "success",
         allowEnterKey: true,
         confirmButtonText: "Okay 😎",
-    });
-
-    handleConfirmBtn();
-}
-
-const handleConfirmBtn = () => {
-    const btn = $.querySelector('swal2-confirm');
-
-    btn.addEventListener('click', () => {
-        clearUserBag()
+    }).then(res => {
+        if (res.isConfirmed || res.isDismissed) {
+            Swal.close()
+            clearUserBag();
+        }
     })
 }
 
