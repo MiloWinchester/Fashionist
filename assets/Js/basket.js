@@ -16,7 +16,9 @@ const delivery = $.getElementById('delivery');
 const discount = $.getElementById('discount');
 const totalPrice = $.getElementById('total-price');
 const minusIcons = $.querySelectorAll('.minus');
-const productList = $.getElementById('product-list');
+const productList = $.getElementById('product-list')
+const loginMsg = $.querySelector('.login-msg');
+const emptyMsg = $.querySelector('.empty-msg');
 const shopBtn = $.getElementById('checkout-btn')
 
 const productFragment = $.createDocumentFragment();
@@ -54,12 +56,12 @@ const checkUserLogin = () => {
 }
 
 const showLoginMsg = () => {
-    productList.classList.add('notLogin');
+    loginMsg.classList.add('show-login-msg');
     showMinusIcons()
 }
 
 const hideLoginMsg = () => {
-    productList.classList.remove('notLogin');
+    loginMsg.classList.remove('show-login-msg');
     hideMinusIcons()
 }
 
@@ -86,12 +88,12 @@ const checkEmpty = () => {
 }
 
 const showEmpty = () => {
-    productList.classList.add('empty');
+    emptyMsg.classList.add('show-empty-msg');
     showMinusIcons();
 }
 
 const hideEmpty = () => {
-    productList.classList.remove('empty');
+    emptyMsg.classList.remove('show-empty-msg');
     hideMinusIcons();
 }
 
@@ -113,11 +115,13 @@ const calculator = () => {
 }
 
 const renderBagProducts = products => {
+    const loginHtml = loginMsg;
+    const emptyHtml = emptyMsg;
     productList.innerHTML = '';
 
     generateBagProducts(products, productFragment);
 
-    productList.append(productFragment);
+    productList.append(productFragment, loginHtml, emptyHtml);
 }
 
 const generateBagProducts = products => {
