@@ -578,11 +578,11 @@ const showSuccessPurchase = () => {
             'confirmButton': 'confirm-btn',
             'cancelButton': 'cancel-btn'
         }
-    }).then(res => {
+    }).then(async function (res) {
         if (res.isDismissed) {
             clearUserBag();
         }else if (res.isConfirmed) {
-            clearUserBag();
+            await clearUserBag();
             goToProducts();
         }
     })
