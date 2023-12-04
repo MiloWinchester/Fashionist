@@ -373,5 +373,5 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm:focus {
 }
 
 body.swal2-height-auto {
-    height: inherit;
+    height: inherit !important;
 }

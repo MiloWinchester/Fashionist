@@ -563,7 +563,15 @@ const showSuccessPurchase = () => {
         confirmButtonText: "Okay 😎",
     });
 
-    clearUserBag();
+    handleConfirmBtn();
+}
+
+const handleConfirmBtn = () => {
+    const btn = $.querySelector('swal2-confirm');
+
+    btn.addEventListener('click', () => {
+        clearUserBag()
+    })
 }
 
 async function clearUserBag () {
