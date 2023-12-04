@@ -6,6 +6,8 @@ html, body {
     height: 100%;
     overflow: hidden;
     background-color: var(--theme);
+    scrollbar-width: 10px;
+    scrollbar-color: var(--color) var(--theme);
 }
 
 * {

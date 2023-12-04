@@ -7,7 +7,7 @@ html, body {
     font-family: 'Dosis', sans-serif;
     background-color: var(--theme);
     scrollbar-width: 10px;
-    scrollbar-color: var(--theme) var(--color);
+    scrollbar-color: var(--color) var(--theme);
 }
 
 * {

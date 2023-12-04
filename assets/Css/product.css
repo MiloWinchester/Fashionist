@@ -6,6 +6,8 @@ html, body {
     height: 270%;
     font-family: 'Dosis', sans-serif;
     background-color: var(--theme);
+    scrollbar-width: 10px;
+    scrollbar-color: var(--color) var(--theme);
 }
 
 * {
