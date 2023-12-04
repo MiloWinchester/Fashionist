@@ -569,14 +569,21 @@ const showSuccessPurchase = () => {
         text: "It's a pleasure to be your desired fashion club!",
         icon: "success",
         allowEnterKey: true,
-        confirmButtonText: "Okay 😎",
+        showCancelButton: true,
+        showConfirmButon: true,
+        cancelButtonText: "Okay 😎",
+        confirmButtonText: "Explore more ✨",
         heightAuto: false,
         customClass: {
-            'confirmButton': 'confirm-btn'
+            'confirmButton': 'confirm-btn',
+            'cancelButton': 'cancel-btn'
         }
     }).then(res => {
-        if (res.isConfirmed || res.isDismissed) {
+        if (res.isDismissed) {
             clearUserBag();
+        }else if (res.isConfirmed) {
+            clearUserBag();
+            goToProducts();
         }
     })
 }
@@ -590,6 +597,10 @@ async function clearUserBag () {
     renderBagProducts(user.bag);
     calculator();
     checkEmpty();
+}
+
+const goToProducts = () => {
+    location.href = 'https://milowinchester.github.io/Fashionist/product.html'
 }
 
 window.addEventListener('load', async function () {

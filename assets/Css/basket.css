@@ -369,9 +369,18 @@ option:disabled {
 
 .confirm-btn{
     font-family: 'Dosis', sans-serif;
-    background-color: darkorange;
+    background-color: darkorange !important;
 }
 
 .confirm-btn:focus {
-    box-shadow: 0 0 0 3px #ffa500bd;
+    box-shadow: 0 0 0 3px #ffa500bd !important;
+}
+
+.cancel-btn {
+    font-family: 'Dosis', sans-serif;
+    background-color: darkcyan !important;
+}
+
+.cancel-btn:focus {
+    box-shadow: 0px 0px 0px 3px #008b8b5c !important;
 }
