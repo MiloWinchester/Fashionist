@@ -16,6 +16,28 @@ window.addEventListener('load', () => {
           el: ".trend-scrollbar",
           hide: true,
         },
+        breakpoints: {
+            320: {
+                slidesPerView: 1,
+                spaceBetween: 2
+            },
+            480: {
+                slidesPerView: 1,
+                spaceBetween: 2
+            },
+            640: {
+                slidesPerView: 1,
+                spaceBetween: 2
+            },
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 2
+            },
+            1024: {
+                slidesPerView: 2,
+                spaceBetween: 2
+            }
+        }
     
     });
     
@@ -42,27 +64,27 @@ window.addEventListener('load', () => {
             // when window width is >= 320px
             320: {
                 slidesPerView: 1,
-                spaceBetween: 10
+                spaceBetween: 5
             },
             // when window width is >= 480px
             480: {
                 slidesPerView: 2,
-                spaceBetween: 20
+                spaceBetween: 5
             },
             // when window width is >= 640px
             640: {
                 slidesPerView: 3,
-                spaceBetween: 30
+                spaceBetween: 5
             },
             // when window width is >= 768px
             768: {
                 slidesPerView: 4,
-                spaceBetween: 40
+                spaceBetween: 5
             },
             // when window width is >= 1024px
             1024: {
                 slidesPerView: 5,
-                spaceBetween: 50
+                spaceBetween: 5
             }
         }
     });
@@ -84,6 +106,28 @@ window.addEventListener('load', () => {
           el: ".arrival-scrollbar",
           hide: true,
         },
+        breakpoints: {
+            320: {
+                slidesPerView: 1,
+                spaceBetween: 5
+            },
+            480: {
+                slidesPerView: 2,
+                spaceBetween: 5
+            },
+            640: {
+                slidesPerView: 3,
+                spaceBetween: 5
+            },
+            768: {
+                slidesPerView: 4,
+                spaceBetween: 5
+            },
+            1024: {
+                slidesPerView: 5,
+                spaceBetween: 5
+            }
+        }
     });
     
     
@@ -105,6 +149,33 @@ window.addEventListener('load', () => {
           el: ".featured-scrollbar",
           hide: true,
         },
+        breakpoints: {
+            320: {
+                slidesPerView: 1,
+                spaceBetween: 5,
+                slidesPerGroup: 1,
+            },
+            480: {
+                slidesPerView: 1,
+                spaceBetween: 5,
+                slidesPerGroup: 1,
+            },
+            640: {
+                slidesPerView: 2,
+                slidesPerGroup: 2,
+                spaceBetween: 5
+            },
+            768: {
+                slidesPerView: 3,
+                slidesPerGroup: 3,
+                spaceBetween: 5
+            },
+            1024: {
+                slidesPerView: 3,
+                slidesPerGroup: 3,
+                spaceBetween: 5
+            }
+        }
     
     });
     
@@ -120,6 +191,28 @@ window.addEventListener('load', () => {
           el: ".bestsells-scrollbar",
           hide: true,
         },
+        breakpoints: {
+            320: {
+                slidesPerView: 1,
+                spaceBetween: 5
+            },
+            480: {
+                slidesPerView: 2,
+                spaceBetween: 5
+            },
+            640: {
+                slidesPerView: 3,
+                spaceBetween: 5
+            },
+            768: {
+                slidesPerView: 4,
+                spaceBetween: 5
+            },
+            1024: {
+                slidesPerView: 5,
+                spaceBetween: 5
+            }
+        }
     });
     
     const shoesSwiper = new Swiper(".shoes-swiper", {
@@ -134,6 +227,28 @@ window.addEventListener('load', () => {
           el: ".shoes-scrollbar",
           hide: true,
         },
+        breakpoints: {
+            320: {
+                slidesPerView: 1,
+                spaceBetween: 5
+            },
+            480: {
+                slidesPerView: 2,
+                spaceBetween: 5
+            },
+            640: {
+                slidesPerView: 3,
+                spaceBetween: 5
+            },
+            768: {
+                slidesPerView: 4,
+                spaceBetween: 5
+            },
+            1024: {
+                slidesPerView: 5,
+                spaceBetween: 5
+            }
+        }
     });
     
     const jeansSwiper = new Swiper(".jeans-swiper", {
@@ -148,6 +263,28 @@ window.addEventListener('load', () => {
           el: ".jeans-scrollbar",
           hide: true,
         },
+        breakpoints: {
+            320: {
+                slidesPerView: 1,
+                spaceBetween: 5
+            },
+            480: {
+                slidesPerView: 2,
+                spaceBetween: 5
+            },
+            640: {
+                slidesPerView: 3,
+                spaceBetween: 5
+            },
+            768: {
+                slidesPerView: 4,
+                spaceBetween: 5
+            },
+            1024: {
+                slidesPerView: 5,
+                spaceBetween: 5
+            }
+        }
     });
     
     const accessorySwiper = new Swiper(".accessory-swiper", {
@@ -162,6 +299,33 @@ window.addEventListener('load', () => {
           el: ".accessory-scrollbar",
           hide: true,
         },
+        breakpoints: {
+            320: {
+                slidesPerView: 1,
+                spaceBetween: 5,
+                slidesPerGroup: 1
+            },
+            480: {
+                slidesPerView: 2,
+                slidesPerGroup: 2,
+                spaceBetween: 5
+            },
+            640: {
+                slidesPerView: 2,
+                slidesPerGroup: 2,
+                spaceBetween: 5
+            },
+            768: {
+                slidesPerView: 2,
+                slidesPerGroup: 2,
+                spaceBetween: 5
+            },
+            1024: {
+                slidesPerView: 2,
+                slidesPerGroup: 2,
+                spaceBetween: 5
+            }
+        }
     });
     
     const underWearSwiper = new Swiper(".underWear-swiper", {
@@ -176,6 +340,33 @@ window.addEventListener('load', () => {
           el: ".underWear-scrollbar",
           hide: true,
         },
+        breakpoints: {
+            320: {
+                slidesPerView: 1,
+                slidesPerGroup: 1,
+                spaceBetween: 5
+            },
+            480: {
+                slidesPerView: 2,
+                slidesPerGroup: 2,
+                spaceBetween: 5
+            },
+            640: {
+                slidesPerView: 2,
+                slidesPerGroup: 2,
+                spaceBetween: 5
+            },
+            768: {
+                slidesPerView: 2,
+                slidesPerGroup: 2,
+                spaceBetween: 5
+            },
+            1024: {
+                slidesPerView: 2,
+                slidesPerGroup: 2,
+                spaceBetween: 5
+            }
+        }
     });
     
     const summerSwiper = new Swiper(".summer-swiper", {
@@ -190,6 +381,28 @@ window.addEventListener('load', () => {
           el: ".summer-scrollbar",
           hide: true,
         },
+        breakpoints: {
+            320: {
+                slidesPerView: 1,
+                spaceBetween: 5
+            },
+            480: {
+                slidesPerView: 2,
+                spaceBetween: 5
+            },
+            640: {
+                slidesPerView: 3,
+                spaceBetween: 5
+            },
+            768: {
+                slidesPerView: 4,
+                spaceBetween: 5
+            },
+            1024: {
+                slidesPerView: 5,
+                spaceBetween: 5
+            }
+        }
     });
     
     const winterSwiper = new Swiper(".winter-swiper", {
@@ -204,6 +417,28 @@ window.addEventListener('load', () => {
           el: ".winter-scrollbar",
           hide: true,
         },
+        breakpoints: {
+            320: {
+                slidesPerView: 1,
+                spaceBetween: 5
+            },
+            480: {
+                slidesPerView: 2,
+                spaceBetween: 5
+            },
+            640: {
+                slidesPerView: 3,
+                spaceBetween: 5
+            },
+            768: {
+                slidesPerView: 4,
+                spaceBetween: 5
+            },
+            1024: {
+                slidesPerView: 5,
+                spaceBetween: 5
+            }
+        }
     });
 
     // Product card swiper
