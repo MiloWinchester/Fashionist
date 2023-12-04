@@ -554,6 +554,15 @@ const removeFilter = () => {
     container.style.filter = 'none';
 }
 
+const checkout = () => {
+    let hasBag = checkEmpty();
+    if (hasBag) {
+        showSuccessPurchase();
+    }else {
+        shopBtn.style.cursor = 'not-allowed'
+    }
+}
+
 const showSuccessPurchase = () => {
     Swal.fire({
         title: "Purchase Success!",
@@ -563,7 +572,6 @@ const showSuccessPurchase = () => {
         confirmButtonText: "Okay 😎",
     }).then(res => {
         if (res.isConfirmed || res.isDismissed) {
-            Swal.close()
             clearUserBag();
         }
     })
@@ -586,5 +594,5 @@ window.addEventListener('load', async function () {
 })
 
 shopBtn.addEventListener('click', () => {
-    showSuccessPurchase()
+    checkout()
 })
