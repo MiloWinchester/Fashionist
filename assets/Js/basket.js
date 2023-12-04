@@ -219,12 +219,12 @@ const generateBagProducts = products => {
         const sizeContainer = $.createElement('div');
 
         
-        if (product.chosenSize === 'FreeSize') {
+        if (product.chosenSize === 'FreeSize' || product.sizes === 'FreeSize') {
             const freeSize = $.createElement('p');
-            freeSize.textContent = product.chosenSize;
+            freeSize.textContent = 'FreeSize';
             freeSize.classList.add('freesize', 'show-freesize');
             sizeContainer.append(freeSize)
-        }else {
+        } else if (Array.isArray(product.sizes)) {
             const size = $.createElement('p');
             size.textContent = 'Size';
             const sizeSelect = $.createElement('select');
