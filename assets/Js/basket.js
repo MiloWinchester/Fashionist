@@ -68,7 +68,7 @@ const hideLoginMsg = () => {
 const showMinusIcons = () => {
     minusIcons.forEach(icon => {
         icon.classList.remove('remove-minus')
-    })
+    });
 }
 
 const hideMinusIcons = () => {
@@ -80,9 +80,11 @@ const hideMinusIcons = () => {
 const checkEmpty = () => {
     if (!user.bag || user.bag.length === 0){
         showEmpty();
+        shopBtn.classList.add('disable-btn')
         return false;
     }else {
         hideEmpty();
+        shopBtn.classList.remove('disable-btn')
         return true;
     }
 }
@@ -558,8 +560,6 @@ const checkout = () => {
     let hasBag = checkEmpty();
     if (hasBag) {
         showSuccessPurchase();
-    }else {
-        shopBtn.style.cursor = 'not-allowed'
     }
 }
 
@@ -570,6 +570,10 @@ const showSuccessPurchase = () => {
         icon: "success",
         allowEnterKey: true,
         confirmButtonText: "Okay 😎",
+        heightAuto: false,
+        customClass: {
+            'confirmButton': 'confirm-btn'
+        }
     }).then(res => {
         if (res.isConfirmed || res.isDismissed) {
             clearUserBag();

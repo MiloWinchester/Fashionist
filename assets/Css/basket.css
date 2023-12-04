@@ -363,15 +363,15 @@ option:disabled {
     opacity: 1;
 }
 
-div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
+.disable-btn {
+    cursor: not-allowed;
+}
+
+.confirm-btn{
     font-family: 'Dosis', sans-serif;
     background-color: darkorange;
 }
 
-div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm:focus {
+.confirm-btn:focus {
     box-shadow: 0 0 0 3px #ffa500bd;
-}
-
-body.swal2-height-auto {
-    height: inherit !important;
 }
