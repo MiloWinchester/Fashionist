@@ -560,6 +560,17 @@ const showSuccessPurchase = () => {
         allowEnterKey: true,
         confirmButtonText: "Okay 😎",
     });
+
+    clearUserBag();
+}
+
+async function clearUserBag () {
+    let updatedUser = null;
+    user.bag = [];
+    updatedUser = user;
+
+    await updateUser(updatedUser);
+    getUserBag();
 }
 
 window.addEventListener('load', async function () {

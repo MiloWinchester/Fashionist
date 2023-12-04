@@ -371,3 +371,7 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
 div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm:focus {
     box-shadow: 0 0 0 3px #ffa500bd;
 }
+
+body.swal2-height-auto {
+    height: inherit;
+}
