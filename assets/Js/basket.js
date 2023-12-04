@@ -570,7 +570,8 @@ async function clearUserBag () {
     updatedUser = user;
 
     await updateUser(updatedUser);
-    getUserBag();
+    renderBagProducts(user.bag);
+    calculator();
 }
 
 window.addEventListener('load', async function () {
