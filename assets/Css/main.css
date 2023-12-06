@@ -309,4 +309,5 @@ a {
     flex-direction: column;
     align-items: start;
     justify-content: space-around;
+    display: none;
 }

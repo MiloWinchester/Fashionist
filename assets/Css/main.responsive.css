@@ -100,9 +100,12 @@
         display: none;
     }
 
-    #info-box {
-        flex-direction: column;
-        gap: 10px;
+    .info-icons , .info-texts {
+        display: flex;
+    }
+
+    .infos {
+        display: none;
     }
 
     .info-icon, .info-text {
