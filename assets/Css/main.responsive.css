@@ -108,7 +108,11 @@
         display: none;
     }
 
-    .info-icon, .info-text {
-        font-size: calc(10px + (15 - 10) * ((100vw - 300px) / (1600 - 300)));
+    .info-icon {
+        font-size: calc(20px + (15 - 10) * ((100vw - 300px) / (1600 - 300)));
+    }
+
+    .info-text {
+        font-size: calc(12px + (15 - 10) * ((100vw - 300px) / (1600 - 300)));
     }
 }

@@ -6,7 +6,7 @@ window.addEventListener('load', () => {
         slidesPerGroup : 2,
         autoplay: {
             delay: 3000,
-            disableOnInteraction: false,
+            disableOnInteraction: true,
         },
         navigation: {
             nextEl: ".trend-button-next",
@@ -53,7 +53,7 @@ window.addEventListener('load', () => {
         slidesPerGroup : 1,
         autoplay: {
             delay: 3000,
-            disableOnInteraction: false,
+            disableOnInteraction: true,
         },
         navigation: {
             nextEl: ".offer-button-next",
@@ -101,7 +101,7 @@ window.addEventListener('load', () => {
         slidesPerGroup : 1,
         autoplay: {
             delay: 3000,
-            disableOnInteraction: false,
+            disableOnInteraction: true,
         },
         navigation: {
             nextEl: ".arrival-button-next",
@@ -144,7 +144,7 @@ window.addEventListener('load', () => {
         slidesPerGroup : 1,
         autoplay: {
             delay: 3000,
-            disableOnInteraction: false,
+            disableOnInteraction: true,
         },
         navigation: {
             nextEl: ".featured-button-next",

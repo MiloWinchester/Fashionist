@@ -308,6 +308,12 @@ a {
     display: flex;
     flex-direction: column;
     align-items: start;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 25px;
     display: none;
+}
+
+.info-icons {
+    align-items: center;
+    gap: 35px;
 }
