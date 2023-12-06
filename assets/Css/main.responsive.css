@@ -1,5 +1,5 @@
 /* Phone devices */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 480px) {
 
     #main-content {
         align-items: center;
@@ -83,7 +83,7 @@
 }
 
 /* Tablet devices (portrait and landscape) - Adjust the CSS as needed */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+@media only screen and (min-device-width: 480px) and (max-device-width: 1024px) {
     #main-content {
         align-items: center;
         flex-direction: column-reverse;

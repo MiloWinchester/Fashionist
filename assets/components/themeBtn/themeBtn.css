@@ -43,7 +43,7 @@ html, body {
     color: cornflowerblue;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 480px) {
     #theme-btn {
         font-size: 20px;
     }

@@ -144,74 +144,77 @@ template.innerHTML = `
                         </div>
                     </div>
                 </div>
-                <div class="footer-content">
-                    <p>About us</p>
-                    <ul>
-                        <li>
-                            <a href="">• Blog</a>
-                        </li>
-                        <li>
-                            <a href="">• Careers</a>
-                        </li>
-                        <li>
-                            <a href="">• Brands</a>
-                        </li>
-                        <li>
-                            <a href="">• Investors</a>
-                        </li>
-                        <li>
-                            <a href="">• About Fashionist</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="footer-content">
-                    <p>Useful links</p>
-                    <ul>
-                        <li>
-                            <a href="product.html">• Products</a>
-                        </li>
-                        <li>
-                            <a href="signup.html">• Signup</a>
-                        </li>
-                        <li>
-                            <a href="login.html">• Login</a>
-                        </li>
-                        <li>
-                            <a href="basket.html">• Bag</a>
-                        </li>
-                        <li>
-                            <a href="favourite.html">• Favourites</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="footer-content">
-                    <p>For you</p>
-                    <ul>
-                        <li>
-                            <a href="">• FAQs</a>
-                        </li>
-                        <li>
-                            <a href="">• Refunds</a>
-                        </li>
-                        <li>
-                            <a href="">• Payments</a>
-                        </li>
-                        <li>
-                            <a href="">• Accessbility</a>
-                        </li>
-                        <li>
-                            <a href="">• Terms and Conditions</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="footer-content onboard-center">
-                    <p>Get on board!</p>
-                    <div id="offer">
-                        <p>Enjoy early access, exclusive offers, <br> and 15% off in your first order.</p>
-                        <input type="email" placeholder="Email" id="offer-input">
-                        <div>
-                            <button id="offer-btn">Submit</button>
-                            <small class="offer-msg"></small>
+                <div class="res-footerinfo">
+                    <div class="footer-content">
+                        <p>About us</p>
+                        <ul>
+                            <li>
+                                <a href="">• Blog</a>
+                            </li>
+                            <li>
+                                <a href="">• Careers</a>
+                            </li>
+                            <li>
+                                <a href="">• Brands</a>
+                            </li>
+                            <li>
+                                <a href="">• Investors</a>
+                            </li>
+                            <li>
+                                <a href="">• About Fashionist</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-content">
+                        <p>Useful links</p>
+                        <ul>
+                            <li>
+                                <a href="product.html">• Products</a>
+                            </li>
+                            <li>
+                                <a href="signup.html">• Signup</a>
+                            </li>
+                            <li>
+                                <a href="login.html">• Login</a>
+                            </li>
+                            <li>
+                                <a href="basket.html">• Bag</a>
+                            </li>
+                            <li>
+                                <a href="favourite.html">• Favourites</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-content">
+                        <p>For you</p>
+                        <ul>
+                            <li>
+                                <a href="">• FAQs</a>
+                            </li>
+                            <li>
+                                <a href="">• Refunds</a>
+                            </li>
+                            <li>
+                                <a href="">• Payments</a>
+                            </li>
+                            <li>
+                                <a href="">• Accessbility</a>
+                            </li>
+                            <li>
+                                <a href="">• Terms and Conditions</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <hr>
+                    <div class="footer-content onboard-center">
+                        <p>Get on board!</p>
+                        <div id="offer">
+                            <p>Enjoy early access, exclusive offers, <br> and 15% off in your first order.</p>
+                            <input type="email" placeholder="Email" id="offer-input">
+                            <div>
+                                <button id="offer-btn">Submit</button>
+                                <small class="offer-msg"></small>
+                            </div>
                         </div>
                     </div>
                 </div>
