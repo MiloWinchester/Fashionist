@@ -219,7 +219,11 @@ a {
         gap: 3px;
     }
 
-    .only-top-icon{
+    #toTopBtn > p {
+        display: none;
+    }
+
+    #toTopBtn > .only-top-icon{
         display: inline;
     }
 
@@ -278,6 +282,9 @@ a {
         font-size: 18px;
     }
 
+    .res-footerinfo > hr {
+        width: 100%;
+    }
 
     #footer-bottom {
         flex-direction: column;
@@ -292,7 +299,7 @@ a {
 }
 
 /* Tablets */
-@media only screen and (min-device-width: 480px) and (max-device-width: 1024px) {
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) {
 
     #footer-top {
         flex-direction: column; /* Stack the footer top content */

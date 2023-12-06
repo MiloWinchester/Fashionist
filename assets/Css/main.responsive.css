@@ -83,7 +83,7 @@
 }
 
 /* Tablet devices (portrait and landscape) - Adjust the CSS as needed */
-@media only screen and (min-device-width: 480px) and (max-device-width: 1024px) {
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) {
     #main-content {
         align-items: center;
         flex-direction: column-reverse;
