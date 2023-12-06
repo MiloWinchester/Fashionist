@@ -140,7 +140,8 @@ a {
     font-size: 25px;
     cursor: pointer;
     margin-top: 5px;
-    transition: color 0.2s, background-color 0.2s, width 0.2s, height 0.2s;
+    transition: color 0.2s, background-color 0.2s, 
+    width 0.2s, height 0.2s, box-shadow 0.2s;
 }
 
 .shop-btn > a {
@@ -299,78 +300,4 @@ a {
     display: flex;
     flex-direction: column;
     gap: 5px;
-}
-
-/* Tablet devices (portrait and landscape) - Adjust the CSS as needed */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-    /* Stack the sections if needed */
-    #main-content, #first-shop-section, #sec-shop-section,
-    #trend-container, #offer-container, #arrival-container {
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-    }
-
-    /* Adjust font sizes and image containers for a tablet-friendly layout */
-    #content-text {
-        font-size: calc(16px + (24 - 16) * ((100vw - 300px) / (1600 - 300)));
-    }
-
-    #content-text > h1 > span, #content-text > p > b, .section-title {
-        font-size: calc(18px + (24 - 18) * ((100vw - 300px) / (1600 - 300)));
-    }
-
-    .shop-section-content {
-        font-size: calc(20px + (25 - 20) * ((100vw - 300px) / (1600 - 300)));
-    }
-
-    /* Adjust the info container to stack vertically */
-    #info-box {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .info-icon, .info-text {
-        font-size: calc(15px + (20 - 15) * ((100vw - 300px) / (1600 - 300)));
-    }
-}
-
-/* Phone devices */
-@media only screen and (max-width: 767px) {
-    /* Specific sections are now stacked and center aligned */
-    #main-content, #first-shop-section, #sec-shop-section,
-    #trend-container, #offer-container, #arrival-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    /* Adjust font sizes for readability on small devices */
-    #content-text {
-        font-size: calc(10px + (16 - 10) * ((100vw - 300px) / (1600 - 300)));
-    }
-
-    #content-text > h1 > span, #content-text > p > b, .section-title {
-        font-size: calc(14px + (18 - 14) * ((100vw - 300px) / (1600 - 300)));
-    }
-
-    .shop-section-content {
-        font-size: calc(16px + (20 - 16) * ((100vw - 300px) / (1600 - 300)));
-    }
-
-    /* In a phone-friendly layout, the shop button should be more accessible */
-    .shop-btn {
-        width: 100px;
-        height: 40px;
-        font-size: calc(10px + (12 - 10) * ((100vw - 300px) / (1600 - 300)));
-    }
-
-    /* Adjusting the info box for smaller screens */
-    #info-box {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .info-icon, .info-text {
-        font-size: calc(10px + (15 - 10) * ((100vw - 300px) / (1600 - 300)));
-    }
 }

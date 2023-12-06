@@ -19,23 +19,28 @@ window.addEventListener('load', () => {
         breakpoints: {
             320: {
                 slidesPerView: 1,
-                spaceBetween: 2
+                spaceBetween: 2,
+                slidesPerGroup : 1,
             },
             480: {
                 slidesPerView: 1,
-                spaceBetween: 2
+                spaceBetween: 2,
+                slidesPerGroup : 1,
             },
             640: {
                 slidesPerView: 1,
-                spaceBetween: 2
+                spaceBetween: 2,
+                slidesPerGroup : 1,
             },
             768: {
                 slidesPerView: 2,
-                spaceBetween: 2
+                spaceBetween: 2,
+                slidesPerGroup : 2,
             },
             1024: {
                 slidesPerView: 2,
-                spaceBetween: 2
+                spaceBetween: 2,
+                slidesPerGroup : 2,
             }
         }
     
