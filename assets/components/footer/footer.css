@@ -219,11 +219,11 @@ a {
         gap: 3px;
     }
 
-    #toTopBtn > p {
+    #totop-btn p {
         display: none;
     }
 
-    #toTopBtn > .only-top-icon{
+    .only-top-icon{
         display: inline;
     }
 
