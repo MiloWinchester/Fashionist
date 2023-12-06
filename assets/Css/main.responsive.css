@@ -42,11 +42,15 @@
     }
 
     #content-text {
-        font-size: calc(10px + (16 - 10) * ((100vw - 300px) / (1600 - 300)));
+        font-size: calc(30px + (16 - 10) * ((100vw - 300px) / (1600 - 300)));
     }
     
-    #content-text > h1 > span, #content-text > p > b, .section-title {
-        font-size: calc(14px + (18 - 14) * ((100vw - 300px) / (1600 - 300)));
+    #content-text > h1 > span {
+        font-size: calc(60px + (18 - 14) * ((100vw - 300px) / (1600 - 300)));
+    }
+
+    #content-text > p > b {
+        font-size: calc(40px + (18 - 14) * ((100vw - 300px) / (1600 - 300)));
     }
 
     #content-image {
@@ -87,7 +91,7 @@
     }
 
     #trend-container {
-        height: 10%;
+        height: 12%;
     }
 
     .trend-button-prev , .trend-button-next, 

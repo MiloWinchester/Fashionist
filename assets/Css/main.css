@@ -301,3 +301,12 @@ a {
     flex-direction: column;
     gap: 5px;
 }
+
+.info-icons, .info-texts {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-around;
+}
