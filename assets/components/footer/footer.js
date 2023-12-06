@@ -40,6 +40,9 @@ template.innerHTML = `
                         <p>Return to top 
                             <i class="bi bi-arrow-up"></i>
                         </p>
+                        <p class="only-top-icon">
+                            <i class="bi bi-arrow-up"></i>
+                        </p>
                     </div>
                 </div>
                 <hr>
