@@ -1,40 +1,5 @@
-
-/* Tablet devices (portrait and landscape) - Adjust the CSS as needed */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-    /* Stack the sections if needed */
-    #main-content, #first-shop-section, #sec-shop-section,
-    #trend-container, #offer-container, #arrival-container {
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-    }
-
-    /* Adjust font sizes and image containers for a tablet-friendly layout */
-    #content-text {
-        font-size: calc(16px + (24 - 16) * ((100vw - 300px) / (1600 - 300)));
-    }
-
-    #content-text > h1 > span, #content-text > p > b, .section-title {
-        font-size: calc(18px + (24 - 18) * ((100vw - 300px) / (1600 - 300)));
-    }
-
-    .shop-section-content {
-        font-size: calc(20px + (25 - 20) * ((100vw - 300px) / (1600 - 300)));
-    }
-
-    /* Adjust the info container to stack vertically */
-    #info-box {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .info-icon, .info-text {
-        font-size: calc(15px + (20 - 15) * ((100vw - 300px) / (1600 - 300)));
-    }
-}
-
 /* Phone devices */
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 768px) {
 
     #main-content {
         align-items: center;
@@ -54,7 +19,7 @@
     }
 
     #content-image {
-        width: 70%;
+        width: 80%;
     }
 
     #first-shop-section, #sec-shop-section,
@@ -67,7 +32,90 @@
     }
 
     .shop-section-image {
-        width: 70%;
+        width: 85%;
+    }
+
+    .shop-section-content {
+        font-size: calc(22px + (20 - 16) * ((100vw - 300px) / (1600 - 300)));
+    }
+
+    .shop-btn {
+        width: 100px;
+        height: 40px;
+        font-size: calc(17px + (12 - 10) * ((100vw - 300px) / (1600 - 300)));
+    }
+
+    .shop-btn:hover {
+        width: 105px;
+        height: 45px;
+        box-shadow: 0px 0 0 3px #ff8c003d;
+    }
+
+    .section-title {
+        font-size: 20px;
+    }
+
+    #trend-container {
+        height: 12%;
+    }
+
+    .trend-button-prev , .trend-button-next, 
+    .offer-button-prev, .offer-button-next,
+    .arrival-button-prev, .arrival-button-next {
+        display: none;
+    }
+
+    .info-icons , .info-texts {
+        display: flex;
+    }
+
+    .infos {
+        display: none;
+    }
+
+    .info-icon {
+        font-size: calc(20px + (15 - 10) * ((100vw - 300px) / (1600 - 300)));
+    }
+
+    .info-text {
+        font-size: calc(12px + (15 - 10) * ((100vw - 300px) / (1600 - 300)));
+    }
+}
+
+/* Tablet devices (portrait and landscape) - Adjust the CSS as needed */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    #main-content {
+        align-items: center;
+        flex-direction: column-reverse;
+    }
+
+    #content-text {
+        font-size: calc(30px + (16 - 10) * ((100vw - 300px) / (1600 - 300)));
+    }
+    
+    #content-text > h1 > span {
+        font-size: calc(60px + (18 - 14) * ((100vw - 300px) / (1600 - 300)));
+    }
+
+    #content-text > p > b {
+        font-size: calc(40px + (18 - 14) * ((100vw - 300px) / (1600 - 300)));
+    }
+
+    #content-image {
+        width: 80%;
+    }
+
+    #first-shop-section, #sec-shop-section,
+    #trend-container, #offer-container, #arrival-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        gap: 15px;
+        padding-bottom: 50px;
+    }
+
+    .shop-section-image {
+        width: 85%;
     }
 
     .shop-section-content {

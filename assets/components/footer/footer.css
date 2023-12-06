@@ -95,6 +95,10 @@ a {
     color: darkorange;
 }
 
+#footer > #social-links, #footer > .footer-content {
+    display: none;
+}
+
 #footer-info {
     width: 100%;
     display: flex;
@@ -199,62 +203,94 @@ a {
     text-align: right;
 }
 
-/* Smartphones (portrait and landscape) ----------- */
-@media only screen and (max-device-width: 480px) {
+/* Phone */
+@media only screen and (max-width: 768px) {
 
-    /* Footer adjustments */
     #footer {
-        padding: 30px 20px; /* Reduced padding */
+        padding: 30px 20px;
     }
 
     #footer-top {
-        flex-direction: column;
         align-items: center;
     }
 
     #footer-logo {
-        font-size: 18px; /* Adjust font size */
+        font-size: 18px;
         gap: 3px;
     }
 
+    #footer-top > #social-links {
+        display: none;
+    }
+
+    #footer > #social-links {
+        display: flex;
+    }
+
     #social-links > button {
-        width: 30px; /* Smaller buttons */
+        width: 30px; 
         height: 30px;
         font-size: 15px;
     }
 
     #footer-info {
-        flex-direction: column; /* Stack footer content */
+        flex-direction: column;
         align-items: center;
-        gap: 20px; /* Add gap between stacked items */
+        gap: 20px; 
     }
 
-    .footer-content > p, #offer > p, #offer-input, #offer-btn {
-        font-size: 20px; /* Adjust font size */
+    #footer-info > .footer-content {
+        display: none;
     }
 
-    .footer-content ul a {
-        font-size: 16px; /* Adjust link size */
+    #footer > .footer-content {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    #footer > .footer-content > ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    #footer > .onboard-center {
+        align-items: center;
+    }
+
+    .footer-content > p{
+        font-size: 25px;
+    }
+
+    .footer-content ul a,#offer > p, #offer-input, #offer-btn  {
+        font-size: 16px;
+    }
+
+    .onboard-center > div {
+        text-align: center;
     }
 
     #offer-btn {
-        width: 60%; /* Larger button for easier tapping */
+        width: 60%;
+        font-size: 18px;
     }
 
-    /* Footer bottom */
     #footer-bottom {
-        flex-direction: column; /* Stack footer bottom content */
-        gap: 10px; /* Add gap between stacked items */
+        flex-direction: column;
+        gap: 10px;
+        font-size: 12px;
     }
 
     #footer-bottom div > p {
-        text-align: center; /* Center-align text */
+        text-align: center;
     }
 
 }
 
-/* Tablets ----------- */
-@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) {
+/* Tablets */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
 
     #footer-top {
         flex-direction: column; /* Stack the footer top content */
