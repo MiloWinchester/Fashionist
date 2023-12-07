@@ -317,36 +317,6 @@ a {
     }
 }
 
-/* Tablets (portrait and landscape) */
-@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) {
-    #login-form {
-        width: 40%; /* Makes the form wider on tablets since they have more space than phones but less than desktops */
-        padding: 20px;
-    }
-
-    .input-box {
-        gap: 8px;
-    }
-
-    .input {
-        font-size: 14px;
-    }
-
-    #checkbox-container, #social-login, #text-container {
-        flex-direction: row; /* Aligns elements in a row for tablets */
-        gap: 8px;
-        justify-content: start; /* Align content to the start */
-    }
-    
-    #img-container > img {
-        max-width: 80%; /* Reduces image size to fit tablet screens */
-    }
-    
-    #signup-link {
-        text-align: center; /* Centers the sign-up link */
-    }
-}
-
 /* Mobile Phones */
 @media only screen and (max-device-width: 480px) {
     #container {
@@ -391,7 +361,7 @@ a {
     }
     
     #social-links > button {
-        width: 30px; /* Sizes social buttons for an easier touch target */
+        width: 30px;
         height: 30px;
         font-size: 16px;
         padding-top: 0;
@@ -416,5 +386,35 @@ a {
         top: 20px;
         align-items: center;
         justify-content: center;
+    }
+}
+
+/* Tablets (portrait and landscape) */
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) {
+    #login-form {
+        width: 40%; /* Makes the form wider on tablets since they have more space than phones but less than desktops */
+        padding: 20px;
+    }
+
+    .input-box {
+        gap: 8px;
+    }
+
+    .input {
+        font-size: 14px;
+    }
+
+    #checkbox-container, #social-login, #text-container {
+        flex-direction: row; /* Aligns elements in a row for tablets */
+        gap: 8px;
+        justify-content: start; /* Align content to the start */
+    }
+    
+    #img-container > img {
+        max-width: 80%; /* Reduces image size to fit tablet screens */
+    }
+    
+    #signup-link {
+        text-align: center; /* Centers the sign-up link */
     }
 }
