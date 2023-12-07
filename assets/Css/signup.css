@@ -315,7 +315,73 @@ a {
     }
 }
 
-/* For large devices like desktop screens, there might be no need to change anything as your base styles cater to this*/
+/* For mobile phones */
+@media only screen and (max-width: 480px) {
+    body {
+        overflow: auto;
+    }
+
+    #container {
+        flex-direction: column;
+        padding: 20px;
+        height: 113%;
+    }
+
+    #signup-form {
+        width: 95%;
+        padding: 20px;
+        border-radius: 25px 10px;
+    }
+
+    #pass-container {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .input {
+        font-size: 13px;
+    }
+
+    .button {
+        font-size: 16px;
+    }
+
+    #signup-btn {
+        margin-top: 15px;
+        height: 50px;
+        font-size: 25px;
+    }
+
+    #social-signup {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #google-signup, #facebook-signup {
+        height: 32px;
+    }
+
+    svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    #text-container, #img-container {
+        display: none;
+    }
+
+    #login-link {
+        font-size: 13px;
+        margin-bottom: 0;
+    }
+
+    .modal-box {
+        width: 80%;
+        left: 50%;
+        top: 10%;
+        transform: translateX(-50%);
+    }
+}
 
 /* For tablets and small desktops */
 @media only screen and (min-width: 601px) and (max-width: 1024px) {
@@ -353,57 +419,5 @@ a {
 
     .modal-box {
         width: 200px; /* Slight adjustment for the modal width */
-    }
-}
-
-/* For mobile phones */
-@media only screen and (max-width: 600px) {
-    body {
-        overflow: auto; /* Allow scrolling on small devices */
-    }
-
-    #container {
-        flex-direction: column; /* Stack elements vertically */
-        padding: 20px;
-    }
-
-    #signup-form {
-        width: 90%; /* Full width for the form on mobile devices with some margin */
-        margin: 40px auto; /* Center the form with automatic margins and add vertical space */
-        padding: 20px;
-        border-radius: 20px 5px;
-    }
-
-    #name-container, #pass-container {
-        flex-direction: column; /* Stack input fields vertically on mobile */
-        gap: 15px;
-    }
-
-    .input-box {
-        gap: 10px;
-    }
-
-    .input {
-        font-size: 14px; /* Adjust font size for better readability on mobile */
-    }
-
-    .button {
-        font-size: 16px; /* Slightly larger buttons for touch-friendly interactions */
-    }
-
-    #social-signup {
-        flex-direction: column; /* Stack social signup options */
-        gap: 10px;
-    }
-
-    #text-container, #img-container {
-        display: none; /* Hide additional images/text that is not crucial on mobile */
-    }
-
-    .modal-box {
-        width: 80%; /* Use most of the screen's width for modals */
-        left: 50%;
-        top: 10%;
-        transform: translateX(-50%); /* Ensure the modal is centered horizontally */
     }
 }
