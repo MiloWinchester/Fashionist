@@ -318,7 +318,7 @@ a {
 }
 
 /* Tablets (portrait and landscape) */
-@media only screen and (min-device-width: 600px) and (max-device-width: 1024px) {
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) {
     #login-form {
         width: 40%; /* Makes the form wider on tablets since they have more space than phones but less than desktops */
         padding: 20px;
@@ -348,38 +348,66 @@ a {
 }
 
 /* Mobile Phones */
-@media only screen and (max-device-width: 599px) {
+@media only screen and (max-device-width: 480px) {
     #container {
-        flex-direction: column; /* Stacks the elements on mobile */
+        flex-direction: column;
         padding: 20px;
+        overflow: auto;
+        gap: 10px;
     }
 
     #login-form {
-        width: 90%; /* Full width minus some padding */
-        margin-top: 20px; /* Adds space above the login form */
+        width: 95%;
+        margin-top: 20px;
+        border-radius: 25px 10px;
     }
 
-    #text-container, #img-container {
-        width: auto; /* Auto width to fit mobile screens */
+    #text-container {
+        width: 100%;
+        padding-top: 60px;
     }
 
-    .input, .button {
-        font-size: 14px; /* Reduces font size for mobile readability */
+    .input {
+        font-size: 14px;
     }
 
-    #checkbox-container, #social-login {
-        flex-direction: column; /* Stacks checkbox and social login vertically on mobile */
-        align-items: center; /* Centers the stacked elements */
+    .pass-error-icon {
+        bottom: 80px;
+    }
+
+    #checkbox-container {
+        padding-top: 15px;
+    }
+
+    #login-btn {
+        font-size: 25px;
+        border-radius: 30px;
+        margin-top: 15px;
     }
     
     #social-links {
-        padding: 0; /* Removes padding around social links */
+        padding: 0;
+        margin-top: -40px;
     }
     
     #social-links > button {
         width: 30px; /* Sizes social buttons for an easier touch target */
         height: 30px;
         font-size: 16px;
+    }
+
+    #signup-link {
+        margin-bottom: 0;
+        font-size: 13px;
+    }
+
+    svg {
+        width: 25px;
+        height: 25px;
+    }
+
+    #google-login, #facebook-login {
+        font-size: 20px;
     }
     
     .modal-box {
