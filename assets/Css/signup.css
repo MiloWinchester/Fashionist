@@ -335,7 +335,7 @@ a {
 
     #pass-container {
         flex-direction: column;
-        gap: 0;
+        gap: 10px;
     }
 
     .input {
@@ -348,8 +348,9 @@ a {
 
     #signup-btn {
         margin-top: 15px;
-        height: 50px;
+        height: 45px;
         font-size: 25px;
+        border-radius: 30px;
     }
 
     #social-signup {
@@ -358,7 +359,7 @@ a {
     }
 
     #google-signup, #facebook-signup {
-        height: 32px;
+        height: 35px;
     }
 
     svg {
