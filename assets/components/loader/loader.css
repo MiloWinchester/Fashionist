@@ -50,7 +50,7 @@ html, body {
 
 @media only screen and (max-width: 480px) {
     .loader-container {
-        left: 37vw;
+        left: 40vw;
     }
 
     .loader {
