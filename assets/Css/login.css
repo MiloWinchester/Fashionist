@@ -394,6 +394,7 @@ a {
         width: 30px; /* Sizes social buttons for an easier touch target */
         height: 30px;
         font-size: 16px;
+        padding-top: 0;
     }
 
     #signup-link {
@@ -411,8 +412,8 @@ a {
     }
     
     .modal-box {
-        width: 100%; /* Full width modal for mobile */
-        top: 20px; /* Adjusts position */
+        width: 100%;
+        top: 20px;
         align-items: center;
         justify-content: center;
     }
