@@ -1,6 +1,8 @@
 # Fashionist
 Fashionist is a men's fashion shop website
 
+website URL: **https://milowinchester.github.io/Fashionist/**
+
 This is an e-commerce website designed for men's fashion, 
 - with special design in both dark and light themes,
 - you can signup, login to your account,
