@@ -16,9 +16,15 @@ template.innerHTML = `
             <li id="menu-bar">
                 <button id="menu-btn">
                     <a>
-                        <i class="bi bi-list"></i>
+                        <i class="bi bi-list menu-icon"></i>
+                        <i class="bi bi-x-lg exit-icon"></i>
                     </a>
                 </button>
+                <div class="menu">
+                    <ul class="menu-list">
+
+                    </ul>
+                </div>
             </li>
             <li id="fav-bag-btns">
                 <button id="bag-btn">
@@ -153,7 +159,8 @@ class header extends HTMLElement {
         const header = this.shadowRoot.getElementById('header');
         const categoryBtn = this.shadowRoot.getElementById('category');
         const links = this.shadowRoot.querySelectorAll('.link');
-        const logoutBtn = this.shadowRoot.getElementById('logout-btn')
+        const logoutBtn = this.shadowRoot.getElementById('logout-btn');
+        const menuBtn = this.shadowRoot.getElementById('menu-btn');
 
         window.addEventListener('scroll', () => {
             if ($.documentElement.scrollTop >= 30) {
@@ -185,6 +192,10 @@ class header extends HTMLElement {
 
         logoutBtn.addEventListener('click', () => {
             this.logout();
+        });
+
+        menuBtn.addEventListener('click', () => {
+            this.showMenu();
         })
     }
 
@@ -357,6 +368,17 @@ class header extends HTMLElement {
 
         loginBtn.removeEventListener('mouseenter', () => {})
         loginBtn.removeEventListener('mouseleave', () => {})
+    }
+
+    showMenu () {
+        const productBtn = this.shadowRoot.getElementById('product');
+        const category = this.shadowRoot.getElementById('category');
+        const login = this.shadowRoot.getElementById('login');
+        const menuList = this.shadowRoot.getElementById('menu-list')
+        const menuIcon = this.shadowRoot.querySelector('.menu-icon');
+
+        menuIcon.classList.toggle('hide-menu-icon');
+        menuList.append(productBtn, category, login)
     }
 }
 

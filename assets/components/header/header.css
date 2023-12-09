@@ -241,6 +241,18 @@ a {
     margin-left: -50px;
 }
 
+.exit-icon {
+    display: none;
+}
+
+.hide-menu-icon {
+    display: none;
+}
+
+.menu-icon.hide-menu-icon ~ .exit-icon {
+    display: inline;
+}
+
 /* Mobile Phones */
 @media only screen and (max-device-width: 630px) {
     #menu-bar {
