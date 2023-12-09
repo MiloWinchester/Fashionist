@@ -254,8 +254,6 @@ a {
 }
 
 .menu {
-    width: 20vw;
-    height: 28vh;
     position: absolute;
     right: 2vw;
     align-items: center;
@@ -279,14 +277,14 @@ a {
     border: 1px solid darkorange;
     border-radius: 10px;
     list-style-type: none;
-    padding: 10px;
+    padding: 15px;
 }
 
 .menu-list button {
     font-size: 25px !important;
 }
 
-.menu-list #category button a {
+.menu-list #category button a, .menu-list #login button a {
     display: flex;
     align-items: center;
     flex-direction: row-reverse;
@@ -306,7 +304,7 @@ a {
         display: inline;
     }
 
-    #login, #product, #category {
+    #navbar-list > #login, #navbar-list > #product, #navbar-list > #category {
         display: none;
     }
 
@@ -332,10 +330,6 @@ a {
 
     #header.moved #navbar-list > li > #menu-btn {
         font-size: 25px;
-    }
-
-    #category i, #login i {
-        margin-top: 3px;
     }
 }
 

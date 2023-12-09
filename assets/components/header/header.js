@@ -22,7 +22,31 @@ template.innerHTML = `
                 </button>
                 <div class="menu">
                     <ul class="menu-list">
-
+                        <li id="category">
+                            <button>
+                                <a>
+                                    Category
+                                </a>
+                            </button>
+                        </li>
+                        <li id="login">
+                            <button class="signup-btn">
+                                <a href="signup.html">Sign in</a>
+                            </button>
+                            <button class="profile-btn">
+                                <a>
+                                    <p>Profile</p>
+                                    <i class="bi bi-caret-down-fill"></i>
+                                </a>
+                            </button>
+                        </li>
+                        <li id="product">
+                            <button>
+                                <a href="product.html">
+                                    Products
+                                </a>
+                            </button>
+                        </li>
                     </ul>
                 </div>
             </li>
@@ -376,18 +400,7 @@ class header extends HTMLElement {
         categoryArrowIcon.className = 'bi bi-caret-left-fill';
         profileArrowIcon.className = 'bi bi-caret-left-fill';
         menuIcon.classList.toggle('hide-menu-icon');
-        menu.classList.toggle('show-menu')
-        
-        this.appendMenuButtons();
-    }
-
-    appendMenuButtons () {
-        const productBtn = this.shadowRoot.getElementById('product');
-        const category = this.shadowRoot.getElementById('category');
-        const login = this.shadowRoot.getElementById('login');
-        const menuList = this.shadowRoot.querySelector('.menu-list')
-
-        menuList.append(category, login, productBtn)
+        menu.classList.toggle('show-menu');
     }
 }
 
