@@ -36,7 +36,6 @@ template.innerHTML = `
                             <button class="profile-btn">
                                 <a>
                                     <p>Profile</p>
-                                    <i class="bi bi-caret-down-fill"></i>
                                 </a>
                             </button>
                         </li>
@@ -393,13 +392,15 @@ class header extends HTMLElement {
     showMenu () {
         const menu = this.shadowRoot.querySelector('.menu');
         const menuIcon = this.shadowRoot.querySelector('.menu-icon');
-        const categoryArrowIcon = this.shadowRoot.querySelector('#category button a i');
-        const profileArrowIcon = this.shadowRoot.querySelector('.profile-btn a i');
 
-        categoryArrowIcon.className = 'bi bi-caret-left-fill';
-        profileArrowIcon.className = 'bi bi-caret-left-fill';
         menuIcon.classList.toggle('hide-menu-icon');
-        menu.classList.toggle('show-menu');
+        if (menu.className.includes('show')) {
+            menu.classList.add('hide-menu');
+            menu.classList.remove('show-menu');
+        }else {
+            menu.classList.remove('hide-menu');
+            menu.classList.add('show-menu');
+        }
     }
 }
 
