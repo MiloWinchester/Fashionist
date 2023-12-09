@@ -386,7 +386,6 @@ class header extends HTMLElement {
     }
 
     removeProfile () {
-        const loginBtn = this.shadowRoot.getElementById('login');
         let signupBtn = this.shadowRoot.querySelector('.signup-btn');
         signupBtn.classList.remove('hideSignup');
     }
