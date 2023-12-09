@@ -236,10 +236,23 @@ a {
     padding-left: 15px;
 }
 
+#menu-bar {
+    display: none;
+}
+
 #menu-btn {
-    font-size: 25px;
-    cursor: pointer;
-    transition: font-size 0.3s;
+    margin-left: -20px;
+}
+
+/* Mobile Phones */
+@media only screen and (max-device-width: 480px) {
+    #menu-bar {
+        display: inline;
+    }
+
+    #login, #product, #category {
+        display: none;
+    }
 }
 
 /* Tablets (portrait and landscape) */
@@ -271,9 +284,4 @@ a {
     .categories > li, .profile-dropdown > li {
         font-size: 20px; /* Smaller font size for dropdown items */
     }
-}
-
-/* Mobile Phones */
-@media only screen and (max-device-width: 480px) {
-    
 }

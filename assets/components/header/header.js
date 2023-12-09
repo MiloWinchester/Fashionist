@@ -15,7 +15,9 @@ template.innerHTML = `
         <ul id="navbar-list">
             <li id="menu-bar">
                 <button id="menu-btn">
-                    <i class="bi bi-list"></i>
+                    <a>
+                        <i class="bi bi-list"></i>
+                    </a>
                 </button>
             </li>
             <li id="fav-bag-btns">
