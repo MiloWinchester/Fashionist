@@ -238,14 +238,11 @@ a {
 
 #menu-bar {
     display: none;
-}
-
-#menu-btn {
-    margin-left: -20px;
+    margin-left: -50px;
 }
 
 /* Mobile Phones */
-@media only screen and (max-device-width: 480px) {
+@media only screen and (max-device-width: 630px) {
     #menu-bar {
         display: inline;
     }
@@ -253,10 +250,34 @@ a {
     #login, #product, #category {
         display: none;
     }
+
+    #header {
+        height: 12vh;
+    }
+
+    #nav-bar {
+        padding: 0px 20px 0px 20px;
+    }
+
+    #header-logo {
+        font-size: 27px;
+    }
+
+    #header.moved {
+        height: 10bh;
+    }
+
+    #header.moved #header-logo {
+        font-size: 22px;
+    }
+
+    #header.moved #navbar-list > li > #menu-btn {
+        font-size: 25px;
+    }
 }
 
 /* Tablets (portrait and landscape) */
-@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) {
+@media only screen and (min-device-width: 631px) and (max-device-width: 1024px) {
     #header-logo {
         font-size: 36px; /* Smaller logo for tablets */
     }
