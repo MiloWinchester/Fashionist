@@ -387,7 +387,7 @@ class header extends HTMLElement {
         const login = this.shadowRoot.getElementById('login');
         const menuList = this.shadowRoot.querySelector('.menu-list')
 
-        menuList.append(productBtn, category, login)
+        menuList.append(category, login, productBtn)
     }
 }
 

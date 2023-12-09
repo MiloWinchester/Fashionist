@@ -254,10 +254,9 @@ a {
 }
 
 .menu {
-    width: 25vw;
+    width: 20vw;
     height: 28vh;
     position: absolute;
-    margin-left: -6vw;
     right: 2vw;
     align-items: center;
     justify-content: center;
@@ -269,8 +268,8 @@ a {
 }
 
 .menu-list {
-    width: auto;
-    height: auto;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -287,15 +286,18 @@ a {
     font-size: 25px !important;
 }
 
-.menu-list #category button {
+.menu-list #category button a {
     display: flex;
     align-items: center;
     flex-direction: row-reverse;
 }
 
-
 .menu-list a {
     color: #333 !important;
+}
+
+.menu-list a:hover {
+    color: darkorange !important;
 }
 
 /* Mobile Phones */
@@ -330,6 +332,10 @@ a {
 
     #header.moved #navbar-list > li > #menu-btn {
         font-size: 25px;
+    }
+
+    #category i, #login i {
+        margin-top: 3px;
     }
 }
 
