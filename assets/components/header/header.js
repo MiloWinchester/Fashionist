@@ -368,13 +368,25 @@ class header extends HTMLElement {
     }
 
     showMenu () {
+        const menu = this.shadowRoot.querySelector('.menu');
+        const menuIcon = this.shadowRoot.querySelector('.menu-icon');
+        const categoryArrowIcon = this.shadowRoot.querySelector('#category button a i');
+        const profileArrowIcon = this.shadowRoot.querySelector('.profile-btn a i');
+
+        categoryArrowIcon.className = 'bi bi-caret-left-fill';
+        profileArrowIcon.className = 'bi bi-caret-left-fill';
+        menuIcon.classList.toggle('hide-menu-icon');
+        menu.classList.toggle('show-menu')
+        
+        this.appendMenuButtons();
+    }
+
+    appendMenuButtons () {
         const productBtn = this.shadowRoot.getElementById('product');
         const category = this.shadowRoot.getElementById('category');
         const login = this.shadowRoot.getElementById('login');
         const menuList = this.shadowRoot.querySelector('.menu-list')
-        const menuIcon = this.shadowRoot.querySelector('.menu-icon');
 
-        menuIcon.classList.toggle('hide-menu-icon');
         menuList.append(productBtn, category, login)
     }
 }

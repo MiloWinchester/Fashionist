@@ -253,6 +253,22 @@ a {
     display: inline;
 }
 
+.menu {
+    width: 25vw;
+    height: 28vh;
+    position: absolute;
+    margin-left: -6vw;
+    right: 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+.show-menu {
+    display: inline;
+}
+
 .menu-list {
     width: auto;
     height: auto;
@@ -263,6 +279,24 @@ a {
     background-color: rgb(233 231 231);
     color: #333;
     border: 1px solid darkorange;
+    border-radius: 10px;
+    list-style-type: none;
+    padding: 10px;
+}
+
+.menu-list button {
+    font-size: 25px !important;
+}
+
+.menu-list #category button {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+
+.menu-list a {
+    color: #333 !important;
 }
 
 /* Mobile Phones */
