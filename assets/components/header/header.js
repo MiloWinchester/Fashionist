@@ -365,16 +365,13 @@ class header extends HTMLElement {
         const loginBtn = this.shadowRoot.getElementById('login');
         let signupBtn = this.shadowRoot.querySelector('.signup-btn');
         signupBtn.classList.remove('hideSignup');
-
-        loginBtn.removeEventListener('mouseenter', () => {})
-        loginBtn.removeEventListener('mouseleave', () => {})
     }
 
     showMenu () {
         const productBtn = this.shadowRoot.getElementById('product');
         const category = this.shadowRoot.getElementById('category');
         const login = this.shadowRoot.getElementById('login');
-        const menuList = this.shadowRoot.getElementById('menu-list')
+        const menuList = this.shadowRoot.querySelector('.menu-list')
         const menuIcon = this.shadowRoot.querySelector('.menu-icon');
 
         menuIcon.classList.toggle('hide-menu-icon');

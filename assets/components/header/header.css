@@ -253,6 +253,18 @@ a {
     display: inline;
 }
 
+.menu-list {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px;
+    background-color: rgb(233 231 231);
+    color: #333;
+    border: 1px solid darkorange;
+}
+
 /* Mobile Phones */
 @media only screen and (max-device-width: 630px) {
     #menu-bar {
