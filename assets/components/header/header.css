@@ -271,7 +271,7 @@ a {
 .hide-menu {
     display: none;
     opacity: 0;
-    animation-duration: close 0.5s;
+    animation: close 0.5s;
 }
 
 .menu-list {
