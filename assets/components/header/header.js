@@ -13,6 +13,11 @@ template.innerHTML = `
             </h1>
         </div>
         <ul id="navbar-list">
+            <li id="menu-bar">
+                <button id="menu-btn">
+                    <i class="bi bi-list"></i>
+                </button>
+            </li>
             <li id="fav-bag-btns">
                 <button id="bag-btn">
                     <a href="basket.html">

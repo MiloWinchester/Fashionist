@@ -236,8 +236,14 @@ a {
     padding-left: 15px;
 }
 
+#menu-btn {
+    font-size: 25px;
+    cursor: pointer;
+    transition: font-size 0.3s;
+}
+
 /* Tablets (portrait and landscape) */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) {
     #header-logo {
         font-size: 36px; /* Smaller logo for tablets */
     }
@@ -268,61 +274,6 @@ a {
 }
 
 /* Mobile Phones */
-@media only screen and (max-device-width: 767px) {
-    #header {
-        flex-direction: column; /* Stack elements for mobile */
-        padding-bottom: 10px; /* Add padding at the bottom */
-    }
-
-    #header-logo {
-        font-size: 30px; /* Even smaller logo for mobile */
-    }
-
-    #header.moved {
-        height: auto; /* Auto height for moved class */
-    }
-
-    #navbar {
-        padding: 0 10px; /* Less padding on the sides */
-        flex-direction: column; /* Stack elements for mobile */
-        align-items: flex-start; /* Align start due to column direction */
-    }
-
-    #navbar-list {
-        gap: 15px; /* Less gap between navigation items */
-        flex-direction: column; /* Stack navigation items */
-        align-items: flex-start; /* Align items to the start */
-    }
-
-    #navbar-list button {
-        font-size: 20px; /* Smaller font size for nav items */
-    }
-
-    .vertical-line {
-        display: none; /* Hide vertical line for mobile */
-    }
-
-    #fav-bag-btns {
-        order: -1; /* Bring favorite and bag buttons to the top */
-        justify-content: flex-end; /* Align buttons to the right/end */
-    }
-
-    #bag-btn > a, #fav-btn > a {
-        font-size: 20px; /* Smaller icons for mobile */
-    }
-
-    .category-box, .profile-box {
-        right: 0; /* Align dropdowns to the right */
-        left: 0; /* Align dropdowns to the left */
-        width: 100%; /* Full width dropdowns */
-    }
-
-    .category-list, .profile-list {
-        flex-direction: column; /* Stack category items vertically */
-        gap: 0; /* Remove gap for mobile screens */
-    }
-
-    .categories, .profile-dropdown {
-        font-size: 20px; /* Adapt font size for mobile use */
-    }
+@media only screen and (max-device-width: 480px) {
+    
 }

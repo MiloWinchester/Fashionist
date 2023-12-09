@@ -185,32 +185,30 @@ a {
 
 /* For mobile phones */
 @media only screen and (max-width: 600px) {
-    /* Responsive container adjustments */
     #featured-container, #bestsells-container,
     #shoes-container, #jeans-container,
     #accessory-container, #summer-container, #winter-container {
-        padding: 20px; /* Reduce padding */
-        height: auto; /* Let the container size fit content */
+        padding: 20px;
+        height: auto;
         padding-top: 20px;
     }
     
     #accessory-container {
-        justify-content: center; /* Center items in the container */
+        justify-content: center;
     }
     
     .slide-section, #accessory-container .slide-section {
-        width: 90%; /* Full width for the slides */
+        width: 90%;
     }
     
     .section-title {
-        font-size: 20px; /* Even smaller titles on mobile */
+        font-size: 20px;
     }
 
     .slide > img {
-        width: 100%; /* Full width images, can remove border-radius if desired for mobile */
+        width: 100%;
     }
     
-    /* Hide slide navigation buttons on mobile for cleaner look */
     .featured-button-prev, .featured-button-next,
     .bestsells-button-next, .bestsells-button-prev,
     .shoes-button-prev, .shoes-button-next,
