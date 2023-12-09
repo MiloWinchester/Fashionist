@@ -10,7 +10,7 @@ This is an e-commerce website designed for men's fashion,
 - add products to your favourite list,
 - check the details of each product and choose your preferred size, color...,
 - and add products to your bag and complete your checkout
-- using HTML, CSS, CSS, Bootstrap, JavaScript, js libraries and realtime backend database
+- website is developed using HTML, CSS, CSS, Bootstrap, JavaScript, js libraries and realtime backend database
 - component-based coding of the loader, header and footer of the website
 - responsive layout design for both large screens (laptop, etc...) and small screens (phone, etc...).
 
