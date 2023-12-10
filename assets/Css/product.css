@@ -175,7 +175,7 @@ a {
         flex-direction: column;
         justify-content: baseline;
         align-items: baseline;
-        
+        gap: 20px;
     }
     
     .slide-section, #accessory-container .slide-section {
