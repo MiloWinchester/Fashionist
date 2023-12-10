@@ -69,12 +69,20 @@ window.addEventListener('load', () => {
             // when window width is >= 320px
             320: {
                 slidesPerView: 1,
-                spaceBetween: 5
+                spaceBetween: 5,
+                pagination: {
+                    el: ".offer-pagination",
+                    dynamicBullets: true,
+                },
             },
             // when window width is >= 480px
             480: {
                 slidesPerView: 2,
-                spaceBetween: 5
+                spaceBetween: 5,
+                pagination: {
+                    el: ".offer-pagination",
+                    dynamicBullets: true,
+                },
             },
             // when window width is >= 640px
             640: {
@@ -114,11 +122,19 @@ window.addEventListener('load', () => {
         breakpoints: {
             320: {
                 slidesPerView: 1,
-                spaceBetween: 5
+                spaceBetween: 5,
+                pagination: {
+                    el: ".offer-pagination",
+                    dynamicBullets: true,
+                },
             },
             480: {
                 slidesPerView: 2,
-                spaceBetween: 5
+                spaceBetween: 5,
+                pagination: {
+                    el: ".offer-pagination",
+                    dynamicBullets: true,
+                },
             },
             640: {
                 slidesPerView: 3,

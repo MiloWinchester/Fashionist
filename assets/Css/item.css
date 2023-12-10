@@ -158,15 +158,8 @@
         width: 100%; 
     }
 
-    .item-slide > img {
-        width: auto;
-        max-height: 100%; 
-        max-width: 100%;
-        margin: 0 auto;
-    }
-
     .item-info-container {
-        height: 50%;
+        height: auto;
     }
 
     .item-title {
@@ -177,12 +170,12 @@
         font-size: 18px;
     }
 
-    .line-through {
-        font-size: 23px;
-    }
-
     .item-offer, .item-price {
         font-size: 30px;
+    }
+
+    .line-through {
+        font-size: 23px;
     }
 
     .item-shop {

@@ -317,6 +317,12 @@ a {
     align-items: center;
 }
 
+.swiper-pagination {
+    display: none;
+    --swiper-theme-color: orange;
+    color: var(--swiper-theme-color);
+}
+
 /* Phone devices */
 @media only screen and (max-width: 480px) {
 
@@ -398,6 +404,14 @@ a {
 
     .info-text {
         font-size: calc(12px + (15 - 10) * ((100vw - 300px) / (1600 - 300)));
+    }
+
+    .swiper-pagination {
+        display: inline;
+    }
+
+    .swiper-scrollbar {
+        display: none;
     }
 }
 
