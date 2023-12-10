@@ -232,16 +232,3 @@ a {
         padding: 15px; /* Slightly smaller buttons */
     }
 }
-
-/* Additional Universal Responsive Adjustments */
-@media only screen and (max-width: 1200px) {
-    .underwear-section {
-        align-items: center; /* Center align the underwear section titles */
-    }
-    
-    /* Set a max height on swiper containers for a better look and feel on smaller screens */
-    .featured-swiper, .bestsells-swiper, .shoes-swiper, .jeans-swiper, 
-    .accessory-swiper, .underWear-swiper, .summer-swiper, .winter-swiper {
-        
-    }
-}
