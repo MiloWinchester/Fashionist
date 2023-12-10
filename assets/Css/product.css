@@ -155,8 +155,10 @@ a {
     padding-left: 22px;
 }
 
-.bestsells-pagination {
+.swiper-pagination {
     display: none;
+    --swiper-theme-color: orange;
+    color: var(--swiper-theme-color);
 }
 
 /* For mobile phones */
@@ -200,15 +202,19 @@ a {
         display: none;
     }
 
-    .bestsells-pagination {
+    .swiper-pagination {
         display: inline;
+    }
+
+    .swiper-scrollbar {
+        display: none;
     }
 }
 
 /* For tablets and small desktops */
 @media only screen and (min-width: 601px) and (max-width: 1200px) {
     .slide-section, #accessory-container .slide-section {
-        width: 70%; /* Adjust the slide section width */
+        width: 100%; /* Adjust the slide section width */
     }
 
     .section-title {
@@ -216,7 +222,7 @@ a {
     }
 
     .slide > img {
-        max-width: 90%; /* Allow some padding around images */
+        max-width: 100%; /* Allow some padding around images */
         height: auto;
     }
 

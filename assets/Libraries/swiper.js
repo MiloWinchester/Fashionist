@@ -243,11 +243,19 @@ window.addEventListener('load', () => {
         breakpoints: {
             320: {
                 slidesPerView: 1,
-                spaceBetween: 5
+                spaceBetween: 5,
+                pagination: {
+                    el: ".shoes-pagination",
+                    dynamicBullets: true,
+                },
             },
             480: {
                 slidesPerView: 2,
-                spaceBetween: 5
+                spaceBetween: 5,
+                pagination: {
+                    el: ".shoes-pagination",
+                    dynamicBullets: true,
+                },
             },
             640: {
                 slidesPerView: 3,
@@ -279,11 +287,19 @@ window.addEventListener('load', () => {
         breakpoints: {
             320: {
                 slidesPerView: 1,
-                spaceBetween: 5
+                spaceBetween: 5,
+                pagination: {
+                    el: ".jeans-pagination",
+                    dynamicBullets: true,
+                },
             },
             480: {
                 slidesPerView: 2,
-                spaceBetween: 5
+                spaceBetween: 5,
+                pagination: {
+                    el: ".jeans-pagination",
+                    dynamicBullets: true,
+                },
             },
             640: {
                 slidesPerView: 3,
@@ -316,12 +332,20 @@ window.addEventListener('load', () => {
             320: {
                 slidesPerView: 1,
                 spaceBetween: 5,
-                slidesPerGroup: 1
+                slidesPerGroup: 1,
+                pagination: {
+                    el: ".accessory-pagination",
+                    dynamicBullets: true,
+                },
             },
             480: {
                 slidesPerView: 2,
                 slidesPerGroup: 2,
-                spaceBetween: 5
+                spaceBetween: 5,
+                pagination: {
+                    el: ".accessory-pagination",
+                    dynamicBullets: true,
+                },
             },
             640: {
                 slidesPerView: 2,
@@ -357,12 +381,20 @@ window.addEventListener('load', () => {
             320: {
                 slidesPerView: 1,
                 slidesPerGroup: 1,
-                spaceBetween: 5
+                spaceBetween: 5,
+                pagination: {
+                    el: ".underWear-pagination",
+                    dynamicBullets: true,
+                },
             },
             480: {
                 slidesPerView: 2,
                 slidesPerGroup: 2,
-                spaceBetween: 5
+                spaceBetween: 5,
+                pagination: {
+                    el: ".underWear-pagination",
+                    dynamicBullets: true,
+                },
             },
             640: {
                 slidesPerView: 2,
@@ -397,11 +429,19 @@ window.addEventListener('load', () => {
         breakpoints: {
             320: {
                 slidesPerView: 1,
-                spaceBetween: 5
+                spaceBetween: 5,
+                pagination: {
+                    el: ".summer-pagination",
+                    dynamicBullets: true,
+                },
             },
             480: {
                 slidesPerView: 2,
-                spaceBetween: 5
+                spaceBetween: 5,
+                pagination: {
+                    el: ".summer-pagination",
+                    dynamicBullets: true,
+                },
             },
             640: {
                 slidesPerView: 3,
@@ -433,11 +473,19 @@ window.addEventListener('load', () => {
         breakpoints: {
             320: {
                 slidesPerView: 1,
-                spaceBetween: 5
+                spaceBetween: 5,
+                pagination: {
+                    el: ".winter-pagination",
+                    dynamicBullets: true,
+                },
             },
             480: {
                 slidesPerView: 2,
-                spaceBetween: 5
+                spaceBetween: 5,
+                pagination: {
+                    el: ".winter-pagination",
+                    dynamicBullets: true,
+                },
             },
             640: {
                 slidesPerView: 3,
