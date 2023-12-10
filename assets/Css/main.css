@@ -317,7 +317,7 @@ a {
     align-items: center;
 }
 
-.swiper-pagination {
+.arrival-swiper > .swiper-pagination, .offer-swiper > .swiper-pagination {
     display: none;
     --swiper-theme-color: orange;
     color: var(--swiper-theme-color);

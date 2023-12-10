@@ -124,7 +124,7 @@ window.addEventListener('load', () => {
                 slidesPerView: 1,
                 spaceBetween: 5,
                 pagination: {
-                    el: ".offer-pagination",
+                    el: ".arrival-pagination",
                     dynamicBullets: true,
                 },
             },
@@ -132,7 +132,7 @@ window.addEventListener('load', () => {
                 slidesPerView: 2,
                 spaceBetween: 5,
                 pagination: {
-                    el: ".offer-pagination",
+                    el: ".arrival-pagination",
                     dynamicBullets: true,
                 },
             },
