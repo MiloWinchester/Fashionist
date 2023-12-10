@@ -199,11 +199,19 @@ window.addEventListener('load', () => {
         breakpoints: {
             320: {
                 slidesPerView: 1,
-                spaceBetween: 5
+                spaceBetween: 5,
+                pagination: {
+                    el: ".bestsells-pagination",
+                    dynamicBullets: true,
+                },
             },
             480: {
                 slidesPerView: 2,
-                spaceBetween: 5
+                spaceBetween: 5,
+                pagination: {
+                    el: ".bestsells-pagination",
+                    dynamicBullets: true,
+                },
             },
             640: {
                 slidesPerView: 3,

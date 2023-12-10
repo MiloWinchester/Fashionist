@@ -155,6 +155,56 @@ a {
     padding-left: 22px;
 }
 
+.bestsells-pagination {
+    display: none;
+}
+
+/* For mobile phones */
+@media only screen and (max-width: 600px) {
+    #featured-container, #bestsells-container,
+    #shoes-container, #jeans-container,
+    #accessory-container, #summer-container, #winter-container {
+        padding: 20px;
+        height: auto;
+        padding-top: 20px;
+    }
+    
+    #accessory-container {
+        flex-direction: column;
+        justify-content: baseline;
+        align-items: baseline;
+        
+    }
+    
+    .slide-section, #accessory-container .slide-section {
+        width: 100%;
+        align-items: baseline;
+    }
+    
+    .section-title {
+        font-size: 19px;
+    }
+
+    .slide > img {
+        width: 100%;
+    }
+    
+    .featured-button-prev, .featured-button-next,
+    .bestsells-button-next, .bestsells-button-prev,
+    .shoes-button-prev, .shoes-button-next,
+    .jeans-button-prev, .jeans-button-next, 
+    .accessory-button-prev, .accessory-button-next,
+    .underWear-button-prev, .underWear-button-next,
+    .summer-button-prev, .summer-button-next,
+    .winter-button-prev, .winter-button-next {
+        display: none;
+    }
+
+    .bestsells-pagination {
+        display: inline;
+    }
+}
+
 /* For tablets and small desktops */
 @media only screen and (min-width: 601px) and (max-width: 1200px) {
     .slide-section, #accessory-container .slide-section {
@@ -183,44 +233,6 @@ a {
     }
 }
 
-/* For mobile phones */
-@media only screen and (max-width: 600px) {
-    #featured-container, #bestsells-container,
-    #shoes-container, #jeans-container,
-    #accessory-container, #summer-container, #winter-container {
-        padding: 20px;
-        height: auto;
-        padding-top: 20px;
-    }
-    
-    #accessory-container {
-        justify-content: center;
-    }
-    
-    .slide-section, #accessory-container .slide-section {
-        width: 90%;
-    }
-    
-    .section-title {
-        font-size: 20px;
-    }
-
-    .slide > img {
-        width: 100%;
-    }
-    
-    .featured-button-prev, .featured-button-next,
-    .bestsells-button-next, .bestsells-button-prev,
-    .shoes-button-prev, .shoes-button-next,
-    .jeans-button-prev, .jeans-button-next, 
-    .accessory-button-prev, .accessory-button-next,
-    .underWear-button-prev, .underWear-button-next,
-    .summer-button-prev, .summer-button-next,
-    .winter-button-prev, .winter-button-next {
-        display: none;
-    }
-}
-
 /* Additional Universal Responsive Adjustments */
 @media only screen and (max-width: 1200px) {
     .underwear-section {
@@ -230,6 +242,6 @@ a {
     /* Set a max height on swiper containers for a better look and feel on smaller screens */
     .featured-swiper, .bestsells-swiper, .shoes-swiper, .jeans-swiper, 
     .accessory-swiper, .underWear-swiper, .summer-swiper, .winter-swiper {
-        max-height: 200px;
+        
     }
 }
