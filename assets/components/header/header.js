@@ -147,7 +147,6 @@ class header extends HTMLElement {
         const categoryBtn = this.shadowRoot.getElementById('category');
         const links = this.shadowRoot.querySelectorAll('.link');
         const logoutBtn = this.shadowRoot.getElementById('logout-btn');
-        const menuBtn = this.shadowRoot.getElementById('menu-btn');
 
         window.addEventListener('scroll', () => {
             if ($.documentElement.scrollTop >= 30) {
@@ -181,10 +180,6 @@ class header extends HTMLElement {
         logoutBtn.addEventListener('click', () => {
             this.logout();
         });
-
-        menuBtn.addEventListener('click', () => {
-            this.showMenu();
-        })
     }
 
     checkUrl (link) {
@@ -394,16 +389,24 @@ class header extends HTMLElement {
                     </ul>
                 </div>
             </li>
-        `);
+            `);
 
-        this.showMenu();
+            const menuBtn = this.shadowRoot.getElementById('menu-btn');
+            const logoutBtn = this.shadowRoot.querySelector('.profile-btn')
+
+            menuBtn.addEventListener('click', () => {
+                this.showMenu();
+            })
+
+            logoutBtn.addEventListener('click', () => {
+                this.logout();
+            })
         }
     }
 
     showMenu () {
         const menu = this.shadowRoot.querySelector('.menu');
         const menuIcon = this.shadowRoot.querySelector('.menu-icon');
-        const logoutBtn = this.shadowRoot.querySelector('.profile-btn')
 
         menuIcon.classList.toggle('hide-menu-icon');
         if (menu.className.includes('show')) {
@@ -413,10 +416,6 @@ class header extends HTMLElement {
             menu.classList.remove('hide-menu');
             menu.classList.add('show-menu');
         }
-
-        logoutBtn.addEventListener('click', () => {
-            this.logout();
-        })
     }
 }
 
