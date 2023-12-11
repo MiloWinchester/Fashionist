@@ -352,7 +352,7 @@ class header extends HTMLElement {
     checkDevice () {
         if (window.screen.availWidth <= 630) {
             const navBarList = this.shadowRoot.getElementById('navbar-list');
-            navBarList.insertAdjacentElement('afterbegin', `
+            navBarList.insertAdjacentHTML('afterbegin', `
             <li id="menu-bar">
                 <button id="menu-btn">
                     <a>
