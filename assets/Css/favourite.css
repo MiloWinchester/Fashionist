@@ -309,11 +309,86 @@ a {
     display: flex;
 }
 
+/* For mobile phones */
+@media only screen and (max-width: 767px) {
+    #favourite-container {
+        padding: 20px;
+    }
+
+    .fav-header-info {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .favourite-title {
+        font-size: 35px;
+    }
+
+    .edit-title {
+        font-size: 30px;
+    }
+
+    .edit-fav-btn, .edit-done-fav-btn {
+        width: 100px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .product-list {
+        padding-left: 0;
+    }
+
+    .product-container {
+        width: 100%;
+    }
+
+    .product-img > img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .price, .offer-price {
+        font-size: 30px;
+    }
+
+    .line-through {
+        font-size: 20px;
+    }
+
+    .product-btns {
+        justify-content: center;
+    }
+
+    .add-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+    }
+
+    .detail-btn {
+        width: 50px;
+        height: 30px;
+        font-size: 15px;
+    }
+
+    .product-details {
+        padding: 0 10px; /* Padding for product details */
+    }
+}
+
 /* For tablets */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
     .product-container {
         width: 45%; /* Adjust product card width for tablet views */
         height: auto; /* Make the height automatic to fit the content */
+    }
+
+    .product-list {
+        padding-left: 0;
     }
 
     .product-img > img {
@@ -332,64 +407,5 @@ a {
     
     .fav-header-info, .product-detail {
         padding: 20px; /* Adjust padding inside the containers */
-    }
-}
-
-/* For mobile phones */
-@media only screen and (max-width: 767px) {
-    #favourite-container {
-        padding: 20px; /* Less padding on the overall container */
-    }
-
-    .fav-header-info {
-        flex-direction: column; /* Stack information vertically */
-        gap: 10px; /* Add some space between header elements */
-    }
-
-    .favourite-title {
-        font-size: 35px; /* Adjust title for small screens */
-    }
-
-    .edit-fav-btn, .edit-done-fav-btn {
-        width: 100px; /* Smaller buttons for smaller screens */
-        height: 40px;
-        font-size: 18px;
-    }
-
-    .product-container {
-        width: 100%; /* Full width product cards on small screens for a single column layout */
-        margin-bottom: 20px; /* Add bottom margin for spacing */
-    }
-
-    .product-img > img {
-        /* Ensure images are responsive and don't stretch */
-        max-width: 100%;
-        height: auto;
-    }
-
-    .title {
-        font-size: 18px; /* Adjust the product title font size */
-    }
-
-    .price {
-        font-size: 25px; /* Adjust the font size */
-    }
-
-    .line-through {
-        font-size: 20px; /* Adjust line-through price font size */
-    }
-
-    .product-btns {
-        justify-content: center; /* Center buttons under product details */
-    }
-
-    .product-btns .detail-btn, .product-btns .add-btn {
-        width: 50px; /* Adjust detail and add button size */
-        height: 30px;
-        font-size: 15px;
-    }
-
-    .product-details {
-        padding: 0 10px; /* Padding for product details */
     }
 }
