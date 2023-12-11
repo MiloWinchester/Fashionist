@@ -21,6 +21,10 @@ class loader extends HTMLElement {
 
         window.addEventListener('load', () => {
             loader.classList.add('hidden');
+
+            loader.addEventListener('animationend', () => {
+                loader.classList.add('remove')
+            })
         })
     }
 }
