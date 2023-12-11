@@ -393,6 +393,7 @@ option:disabled {
     #bag-container {
         padding: 20px;
         flex-direction: column-reverse;
+        height: auto;
         max-height: 1000vh;
         gap: 50px;
     }
@@ -410,6 +411,7 @@ option:disabled {
     .product-container {
         padding: 10px;
         flex-direction: column;
+        height: auto;
     }
 
     .product-info {
@@ -436,6 +438,15 @@ option:disabled {
     .product-foot {
         flex-direction: column-reverse;
         gap: 10px;
+        align-items: flex-start;
+    }
+
+    .empty-msg {
+        font-size: 16px;
+    }
+
+    .login-msg {
+        font-size: 15px;
     }
 }
 
