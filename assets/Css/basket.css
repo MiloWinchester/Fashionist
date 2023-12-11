@@ -388,6 +388,57 @@ option:disabled {
     box-shadow: 0px 0px 0px 3px #008b8b5c !important;
 }
 
+/* For mobile phones */
+@media only screen and (max-width: 600px) {
+    #bag-container {
+        padding: 20px;
+        flex-direction: column-reverse;
+        max-height: 1000vh;
+        gap: 50px;
+    }
+
+    #checkout-container {
+        width: 100%;
+        height: 85vh;
+    }
+
+    #product-list {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .product-container {
+        padding: 10px;
+        flex-direction: column;
+    }
+
+    .product-info {
+        width: 90%;
+    }
+
+    .img-container {
+        width: 90%;
+    }
+
+    .title {
+        font-size: 25px;
+    }
+
+    .fav-btn, .remove-btn {
+        font-size: 20px;
+    }
+
+    .color {
+        width: 25px;
+        height: 25px;
+    }
+
+    .product-foot {
+        flex-direction: column-reverse;
+        gap: 10px;
+    }
+}
+
 /* For tablets and small desktops */
 @media only screen and (min-width: 601px) and (max-width: 1024px) {
     #bag-container {
@@ -416,32 +467,5 @@ option:disabled {
 
     .product-title .title, .product-title .brand, .product-info .price, .checkout-title {
         font-size: reduced by 20%; /* Reduce font size for readability */
-    }
-}
-
-/* For mobile phones */
-@media only screen and (max-width: 600px) {
-    #bag-container {
-        padding: 10px; /* Even less padding for very small screens */
-    }
-
-    #checkout-container {
-        width: 100%; /* Full width on mobile for better visibility */
-    }
-
-    #product-list {
-        width: 100%; /* Full width to maximize space for product listing */
-    }
-
-    .product-container {
-        padding: 10px; /* Less padding inside product containers */
-    }
-
-    .product-title .title, .product-title .brand, .product-info .price, .checkout-title {
-        font-size: reduced by 25%; /* Further reduce font size for mobile devices */
-    }
-
-    .btns .fav-btn, .btns .remove-btn, .size, .quantity {
-        font-size: reduced by 10%; /* Slightly reduce button and form control sizes */
     }
 }
