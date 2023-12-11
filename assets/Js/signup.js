@@ -20,6 +20,7 @@ const passConfirmErr = $.getElementById('confirm-pass-err');
 const phoneErr = $.getElementById('phone-err');
 const modal = $.querySelector('.modal-box');
 const container = $.getElementById('container');
+const loginLink = $.querySelector('#login-link a')
 
 const emailRegex = new RegExp('^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})?$');
 const phoneRegex = new RegExp('^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$');
@@ -238,6 +239,10 @@ const removeFilter = () => {
     container.style.filter = 'none'
 }
 
+const goToLogin = () => {
+    location.href = 'https://milowinchester.github.io/Fashionist/login.html'
+}
+
 window.addEventListener('load', () => {
     getUsers();
     removeFilter();
@@ -246,4 +251,8 @@ window.addEventListener('load', () => {
 signupForm.addEventListener('submit', event => {
     event.preventDefault();
     signup();
+});
+
+loginLink.addEventListener('click', () => {
+    goToLogin();
 })

@@ -14,6 +14,7 @@ const passErr = $.getElementById('pass-err')
 const rememberCheckbox = $.getElementById('remember-check');
 const modal = $.querySelector('.modal-box');
 const container = $.getElementById('container');
+const signupLink = $.querySelector('#signup-link a')
 
 const emailRegex = new RegExp('^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})?$');
 
@@ -189,6 +190,10 @@ const removeFilter = () => {
     container.style.filter = 'none'
 }
 
+const goToSignup = () => {
+    location.href = 'https://milowinchester.github.io/Fashionist/signup.html'
+}
+
 window.addEventListener('load', () => {
     getUsers();
     removeFilter();
@@ -197,4 +202,8 @@ window.addEventListener('load', () => {
 loginForm.addEventListener('submit', event => {
     event.preventDefault();
     login();
+})
+
+signupLink.addEventListener('click', () => {
+    goToSignup();
 })

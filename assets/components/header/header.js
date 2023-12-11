@@ -13,42 +13,6 @@ template.innerHTML = `
             </h1>
         </div>
         <ul id="navbar-list">
-            <li id="menu-bar">
-                <button id="menu-btn">
-                    <a>
-                        <i class="bi bi-list menu-icon"></i>
-                        <i class="bi bi-x-lg exit-icon"></i>
-                    </a>
-                </button>
-                <div class="menu">
-                    <ul class="menu-list">
-                        <li id="category">
-                            <button>
-                                <a>
-                                    Category
-                                </a>
-                            </button>
-                        </li>
-                        <li id="login">
-                            <button class="signup-btn">
-                                <a href="signup.html">Sign in</a>
-                            </button>
-                            <button class="profile-btn">
-                                <a>
-                                    <p>Profile</p>
-                                </a>
-                            </button>
-                        </li>
-                        <li id="product">
-                            <button>
-                                <a href="product.html">
-                                    Products
-                                </a>
-                            </button>
-                        </li>
-                    </ul>
-                </div>
-            </li>
             <li id="fav-bag-btns">
                 <button id="bag-btn">
                     <a href="basket.html">
@@ -210,6 +174,7 @@ class header extends HTMLElement {
         })
 
         window.addEventListener('load', () => {
+            this.checkDevice();
             this.userLoginInfo();
         });
 
@@ -389,9 +354,56 @@ class header extends HTMLElement {
         signupBtn.classList.remove('hideSignup');
     }
 
+    checkDevice () {
+        if (window.screen.availWidth <= 630) {
+            const navBarList = this.shadowRoot.getElementById('navbar-list');
+            navBarList.insertAdjacentElement('afterbegin', `
+            <li id="menu-bar">
+                <button id="menu-btn">
+                    <a>
+                        <i class="bi bi-list menu-icon"></i>
+                        <i class="bi bi-x-lg exit-icon"></i>
+                    </a>
+                </button>
+                <div class="menu">
+                    <ul class="menu-list">
+                        <li id="category">
+                            <button>
+                                <a>
+                                    Category
+                                </a>
+                            </button>
+                        </li>
+                        <li id="login">
+                            <button class="signup-btn">
+                                <a href="signup.html">Sign in</a>
+                            </button>
+                            <button class="profile-btn">
+                                <a>
+                                    <p>Logout</p>
+                                </a>
+                            </button>
+                        </li>
+                        <li id="product">
+                            <button>
+                                <a href="product.html">
+                                    Products
+                                </a>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        `);
+
+        this.showMenu();
+        }
+    }
+
     showMenu () {
         const menu = this.shadowRoot.querySelector('.menu');
         const menuIcon = this.shadowRoot.querySelector('.menu-icon');
+        const logoutBtn = this.shadowRoot.querySelector('.profile-btn')
 
         menuIcon.classList.toggle('hide-menu-icon');
         if (menu.className.includes('show')) {
@@ -401,6 +413,10 @@ class header extends HTMLElement {
             menu.classList.remove('hide-menu');
             menu.classList.add('show-menu');
         }
+
+        logoutBtn.addEventListener('click', () => {
+            this.logout();
+        })
     }
 }
 
