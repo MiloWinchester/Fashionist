@@ -39,6 +39,7 @@ html, body {
 .hidden {
     animation: fadeOut 0.5s;
     animation-fill-mode: forwards;
+    display: none;
 }
 
 @keyframes fadeOut {
